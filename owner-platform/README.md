@@ -6,7 +6,7 @@ The recovered production website is the starting document. The source archive re
 
 ## Current setup
 
-The dedicated Supabase project is `ofcuikmhcbbedxkmfuxy`. The initial migration has been applied and owner membership created for `tytal1293@gmail.com`. Credentials and one-use access links stay in ignored local files; they are not documented here. This setup does not itself deploy or replace the existing Vercel website. Confirm the latest live verification results before promoting a deployment.
+The dedicated Supabase project is `ofcuikmhcbbedxkmfuxy`. The initial migration has been applied and owner membership created for `ty@cplace.com.au`. Credentials and one-use access links stay in ignored local files; they are not documented here. This setup does not itself deploy or replace the existing Vercel website. Confirm the latest live verification results before promoting a deployment.
 
 ## Run locally
 
@@ -38,7 +38,7 @@ Missing configuration produces an explicit unavailable response for owner functi
 1. Apply `supabase/migrations/001_owner_platform.sql` in the SQL editor **once**, to a dedicated project. It creates the site, membership, draft, revision, publication and asset tables, transaction functions, policies and `site-media` bucket. It is an initial migration, not a repeatable reset script. Then apply `002_conflict_status.sql`; for an existing project, apply only migrations it has not received. Migration 002 gives stale saves an explicit HTTP 409 status through PostgREST.
 2. Disable public signups in Authentication settings. An Auth user without a matching `memberships` row cannot access the workspace.
 3. Set the Auth Site URL and allowed redirect URLs to the application origin and `/auth/callback`. For local development, allow the local callback as well.
-4. Configure a working email sender for recovery. Set the invitation and recovery email links to the token-hash forms below, using the correct Site URL. Default fragment-based links are not handled by this application's server callback.
+4. Configure a working email sender for recovery. The default recovery email works with the app's PKCE flow when the exact recovery redirect URL is allowed; open it in the same browser that requested recovery. New Free projects using the default sender cannot customize templates (Supabase policy from 3 June 2026). If custom templates are available, the optional token-hash links below are also supported. Email delivery and completion still require an end-to-end check.
 5. Configure `.env.local`, then create owner access explicitly:
 
 ```sh
