@@ -1,0 +1,6 @@
+.auth-state.json
+.owner-access.*
+.vercel/
+.next/
+node_modules/
+test-results*/

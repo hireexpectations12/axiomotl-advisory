@@ -1,0 +1,10 @@
+.env*
+.owner-access.*
+.auth-state.json
+node_modules
+.next
+test-results*
+playwright-report
+tests
+scripts/verify-*.mjs
+*.tsbuildinfo

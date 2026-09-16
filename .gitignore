@@ -1,0 +1,12 @@
+**/node_modules/
+**/.next/
+**/.env*
+!**/.env.example
+**/.vercel/
+**/test-results/
+**/test-results-*/
+**/playwright-report/
+**/*.tsbuildinfo
+.superpowers/
+**/.owner-access.*
+**/.auth-state.json
