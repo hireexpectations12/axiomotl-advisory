@@ -439,6 +439,23 @@ textarea {
   border: 1px solid var(--line);
   border-top: 0;
 }
+.section-navigation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 14px;
+  background: white;
+  border: 1px solid var(--line);
+  border-top: 0;
+}
+.section-navigation .field {
+  flex: 1 1 240px;
+  margin: 0;
+}
+.section-navigation select {
+  max-width: 100%;
+}
 .canvas-host {
   border: 1px solid var(--line);
   min-height: 660px;

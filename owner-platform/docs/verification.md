@@ -6,11 +6,11 @@
 - Connected the dedicated Supabase project; database migration 001 and owner membership exist.
 - Owner identity: `tytal1293@gmail.com`. Password setup uses a private one-use link, not a shared/default password.
 - Original images uploaded into the persistent owner media library.
-- TypeScript checks pass. 71 unit/database tests pass. 10 Chromium browser tests pass.
+- TypeScript checks pass. 71 unit/database tests pass. 11 Chromium browser tests pass.
 - Browser tests cover visual editor save/reload with server validation, page settings, conflict recovery, form outcome editing, mobile layout, publication confirmation, both public forms and two script-injection regressions.
 - Real Supabase tests pass for authentication, uploads, unsafe-file rejection, saved drafts, public/draft isolation, stale-save preflight, wrong-origin rejection, restore, export and anonymous draft denial.
 - Local and hosted authenticated dashboards and isolated previews load successfully; the preview loads Nunito and the interactive form runtime. Trusted scripts and fonts are embedded in the opaque sandbox so Vercel protection does not block them.
-- Verified preview: https://axiomotl-advisory-n0wgdpbke-hire-expectations-projects.vercel.app (Vercel account access required).
+- Verified preview: https://axiomotl-advisory-95xtbdlh4-hire-expectations-projects.vercel.app (Vercel account access required).
 - Production build passes. Production dependency audit reports zero vulnerabilities.
 
 ## Rollout gates

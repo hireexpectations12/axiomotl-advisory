@@ -18,6 +18,8 @@ If another session saves first, your save is blocked to prevent overwriting it. 
 
 Choose **Pages**, then the page you want to edit. Select content in the canvas to change text, links, images, layout and styles. Use the editor's layers and blocks for structure and its undo/redo controls while editing.
 
+Use **Jump to section** to reach the header, hero, any lower section or footer directly. You can also scroll inside the canvas. **Show hidden tab and menu content** exposes alternate tab panels and mobile navigation for editing; this view preference does not change the published site's visibility. Interactive form questions and outcomes are edited under **Forms**.
+
 Use **Add page** or **Duplicate page** to create a page. In **Page settings**, edit the title, public path, description, social image and search indexing preference. Use unique lowercase paths such as `/services`; `/admin`, `/api`, `/auth` and other application paths are reserved. Update visible navigation links in the page canvas to include new pages.
 
 **Site settings** controls the site name, contact email, logo, favicon, colours, fonts and supported motion. Preview the result across pages. The editor preserves reviewed interactions; adding arbitrary application logic or JavaScript requires development.

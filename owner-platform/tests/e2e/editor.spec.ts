@@ -125,6 +125,50 @@ test("visual page edits round-trip as editor data and HTML; new page settings pe
   expect(exceptions).toEqual([]);
 });
 
+test("owner can jump to lower sections, edit the footer and access hidden tabs", async ({
+  page,
+}) => {
+  const { writes } = await workspace(page);
+  const jump = page.getByLabel("Jump to section");
+  await expect(jump).toBeVisible();
+  const canvas = page.frameLocator(".gjs-frame");
+  for (const name of ["Header", "Hero", "Contact", "Footer"]) {
+    await jump.selectOption({ label: name });
+    const selector = {
+      Header: "header",
+      Hero: ".wave-hero",
+      Contact: "#contact",
+      Footer: "footer",
+    }[name]!;
+    await expect(canvas.locator(selector)).toBeInViewport();
+  }
+  const footerHeading = canvas.locator("footer h3, footer h2").first();
+  await footerHeading.dblclick();
+  await page.keyboard.press("ControlOrMeta+A");
+  await page.keyboard.type("Owner edited footer");
+  await page.getByRole("heading", { name: "Pages", exact: true }).click();
+  await expect
+    .poll(() =>
+      writes.at(-1)?.document.pages[0].html.includes("Owner edited footer"),
+    )
+    .toBeTruthy();
+  await page.getByLabel("Show hidden tab and menu content").check();
+  await expect(canvas.locator("#panel-decide")).toBeVisible();
+  await expect(canvas.locator("#connection-processes")).toHaveCSS(
+    "visibility",
+    "visible",
+  );
+  expect(writes.at(-1)?.document.pages[0].html).not.toContain(
+    "data-editor-reveal",
+  );
+  expect(writes.at(-1)?.document.pages[0].css).not.toContain(
+    "data-editor-reveal",
+  );
+  await page.reload();
+  await expect(canvas.locator("footer")).toContainText("Owner edited footer");
+  await expect(canvas.locator("#panel-decide")).toBeHidden();
+});
+
 test("conflict preserves local work and offers explicit recovery", async ({
   page,
 }) => {

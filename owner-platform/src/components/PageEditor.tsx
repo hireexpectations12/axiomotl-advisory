@@ -28,9 +28,16 @@ export default function PageEditor({
   const [device, setDevice] = useState("Desktop");
   const [css, setCss] = useState(page.css);
   const [cssOpen, setCssOpen] = useState(false);
+  const [sections, setSections] = useState<{ id: string; label: string }[]>([]);
+  const [section, setSection] = useState("");
+  const [reveal, setReveal] = useState(false);
   useEffect(() => {
     let disposed = false;
     let instance: Editor | undefined;
+    setReady(false);
+    setSections([]);
+    setSection("");
+    setReveal(false);
     void Promise.all([import("grapesjs"), import("grapesjs-parser-postcss")])
       .then(([{ default: grapesjs }, { default: parserPostCSS }]) => {
         if (disposed || !container.current) return;
@@ -47,6 +54,16 @@ export default function PageEditor({
             },
           },
           canvas: { scripts: [], styles: [] },
+          // Canvas-only CSS is never included in saved/published page styles.
+          canvasCss: `html { scroll-behavior: auto !important; }
+            html[data-editor-reveal] [role="tabpanel"] {
+              display: block !important; visibility: visible !important;
+              pointer-events: auto !important; grid-area: auto !important;
+            }
+            html[data-editor-reveal] nav[hidden] {
+              display: block !important; position: static !important;
+              visibility: visible !important;
+            }`,
           deviceManager: {
             devices: [
               { id: "Desktop", name: "Desktop", width: "" },
@@ -154,6 +171,42 @@ export default function PageEditor({
           ],
         });
         editor.current = instance;
+        const refreshSections = () => {
+          if (!instance || disposed) return;
+          setSections(
+            (
+              instance
+                .getWrapper()
+                ?.find(
+                  "header, section, footer, [role=tabpanel], nav[hidden]",
+                ) || []
+            ).map((component) => {
+              const element = component.getEl();
+              const tag = component.get("tagName");
+              const attributes = component.getAttributes();
+              const label =
+                tag === "header"
+                  ? "Header"
+                  : tag === "footer"
+                    ? "Footer"
+                    : component.getClasses().includes("wave-hero")
+                      ? "Hero"
+                      : attributes.id === "contact"
+                        ? "Contact"
+                        : attributes.role === "tabpanel"
+                          ? `Tab: ${attributes.id || component.getName()}`
+                          : tag === "nav"
+                            ? "Mobile navigation"
+                            : element
+                                ?.querySelector("h1,h2,h3")
+                                ?.textContent?.replace(/\s+/g, " ")
+                                .trim() ||
+                              attributes.id ||
+                              component.getName();
+              return { id: component.getId(), label };
+            }),
+          );
+        };
         if (page.project && Object.keys(page.project).length)
           instance.loadProjectData(page.project);
         else {
@@ -162,6 +215,7 @@ export default function PageEditor({
         }
         instance.on("load", () => {
           setReady(true);
+          refreshSections();
           instance?.Panels.getButton("views", "open-blocks")?.set(
             "active",
             true,
@@ -178,6 +232,7 @@ export default function PageEditor({
         instance.on("asset:custom", () => setMedia(true));
         instance.on("update", () => {
           if (!instance || disposed) return;
+          refreshSections();
           const nextCss = instance.getCss({ keepUnusedStyles: true }) || "";
           setCss(nextCss);
           change.current({
@@ -247,10 +302,68 @@ export default function PageEditor({
           </button>
         </div>
       </div>
+      <div className="section-navigation">
+        <label className="field">
+          <span>Jump to section</span>
+          <select
+            value={section}
+            disabled={!ready}
+            onChange={(event) => {
+              const id = event.target.value;
+              setSection(id);
+              const component = editor.current
+                ?.getWrapper()
+                ?.find("header, section, footer, [role=tabpanel], nav[hidden]")
+                .find((item) => item.getId() === id);
+              if (component) {
+                if (component.getAttributes().hidden !== undefined) {
+                  setReveal(true);
+                  editor.current?.Canvas.getDocument()?.documentElement.setAttribute(
+                    "data-editor-reveal",
+                    "",
+                  );
+                }
+                editor.current?.select(component);
+                container.current?.scrollIntoView({
+                  block: "start",
+                  behavior: "instant",
+                });
+                editor.current?.Canvas.scrollTo(component, {
+                  force: true,
+                  block: "start",
+                  behavior: "instant",
+                });
+              }
+            }}
+          >
+            <option value="">Choose a section…</option>
+            {sections.map((item) => (
+              <option key={item.id} value={item.id}>
+                {item.label}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label className="checkbox">
+          <input
+            type="checkbox"
+            checked={reveal}
+            disabled={!ready}
+            onChange={(event) => {
+              setReveal(event.target.checked);
+              editor.current?.Canvas.getDocument()?.documentElement.toggleAttribute(
+                "data-editor-reveal",
+                event.target.checked,
+              );
+            }}
+          />
+          Show hidden tab and menu content
+        </label>
+      </div>
       <p className="editor-hint">
-        Double-click text to edit. Select an element to change its style. Use
-        the layers panel to find nested sections. Interactive form content is
-        managed in Forms.
+        Choose a section above or scroll inside the page to edit the whole
+        website. Double-click text to edit. Hidden content is revealed only in
+        this editor. Edit interactive questions, answers and outcomes in Forms.
       </p>
       {error && (
         <p className="notice error" role="alert">
