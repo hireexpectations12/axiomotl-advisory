@@ -13,15 +13,17 @@
 - Verified preview: https://axiomotl-advisory-95xtbdlh4-hire-expectations-projects.vercel.app (Vercel account access required).
 - Production build passes. Production dependency audit reports zero vulnerabilities.
 
-## Rollout gates
+## Account setup and production rollout
 
 - Hosted migration `002_conflict_status.sql` is confirmed applied: a direct RPC with an impossible expected version returned PT409 without changing the draft.
 - Public signups are confirmed disabled through Supabase Auth's settings endpoint. Existing owner access remains protected by membership checks.
 - Owner confirmed receiving the default Supabase recovery email, opening the password form, setting a password and signing back in as ty@cplace.com.au on the tested preview. No email was sent by the agent.
 - Before production rollout, set Supabase Site URL to https://axiomotl-advisory.vercel.app and allow https://axiomotl-advisory.vercel.app/auth/callback** (the recovery request includes ?next=recovery). Keep the verified preview redirect during transition.
-- Obtain explicit production rollout approval, then deploy/promote and recheck the production domain.
+- User explicitly approved production with “go live”. Deployment dpl_6NNontM9HW2q7U9jPhdAMmio2DUr is Ready and aliased to https://axiomotl-advisory.vercel.app.
+- All three public browser tests pass against the production domain: guided form outcome, decision brief, and mobile navigation/reduced motion. Production login screen, anonymous draft denial and origin validation checks pass.
+- Owner password sign-in and email recovery were confirmed by the owner on preview. The owner should complete a final sign-in/recovery check on the production domain; the agent does not have their password.
 
-The original production website remains on its existing static deployment until rollout. The connected backend already holds the imported published content for the preview application.
+The production domain now serves the owner platform and the database's published content. Deployment did not publish or overwrite pending owner drafts. Previous static deployment dpl_EJvZEerJs5NSm69NF3G4PGnY5kTa remains the rollout rollback reference.
 
 ## Test limits
 
