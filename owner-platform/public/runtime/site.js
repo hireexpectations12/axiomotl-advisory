@@ -232,6 +232,7 @@
   if (!window.gsap) return;
   const media = gsap.matchMedia();
   const sculpture = document.querySelector('.connection-sculpture');
+  if (!sculpture) return;
   media.add('(prefers-reduced-motion: no-preference)', () => {
     if (document.documentElement.dataset.motion === 'off') return;
     let visible = false;
@@ -384,4 +385,3 @@
   window.addEventListener("pagehide", () => media.revert());
   window.addEventListener("pageshow", refreshMotion);
 })();
-

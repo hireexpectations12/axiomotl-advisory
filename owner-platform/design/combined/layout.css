@@ -1,0 +1,346 @@
+/* Shared page rhythm; the existing colours, type and content remain authoritative. */
+:root {
+  --page-gutter: clamp(20px, 4vw, 56px);
+  --page-width: 1240px;
+  --section-space: 80px;
+  --column-space: 64px;
+  --group-space: 32px;
+}
+.container,
+.site-header .nav {
+  width: min(var(--page-width), calc(100% - var(--page-gutter) * 2));
+  margin-inline: auto;
+}
+.site-header {
+  height: auto;
+}
+.site-header .nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: 88px;
+}
+.site-header .brand {
+  position: relative;
+  inset: auto;
+  flex: 0 0 auto;
+  width: 225px;
+  height: auto;
+}
+.site-header .brand img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.site-header .desktop-nav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.site-header .desktop-nav a,
+.site-header .nav-contact {
+  position: static;
+  width: auto;
+  height: auto;
+  min-height: 44px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.site-header .desktop-nav a:nth-child(n) {
+  width: auto;
+}
+.site-header .nav-contact {
+  padding: 12px 20px;
+}
+.site-header .menu-toggle {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+}
+.hero.circuit-hero,
+.hero-scene {
+  aspect-ratio: auto;
+}
+.hero-scene {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 144px max(var(--page-gutter), calc((100% - var(--page-width)) / 2))
+    32px;
+  gap: 80px;
+}
+.hero-scene .circuit-copy {
+  position: relative;
+  inset: auto;
+  width: min(680px, 100%);
+  margin: 0;
+  padding: 0;
+}
+.hero-scene .circuit-description {
+  width: 100%;
+  max-width: 520px;
+  line-height: 1.5;
+}
+.hero-scene .circuit-actions {
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.hero-scene .circuit-actions a {
+  min-height: 48px;
+  padding: 12px 20px;
+  font-size: 14px;
+}
+.hero-scene .circuit-stage {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  perspective: none;
+}
+.hero-scene .circuit-tiles {
+  padding: 8px 0 20px;
+  gap: 24px;
+}
+.hero-scene .circuit-stage .circuit-tile {
+  min-width: 0;
+}
+.hero-scene .circuit-tile i {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.finder-section,
+.services,
+.brief-section,
+#method,
+.analysis-examples,
+#about,
+.industry,
+#contact {
+  padding-block: var(--section-space);
+}
+.finder-layout,
+.brief-layout,
+#about,
+.industry-layout,
+#contact .contact-layout {
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: var(--column-space);
+  align-items: start;
+}
+.brief-copy {
+  padding-top: 0;
+}
+.finder-layout > *,
+.brief-layout > *,
+#about > *,
+.industry-layout > *,
+.contact-layout > * {
+  min-width: 0;
+}
+.finder-choices > a:hover {
+  transform: none;
+}
+.service-grid,
+.analysis-grid {
+  margin-top: var(--group-space);
+}
+.service-card {
+  column-gap: 24px;
+  padding-block: 32px;
+}
+.method-steps {
+  margin-block: var(--group-space);
+  gap: 16px 40px;
+}
+.method-steps li {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  padding: 0;
+}
+.method-steps .engagement-number,
+.method-steps h3,
+.method-steps p {
+  margin: 0;
+}
+.method-steps .engagement-number {
+  justify-self: start;
+}
+.analysis-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--group-space);
+}
+.analysis-example:nth-child(2) {
+  margin: 0;
+  max-width: none;
+}
+.analysis-image {
+  padding: 16px;
+}
+.analysis-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+.analysis-example figcaption {
+  padding: 24px 0 0;
+  max-width: none;
+}
+.analysis-source {
+  margin-top: var(--group-space);
+}
+.philosophy {
+  padding-block: 48px;
+}
+.philosophy-inner {
+  max-width: var(--page-width);
+}
+.contact-fields {
+  gap: 24px;
+}
+#contact .contact-form-shell > .contact-form-note {
+  max-width: none;
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.footer-top {
+  gap: 32px;
+  align-items: center;
+}
+.footer-bottom {
+  gap: 24px;
+  align-items: center;
+}
+@media (max-width: 1100px) {
+  .site-header .desktop-nav {
+    display: none !important;
+  }
+  .site-header .menu-toggle {
+    display: flex;
+  }
+  .site-header .nav-contact {
+    margin-left: auto;
+  }
+  #mobile-nav:not([hidden]) {
+    display: block;
+  }
+  #mobile-nav {
+    padding-inline: var(--page-gutter);
+  }
+}
+@media (max-width: 900px) {
+  :root {
+    --section-space: 64px;
+    --column-space: 32px;
+  }
+  .hero-scene {
+    padding-top: 40px;
+    padding-bottom: 32px;
+    gap: 32px;
+  }
+  .finder-layout,
+  .brief-layout,
+  #about,
+  .industry-layout,
+  #contact .contact-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .analysis-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+  .hero-scene .circuit-stage .circuit-tile,
+  .hero-scene .circuit-stage .circuit-tile:nth-child(even) {
+    height: 80px;
+  }
+}
+@media (max-width: 700px) {
+  .method-steps {
+    gap: 32px;
+  }
+  .method-steps li {
+    grid-row: auto;
+    grid-template-columns: 24px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: 8px 16px;
+  }
+  .method-steps .engagement-number {
+    position: static;
+    grid-row: 1 / 3;
+    align-self: start;
+  }
+  .method-steps h3,
+  .method-steps p {
+    grid-column: 2;
+  }
+}
+@media (max-width: 600px) {
+  :root {
+    --section-space: 48px;
+    --group-space: 32px;
+  }
+  .site-header .nav {
+    height: 80px;
+  }
+  .site-header .brand {
+    width: 200px;
+  }
+  .site-header .nav-contact {
+    display: none;
+  }
+  .hero-scene .circuit-copy h1 {
+    font-size: clamp(38px, 10vw, 54px);
+  }
+  .hero-scene .circuit-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .hero-scene .circuit-actions a {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .service-card {
+    padding-block: 24px;
+  }
+  .philosophy {
+    padding-block: 40px;
+  }
+  .footer-top nav {
+    gap: 8px 24px;
+  }
+}
+@media (max-width: 360px) {
+  .site-header .brand {
+    width: 176px;
+  }
+}
+
+/* Supplied stacked master logo: retain the full artwork and its proportions. */
+.site-header .nav {
+  height: 112px;
+}
+.site-header .brand {
+  width: 112px;
+}
+.site-header .brand img {
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+}
+.footer-top .brand img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  filter: none;
+  background: #fff;
+  border-radius: 8px;
+}
+.site-header .brand img {
+  filter: none;
+  background: #fff;
+  border-radius: 8px;
+}

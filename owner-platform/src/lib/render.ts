@@ -120,6 +120,62 @@ const schema = z.object({
     accent: z.string().regex(/^#[\da-fA-F]{6}$/),
     customCss: cssSchema,
     motion: z.boolean(),
+    headingAccent: z
+      .string()
+      .regex(/^#[\da-fA-F]{6}$/)
+      .optional(),
+    heroAccent: z
+      .string()
+      .regex(/^#[\da-fA-F]{6}$/)
+      .optional(),
+    business: z
+      .object({
+        phone: z
+          .string()
+          .max(50)
+          .regex(/^[+\d\s().-]*$/),
+        address: z.string().max(500),
+        hours: z.string().max(500),
+        socialLinks: z
+          .array(z.object({ label: z.string().min(1).max(100), url }))
+          .max(12),
+      })
+      .optional(),
+    seo: z
+      .object({
+        title: z.string().max(300),
+        description: z.string().max(2000),
+        socialImage: url,
+      })
+      .optional(),
+    announcement: z
+      .object({
+        enabled: z.boolean(),
+        text: z.string().max(500),
+        url,
+        expiresAt: z.union([z.literal(""), z.iso.datetime()]),
+      })
+      .optional(),
+    navigation: z
+      .array(z.object({ label: z.string().min(1).max(100), url }))
+      .min(1)
+      .max(12)
+      .optional(),
+    footer: z
+      .object({
+        text: z.string().max(1000),
+        links: z
+          .array(z.object({ label: z.string().min(1).max(100), url }))
+          .max(12),
+      })
+      .optional(),
+    contact: z
+      .object({
+        recipient: z.union([z.literal(""), z.email()]),
+        confirmation: z.string().max(1000),
+        showFields: z.boolean(),
+      })
+      .optional(),
   }),
   pages: z
     .array(
@@ -463,7 +519,51 @@ function escape(value: string): string {
 
 export function renderPage(document: SiteDocument, page: SitePage): string {
   const s = document.settings;
+  const title = page.title || s.seo?.title || s.name;
+  const description = page.description || s.seo?.description || "";
+  const socialImage = page.socialImage || s.seo?.socialImage || "";
   const markup = load(sanitizeMarkup(page.html), null, false);
+  const linksHtml = (links: { label: string; url: string }[]) =>
+    links
+      .map((link) => `<a href="${escape(link.url)}">${escape(link.label)}</a>`)
+      .join(" ");
+  if (s.navigation)
+    markup(".desktop-nav, #mobile-nav").html(linksHtml(s.navigation));
+  if (s.footer) {
+    markup("[data-site-footer]").remove();
+    const footer = `<div data-site-footer><p>${escape(s.footer.text)}</p><nav aria-label="Footer links">${linksHtml(s.footer.links)}</nav></div>`;
+    if (markup("footer").length) markup("footer").first().append(footer);
+    else markup.root().append(footer);
+  }
+  const announcement = s.announcement;
+  if (
+    announcement?.enabled &&
+    announcement.text &&
+    (!announcement.expiresAt || Date.parse(announcement.expiresAt) > Date.now())
+  ) {
+    const text = escape(announcement.text);
+    const banner = `<aside data-site-announcement aria-label="Announcement">${announcement.url ? `<a href="${escape(announcement.url)}">${text}</a>` : text}</aside>`;
+    if (markup(".site-header").length)
+      markup(".site-header").first().after(banner);
+    else markup.root().prepend(banner);
+  }
+  if (s.contact?.showFields === false)
+    markup(
+      "[data-contact-form] .contact-fields, [data-contact-submit]",
+    ).remove();
+  const business = s.business;
+  if (
+    business &&
+    (business.phone ||
+      business.address ||
+      business.hours ||
+      business.socialLinks.length)
+  ) {
+    markup("[data-business-details]").remove();
+    const details = `<div data-business-details>${business.phone ? `<p><a href="tel:${escape(business.phone.replace(/[^+\d]/g, ""))}">${escape(business.phone)}</a></p>` : ""}${business.address ? `<p>${escape(business.address)}</p>` : ""}${business.hours ? `<p>${escape(business.hours)}</p>` : ""}${business.socialLinks.map((link) => `<a href="${escape(link.url)}" rel="noopener noreferrer">${escape(link.label)}</a>`).join(" ")}</div>`;
+    if (markup("footer").length) markup("footer").first().append(details);
+    else markup.root().append(details);
+  }
   if (s.logo && safeUrl(s.logo))
     markup("img[data-site-logo], .brand img").attr("src", s.logo);
   markup('a[data-site-email], a[href^="mailto:hello@axiomotl.com.au"]').each(
@@ -478,18 +578,28 @@ export function renderPage(document: SiteDocument, page: SitePage): string {
       if (link.text().trim() === previousEmail) link.text(s.email);
     },
   );
-  const data = JSON.stringify({ forms: document.forms, settings: s }).replace(
-    /</g,
-    "\\u003c",
-  );
+  // Future contact delivery settings are not needed by the browser runtime.
+  const { contact: _contact, ...publicSettings } = s;
+  const data = JSON.stringify({
+    forms: document.forms,
+    settings: publicSettings,
+  }).replace(/</g, "\\u003c");
   const styles = [
     page.css,
     `:root{--navy-accent:${s.accent};--ink:${s.foreground};--paper:${s.background};--font-body:${s.font},Arial,sans-serif;--font-display:${s.font},Arial,sans-serif}`,
     s.customCss,
+    s.headingAccent
+      ? `:is(h1,h2,h3,h4,h5,h6) .heading-last-word{color:${s.headingAccent};-webkit-text-fill-color:${s.headingAccent}}`
+      : "",
+    s.heroAccent
+      ? `.hero :is(h1,h2,h3,h4,h5,h6) .heading-last-word{color:${s.heroAccent};-webkit-text-fill-color:${s.heroAccent}}`
+      : "",
+    `[data-business-details]{display:flex;flex-wrap:wrap;gap:12px 24px;padding:24px;white-space:pre-line}[data-business-details] p{margin:0}[data-business-details] a{color:inherit}`,
+    `[data-site-announcement]{padding:14px 24px;background:#7a2c82;color:#fff;text-align:center;overflow-wrap:anywhere}[data-site-announcement] a{color:inherit;text-decoration:underline}[data-site-footer]{padding:24px;white-space:pre-line}[data-site-footer] nav{display:flex;flex-wrap:wrap;gap:16px}[data-site-footer] a{color:inherit}`,
   ]
     .filter(safeCss)
     .join("\n");
-  return `<!doctype html><html lang="en-AU" data-motion="${s.motion ? "on" : "off"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}"><meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}">${page.socialImage ? `<meta property="og:image" content="${escape(page.socialImage)}">` : ""}${page.noIndex ? '<meta name="robots" content="noindex,nofollow">' : ""}${s.favicon ? `<link rel="icon" href="${escape(s.favicon)}">` : ""}<link rel="stylesheet" href="/runtime/forms.css"><style>${styles}</style></head><body>${markup.html()}<script type="application/json" id="axiomotl-config">${data}</script><script defer src="/runtime/gsap.js"></script><script defer src="/runtime/site.js"></script><script defer src="/runtime/forms.js"></script></body></html>`;
+  return `<!doctype html><html lang="en-AU" data-motion="${s.motion ? "on" : "off"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)}</title><meta name="description" content="${escape(description)}"><meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}">${socialImage ? `<meta property="og:image" content="${escape(socialImage)}">` : ""}${page.noIndex ? '<meta name="robots" content="noindex,nofollow">' : ""}${s.favicon ? `<link rel="icon" href="${escape(s.favicon)}">` : ""}<link rel="stylesheet" href="/runtime/forms.css"><style>${styles}</style></head><body>${markup.html()}<script type="application/json" id="axiomotl-config">${data}</script><script defer src="/runtime/gsap.js"></script><script defer src="/runtime/site.js"></script><script defer src="/runtime/forms.js"></script></body></html>`;
 }
 
 export const publicHeaders = {

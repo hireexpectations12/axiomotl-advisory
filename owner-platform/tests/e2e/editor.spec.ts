@@ -9,11 +9,15 @@ const baseline = JSON.parse(
   ),
 ) as SiteDocument;
 
-async function workspace(page: Page, options: { conflict?: boolean } = {}) {
+async function workspace(
+  page: Page,
+  options: { conflict?: boolean; role?: "editor" | "publisher" | "owner" } = {},
+) {
   let state: SiteState = {
     document: structuredClone(baseline) as SiteDocument,
     version: 1,
     publishedAt: null,
+    role: options.role || "owner",
   };
   const writes: SiteState[] = [];
   const exceptions: string[] = [];
@@ -290,4 +294,119 @@ test("publication requires confirmation and saves the current draft first", asyn
   );
   expect(getState().publishedAt).not.toBeNull();
   expect(exceptions).toEqual([]);
+});
+
+test("expanded settings persist business, banner and navigation in the draft", async ({
+  page,
+}) => {
+  const { getState } = await workspace(page);
+  await page
+    .getByRole("button", { name: "Site settings", exact: true })
+    .click();
+  await page.getByLabel("Phone number", { exact: true }).fill("02 1234 5678");
+  await page.getByLabel("Business address", { exact: true }).fill("Sydney");
+  await page
+    .getByLabel("Default search title", { exact: true })
+    .fill("Advisory services");
+  await page.getByLabel("Show announcement", { exact: true }).check();
+  await page
+    .getByLabel("Announcement text", { exact: true })
+    .fill("Holiday hours");
+  await page.getByLabel("Manage navigation here", { exact: true }).check();
+  await expect
+    .poll(() => getState().document.settings.business?.phone)
+    .toBe("02 1234 5678");
+  await expect
+    .poll(() => getState().document.settings.announcement?.text)
+    .toBe("Holiday hours");
+  expect(getState().document.settings.navigation).toHaveLength(2);
+  await page.screenshot({
+    path: "test-results/settings-expanded.png",
+    fullPage: true,
+  });
+});
+
+test("editor can save settings but cannot publish or see staff administration", async ({
+  page,
+}) => {
+  const { getState } = await workspace(page, { role: "editor" });
+  await expect(
+    page.getByRole("button", { name: "Publish", exact: true }),
+  ).toBeDisabled();
+  await expect(
+    page.getByRole("button", { name: "Staff", exact: true }),
+  ).toHaveCount(0);
+  await page
+    .getByRole("button", { name: "Site settings", exact: true })
+    .click();
+  await page.getByLabel("Phone number", { exact: true }).fill("0412 345 678");
+  await expect
+    .poll(() => getState().document.settings.business?.phone)
+    .toBe("0412 345 678");
+});
+
+test("enquiry notes and status save independently from website publishing", async ({
+  page,
+}) => {
+  await workspace(page);
+  const enquiry = {
+    id: "123e4567-e89b-42d3-a456-426614174000",
+    name: "Training Client",
+    email: "training@example.com",
+    organisation: "",
+    message: "Discuss analysis",
+    source: "email",
+    status: "new",
+    assignee: "",
+    createdAt: "2026-09-19T00:00:00Z",
+    notes: [] as { text: string; at: string; actor: string }[],
+  };
+  await page.route("**/api/enquiries*", (route) => {
+    if (route.request().method() === "PATCH") {
+      const patch = route.request().postDataJSON();
+      if (patch.status) enquiry.status = patch.status;
+      if (patch.note)
+        enquiry.notes.push({
+          text: patch.note,
+          at: enquiry.createdAt,
+          actor: "Owner",
+        });
+      return route.fulfill({ json: { ok: true } });
+    }
+    return route.fulfill({
+      json: { enquiries: [enquiry], staff: [], hasMore: false },
+    });
+  });
+  await page.getByRole("button", { name: "Enquiries", exact: true }).click();
+  await page
+    .getByRole("combobox", { name: "Status for Training Client", exact: true })
+    .selectOption("in_progress");
+  await expect(page.getByText("Enquiry saved.", { exact: true })).toBeVisible();
+  await page
+    .getByLabel("New note for Training Client", { exact: true })
+    .fill("Called the client");
+  await page.getByRole("button", { name: "Add note", exact: true }).click();
+  await expect.poll(() => enquiry.notes.length).toBe(1);
+  expect(enquiry.status).toBe("in_progress");
+  await page.screenshot({
+    path: "test-results/enquiries-expanded.png",
+    fullPage: true,
+  });
+});
+
+test("staff controls protect owners and status screen fits a phone", async ({ page }) => {
+  await workspace(page);
+  await page.route("**/api/staff", route => route.fulfill({ json: { staff: [{ id: "owner", email: "owner@example.com", role: "owner" }, { id: "editor", email: "editor@example.com", role: "editor" }], currentUserId: "owner" } }));
+  await page.route("**/api/status", route => route.fulfill({ json: { checkedAt: "2026-09-19T00:00:00Z", publishedAt: "2026-09-18T00:00:00Z", version: 16, role: "owner", email: "On hold", links: [], forms: [] } }));
+  await page.getByRole("button", { name: "Staff", exact: true }).click();
+  await expect(page.getByRole("combobox", { name: "Role for editor@example.com", exact: true })).toBeVisible();
+  await expect(page.getByRole("combobox", { name: "Role for owner@example.com", exact: true })).toHaveCount(0);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.getByRole("button", { name: "Website status", exact: true }).click();
+  await expect(page.getByText("No missing internal pages or sections found.", { exact: false })).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: "test-results/status-mobile.png", fullPage: true });
+  await page.getByRole("button", { name: "Site settings", exact: true }).click();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: "test-results/settings-mobile.png", fullPage: true });
 });

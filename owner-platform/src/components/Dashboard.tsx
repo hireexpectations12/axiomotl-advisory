@@ -2,17 +2,30 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Revision, SiteDocument, SitePage, SiteState } from "@/lib/types";
 import PageEditor from "./PageEditor";
+import SiteSettingsEditor from "./SiteSettingsEditor";
+import StaffSettings from "./StaffSettings";
+import SiteStatus from "./SiteStatus";
+import Enquiries from "./Enquiries";
 import MediaLibrary from "./MediaLibrary";
 import FormEditor from "./FormEditor";
 import { ApiError, api, Confirm, Field, Textarea } from "./OwnerUI";
 
-type Section = "Pages" | "Forms" | "Media" | "Site settings" | "History";
+type Section =
+  | "Pages"
+  | "Forms"
+  | "Media"
+  | "Site settings"
+  | "History"
+  | "Staff"
+  | "Website status"
+  | "Enquiries";
 export default function Dashboard({
   initialState,
 }: {
   initialState: SiteState;
 }) {
   const [state, setState] = useState(initialState);
+  const role = state.role || initialState.role || "owner";
   const [section, setSection] = useState<Section>("Pages");
   const [pageId, setPageId] = useState(
     initialState.document.pages[0]?.id || "",
@@ -300,7 +313,16 @@ export default function Dashboard({
         <p className="sidebar-label">YOUR WEBSITE</p>
         <nav aria-label="Workspace">
           {(
-            ["Pages", "Forms", "Media", "Site settings", "History"] as Section[]
+            [
+              "Pages",
+              "Forms",
+              "Media",
+              "Site settings",
+              "History",
+              "Enquiries",
+              "Website status",
+              ...(role === "owner" ? ["Staff"] : []),
+            ] as Section[]
           ).map((name, index) => (
             <button
               key={name}
@@ -310,7 +332,9 @@ export default function Dashboard({
                 setConfirmation(null);
               }}
             >
-              <span aria-hidden="true">{["▤", "⑂", "▧", "◉", "↶"][index]}</span>
+              <span aria-hidden="true">
+                {["▤", "⑂", "▧", "◉", "↶", "✉", "✓", "♙"][index]}
+              </span>
               {name}
             </button>
           ))}
@@ -350,7 +374,12 @@ export default function Dashboard({
             <button
               className="primary"
               onClick={() => setConfirmation("publish")}
-              disabled={busy || conflict}
+              disabled={busy || conflict || role === "editor"}
+              title={
+                role === "editor"
+                  ? "Ask a publisher to publish your saved draft."
+                  : undefined
+              }
             >
               Publish
             </button>
@@ -599,90 +628,16 @@ export default function Dashboard({
               </div>
             )}
             {section === "Media" && <MediaLibrary document={state.document} />}
+            {section === "Staff" && role === "owner" && <StaffSettings />}
+            {section === "Enquiries" && <Enquiries />}
+            {section === "Website status" && <SiteStatus />}
             {section === "Site settings" && (
-              <section className="site-settings">
-                <h2>The details that carry across your site</h2>
-                <p>
-                  Brand colours, contact information and presentation. Edit
-                  navigation links directly in each page canvas.
-                </p>
-                <div className="field-grid">
-                  {(
-                    [
-                      "name",
-                      "email",
-                      "logo",
-                      "favicon",
-                      "font",
-                      "background",
-                      "foreground",
-                      "accent",
-                    ] as const
-                  ).map((key) => (
-                    <Field
-                      key={key}
-                      label={
-                        {
-                          name: "Site name",
-                          email: "Contact email",
-                          logo: "Logo URL",
-                          favicon: "Favicon URL",
-                          font: "Font family",
-                          background: "Background colour",
-                          foreground: "Text colour",
-                          accent: "Accent colour",
-                        }[key]
-                      }
-                      value={state.document.settings[key]}
-                      onChange={(e) =>
-                        changeDocument({
-                          ...state.document,
-                          settings: {
-                            ...state.document.settings,
-                            [key]: e.target.value,
-                          },
-                        })
-                      }
-                    />
-                  ))}
-                </div>
-                <label className="checkbox">
-                  <input
-                    type="checkbox"
-                    checked={state.document.settings.motion}
-                    onChange={(e) =>
-                      changeDocument({
-                        ...state.document,
-                        settings: {
-                          ...state.document.settings,
-                          motion: e.target.checked,
-                        },
-                      })
-                    }
-                  />
-                  Enable supported page animations (respects reduced-motion
-                  preferences)
-                </label>
-                <Textarea
-                  label="Global CSS"
-                  className="code-input resize-none"
-                  rows={14}
-                  value={state.document.settings.customCss}
-                  onChange={(e) =>
-                    changeDocument({
-                      ...state.document,
-                      settings: {
-                        ...state.document.settings,
-                        customCss: e.target.value,
-                      },
-                    })
-                  }
-                />
-                <p>
-                  Global styles affect every page. Use Preview to check your
-                  changes at different screen sizes.
-                </p>
-              </section>
+              <SiteSettingsEditor
+                settings={state.document.settings}
+                onChange={(settings) =>
+                  changeDocument({ ...latest.current.document, settings })
+                }
+              />
             )}
             {section === "History" && (
               <section>
@@ -714,6 +669,7 @@ export default function Dashboard({
                       <li key={revision.id}>
                         <div>
                           <strong>{revision.label}</strong>
+                          {revision.summary && <p>{revision.summary}</p>}
                           <time dateTime={revision.created_at}>
                             {new Date(revision.created_at).toLocaleString(
                               "en-AU",
@@ -722,7 +678,7 @@ export default function Dashboard({
                           <small>By {revision.created_by}</small>
                         </div>
                         <button
-                          disabled={busy || conflict}
+                          disabled={busy || conflict || role === "editor"}
                           onClick={() => setConfirmation(revision)}
                         >
                           Restore…

@@ -84,6 +84,14 @@ export default function PageEditor({
           plugins: [
             parserPostCSS,
             (ed: Editor) => {
+              // Headings with nested accent spans still need rich-text editing.
+              ed.Components.addType("editable-heading", {
+                extend: "text",
+                isComponent: (el) =>
+                  el.nodeType === 1 && /^H[1-6]$/.test(el.nodeName)
+                    ? { type: "text" }
+                    : false,
+              });
               ed.Components.addType("axiomotl-form", {
                 isComponent: (el) =>
                   el.nodeType === 1 &&

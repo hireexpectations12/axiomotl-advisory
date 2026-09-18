@@ -72,7 +72,27 @@ export type SiteSettings = {
   accent: string;
   customCss: string;
   motion: boolean;
+  headingAccent?: string;
+  heroAccent?: string;
+  business?: {
+    phone: string;
+    address: string;
+    hours: string;
+    socialLinks: SiteLink[];
+  };
+  seo?: { title: string; description: string; socialImage: string };
+  announcement?: {
+    enabled: boolean;
+    text: string;
+    url: string;
+    expiresAt: string;
+  };
+  navigation?: SiteLink[];
+  footer?: { text: string; links: SiteLink[] };
+  contact?: { recipient: string; confirmation: string; showFields: boolean };
 };
+export type SiteLink = { label: string; url: string };
+export type StaffRole = "owner" | "publisher" | "editor";
 export type SiteDocument = {
   schemaVersion: 1;
   settings: SiteSettings;
@@ -83,12 +103,14 @@ export type SiteState = {
   document: SiteDocument;
   version: number;
   publishedAt: string | null;
+  role?: StaffRole;
 };
 export type Revision = {
   id: string;
   created_at: string;
   label: string;
   created_by: string;
+  summary?: string;
 };
 export type MediaAsset = {
   id: string;

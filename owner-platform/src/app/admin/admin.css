@@ -1,5 +1,30 @@
 @import "grapesjs/dist/css/grapes.min.css";
 
+.settings-sections {
+  display: grid;
+  gap: 24px;
+}
+.settings-link-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  align-items: end;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.settings-panel summary {
+  cursor: pointer;
+  font-weight: 700;
+}
+.settings-panel input[type="color"] {
+  min-height: 44px;
+  width: 100%;
+}
+@media (max-width: 700px) {
+  .settings-link-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 :root {
   --navy: #031925;
   --ocean: #124559;
@@ -162,6 +187,7 @@ small {
   position: sticky;
   top: 0;
   height: 100vh;
+  overflow-y: auto;
 }
 .owner-brand {
   display: flex;

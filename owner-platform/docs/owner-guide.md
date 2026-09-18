@@ -74,3 +74,19 @@ Ask the administrator to keep independent database and image-storage backups alo
 | Upload rejected | Check the actual file type and 4 MB limit; renaming a file does not change its type. |
 
 Use **Sign out** when finished, especially on a shared device.
+
+## Expanded settings and staff workspace
+
+Site settings now groups business details, branding, search and sharing defaults, announcements, navigation, footer links, contact preparation and advanced styles. Public-facing changes follow Save draft → Preview → Publish. Page-specific search fields override site defaults. Optional fields remain inactive until supplied. Announcement expiry is entered in UTC and checked when a page loads.
+
+Staff is visible only to owners. Editors can edit, save and preview; publishers can also publish and restore. Owners manage staff. Existing owner accounts cannot be demoted or removed through this screen. New staff accounts receive a private one-use setup link displayed on screen; the owner shares it securely. No invitation email is sent. Existing accounts that cannot be created here need administrator-assisted membership setup.
+
+Enquiries stores manually recorded email, phone and other enquiries. Assign a current staff member, set New / In progress / Closed and append notes. Changes save immediately, independently of the website draft. Each page contains up to 20 records; the status filter applies to the displayed page. These records are not included in a website export or publication and should be backed up separately. Email delivery and public submission remain disabled. Recipient and confirmation values are preparation only, not an active delivery configuration.
+
+Website status checks saved-draft internal page/section links and form mappings, and displays publication and contact-delivery status. It does not check external sites, downloadable files or image availability. History now displays the author's current email and whether pages, settings or form mappings changed between saved revisions.
+
+## Administrator maintenance
+
+Staff roles are stored per site in Supabase auth app_metadata. Browser-editable user metadata is never used for authorisation. Site membership is still required. Only server credentials may update roles, and server mutation guards enforce publisher access. Preserve original owner memberships during account maintenance.
+
+Run `node --env-file=.env.local scripts/setup-enquiries.mjs` once per Supabase project. The `owner-enquiries` bucket must remain private with no client write policies. Records use immutable JSON event objects under site ID / enquiry ID. Concurrent notes are retained; competing status/assignment updates use server timestamp order. Back up this bucket separately from public media and site exports. Do not make the bucket public. Public contact intake remains a separate future task requiring spam protection and a delivery decision.

@@ -1,0 +1,21 @@
+{
+  "name": "Axiomotl website",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-24-bookworm",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/owner-platform",
+  "postCreateCommand": "npm ci",
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Axiomotl design preview",
+      "onAutoForward": "notify",
+      "visibility": "private"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.cwd": "/workspaces/${localWorkspaceFolderBasename}/owner-platform"
+      }
+    }
+  }
+}

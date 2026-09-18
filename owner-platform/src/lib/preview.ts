@@ -24,7 +24,10 @@ export async function renderPreview(document: SiteDocument, page: SitePage) {
     () => `<style>${css}</style>`,
   );
   const fonts = [
-    ...new Set(html.match(/\/site-assets\/[a-zA-Z0-9_.-]+\.ttf/g) || []),
+    ...new Set(
+      html.match(/\/site-assets\/(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_.-]+\.ttf/g) ||
+        [],
+    ),
   ];
   for (const font of fonts) {
     const bytes = await readFile(join(root, font), "base64");

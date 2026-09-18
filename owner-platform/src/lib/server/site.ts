@@ -5,6 +5,7 @@ import { validateDocument, validateDraftDocument } from "../render";
 import type { SiteDocument, SiteState } from "../types";
 import { requireOwner } from "./supabase";
 import { HttpError } from "./security";
+import { assertPermission } from "../permissions";
 type Owner = Awaited<ReturnType<typeof requireOwner>>;
 export async function change(
   owner: Owner,
@@ -13,6 +14,8 @@ export async function change(
   document?: SiteDocument,
   revision?: string,
 ): Promise<SiteState> {
+  if (action === "publish" || action === "restore")
+    assertPermission(owner.role, action);
   const { data, error } = await owner.service.rpc("owner_change", {
     p_site: owner.siteId,
     p_actor: owner.user.id,
@@ -32,7 +35,7 @@ export async function change(
         ? "Another session changed the draft. Reload before saving."
         : "The database could not complete this change.",
     );
-  return data as SiteState;
+  return { ...data, role: owner.role } as SiteState;
 }
 export async function getSite(owner: Owner): Promise<SiteState> {
   const { data, error } = await owner.client
@@ -52,6 +55,7 @@ export async function getSite(owner: Owner): Promise<SiteState> {
     document: validateDraftDocument(data.document),
     version: data.version,
     publishedAt: pub?.published_at ?? null,
+    role: owner.role,
   };
 }
 export async function publish(owner: Owner, version: number) {

@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 const config: NextConfig = {
   poweredByHeader: false,
   outputFileTracingIncludes: {
-    "/api/preview": ["./public/runtime/**", "./public/site-assets/*.ttf"],
+    "/api/preview": ["./public/runtime/**", "./public/site-assets/**/*.ttf"],
   },
   async headers() {
     return [

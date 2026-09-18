@@ -1,0 +1,955 @@
+/* Reference composition: left-hand proposition, luminous workflow, five stations. */
+:is(h1, h2, h3, h4, h5, h6) .heading-last-word {
+  color: #7a2c82;
+  -webkit-text-fill-color: #7a2c82;
+}
+.hero :is(h1, h2, h3, h4, h5, h6) .heading-last-word {
+  color: #b794d6;
+  -webkit-text-fill-color: #b794d6;
+}
+.hero-scene {
+  aspect-ratio: 1044 / 462;
+  min-height: 640px;
+  background:
+    radial-gradient(ellipse at 98% 4%, #73139455, transparent 25%),
+    radial-gradient(ellipse at 4% 65%, #451b7555, transparent 22%);
+}
+.hero-environment {
+  z-index: 0;
+}
+.hero-horizon {
+  top: 72%;
+  opacity: 0.5;
+}
+.hero-grid {
+  opacity: 0.5;
+}
+.hero-scene .circuit-copy {
+  position: absolute;
+  inset: 20% auto auto 10%;
+  width: 44%;
+  z-index: 3;
+  text-align: left;
+}
+.hero-scene .circuit-eyebrow {
+  position: static;
+  width: auto;
+  font-size: clamp(10px, 0.75vw, 13px);
+  margin: 0 0 10px;
+  text-align: left;
+  letter-spacing: 0.2em;
+}
+.hero-scene .circuit-eyebrow > span {
+  display: none;
+}
+.hero-scene .circuit-copy h1 {
+  position: static;
+  width: auto;
+  margin: 0;
+  font-size: clamp(44px, 5.25vw, 86px);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  text-align: left;
+}
+.hero-scene .circuit-description {
+  position: static;
+  width: 80%;
+  margin: 20px 0 0;
+  font-size: clamp(15px, 1.38vw, 22px);
+  line-height: 1.3;
+  text-align: left;
+}
+.hero-scene .circuit-actions {
+  position: static;
+  display: flex;
+  justify-content: flex-start;
+  margin: 22px 0 0;
+  gap: 14px;
+}
+.hero-scene .circuit-actions a {
+  position: static;
+  width: auto;
+  height: auto;
+  min-height: 46px;
+  font-size: clamp(12px, 1vw, 16px);
+  padding: 12px 18px;
+  border-radius: 6px;
+  gap: 16px;
+}
+.hero-facts {
+  display: flex;
+  gap: 22px;
+  margin-top: 22px;
+}
+.hero-facts p {
+  padding-right: 22px;
+  border-right: 1px solid #9862b9;
+  margin: 0;
+}
+.hero-facts p:last-child {
+  border: 0;
+}
+.hero-facts strong,
+.hero-facts span {
+  display: block;
+}
+.hero-facts strong {
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+}
+.hero-facts span {
+  font-size: 12px;
+  color: #d3cddd;
+  margin-top: 4px;
+}
+.hero-scene .hero-side-right {
+  top: 15%;
+  right: 3%;
+  font-size: 9px;
+  line-height: 1.8;
+  text-align: right;
+  padding: 0;
+  border: 0;
+}
+.hero-side-right::after {
+  display: none;
+}
+.reference-signals {
+  top: 56%;
+  height: 42%;
+  opacity: 0.9;
+}
+.hero-scene .circuit-stage {
+  position: absolute;
+  inset: auto 3% 5%;
+  width: 94%;
+  height: 16%;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 4;
+}
+.hero-scene .circuit-tiles {
+  position: static;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 22px;
+  padding: 0;
+  height: 100%;
+}
+.hero-scene .circuit-stage .circuit-tile {
+  position: relative;
+  left: auto !important;
+  top: auto !important;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 14px 30px 14px 14px;
+  background: #101325;
+  border: 1px solid #8664c5;
+  border-radius: 10px;
+  box-shadow:
+    inset 0 -2px 3px #ad79ff,
+    0 5px 14px #a84dff33;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  filter: brightness(var(--tile-brightness, 1));
+  transform: rotate(2deg);
+}
+.hero-scene .circuit-tile:nth-child(even) {
+  transform: rotate(-2deg);
+}
+.hero-scene .circuit-tile:last-child {
+  border-color: #48d9eb;
+  box-shadow:
+    inset 0 -2px 3px #48d9eb,
+    0 5px 14px #48d9eb22;
+}
+.hero-scene .circuit-tile::before {
+  display: none;
+}
+.hero-scene .circuit-stage .circuit-tile img {
+  position: static;
+  width: 30%;
+  height: 58px;
+  transform: none;
+  object-fit: contain;
+}
+.hero-scene .circuit-stage .circuit-tile span {
+  position: static;
+  width: auto;
+  transform: none;
+  font-size: 10px;
+  line-height: 1.25;
+}
+.hero-scene .circuit-tile strong {
+  font-size: 14px;
+  margin: 3px 0;
+}
+.hero-scene .circuit-tile small {
+  display: block;
+  font-size: 10px;
+}
+.circuit-tile i {
+  position: absolute;
+  right: 8px;
+  top: 40%;
+  border: 1px solid #9577c8;
+  border-radius: 50%;
+  font-style: normal;
+  color: #eee3ff;
+  width: 22px;
+  height: 22px;
+  line-height: 20px;
+  text-align: center;
+  box-shadow: inset 0 0 8px #b877ff66;
+}
+.workflow-scene {
+  position: absolute;
+  left: 47%;
+  right: 3%;
+  top: 19%;
+  height: 60%;
+  pointer-events: none;
+  color: #f4efff;
+  z-index: 2;
+}
+.workflow-trails {
+  position: absolute;
+  inset: -8% -10%;
+  width: 120%;
+  height: 116%;
+  overflow: visible;
+  fill: none;
+}
+.workflow-trails path {
+  stroke: url(#trail-color);
+  stroke-width: 2;
+}
+.workflow-trails .trail-halo {
+  stroke-width: 9;
+  filter: url(#trail-glow);
+  opacity: 0.7;
+}
+[data-workflow-dot] {
+  fill: #e5fcff;
+  filter: drop-shadow(0 0 6px #34dcff);
+}
+.workflow-pillars {
+  display: flex;
+  gap: 30px;
+  position: absolute;
+  left: 12%;
+  top: 0;
+}
+.workflow-pillars > div {
+  text-align: center;
+}
+.workflow-pillars b {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid #6c88ff;
+  background: #111844;
+  box-shadow:
+    0 0 12px #5154ff,
+    inset 0 0 12px #634aff;
+  font-size: 28px;
+}
+.workflow-pillars span {
+  display: block;
+  font-size: 10px;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.readiness-panel,
+.throughput-panel,
+.truth-panel {
+  position: absolute;
+  border: 1px solid #537ade;
+  border-radius: 8px;
+  background: #0c142cf5;
+  box-shadow:
+    inset 0 0 14px #5260ff33,
+    0 0 12px #7648ff44;
+  padding: 13px;
+}
+.readiness-panel {
+  right: 0;
+  top: 14%;
+  width: 34%;
+  transform: rotate(5deg);
+  font-size: 8px;
+}
+.readiness-panel p,
+.throughput-panel p,
+.truth-panel p {
+  color: #d5aaff;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 10px;
+  margin: 0 0 8px;
+}
+.readiness-panel small {
+  display: block;
+  font-size: 8px;
+  color: #aebfd4;
+  letter-spacing: 0;
+  margin-top: 3px;
+}
+.readiness-panel > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: 7px;
+}
+.readiness-panel i {
+  width: 32%;
+  height: 5px;
+  background: #232f4d;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.readiness-panel i::before {
+  content: "";
+  display: block;
+  width: calc(var(--readiness) * 100%);
+  height: 100%;
+  background: linear-gradient(90deg, #b757ff, #2ce4ff);
+}
+.workflow-steps {
+  position: absolute;
+  top: 38%;
+  width: 91%;
+  display: flex;
+  transform: rotate(4deg);
+  filter: drop-shadow(0 0 7px #9b39ff);
+}
+.workflow-steps > div {
+  flex: 1;
+  text-align: center;
+  padding: 12px 8px 16px;
+  background: linear-gradient(135deg, #7632ab, #22173e 40%, #111526);
+  clip-path: polygon(0 0, 84% 0, 100% 50%, 84% 100%, 0 100%, 14% 50%);
+  border-block: 2px solid #c88aff;
+}
+.workflow-steps > div:nth-child(n + 3) {
+  background: linear-gradient(135deg, #236fbc, #102133 45%);
+  border-color: #3edfff;
+}
+.workflow-steps b {
+  display: block;
+  font-size: 25px;
+  color: #ce99ff;
+}
+.workflow-steps strong {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-block: 3px;
+}
+.workflow-steps span {
+  font-size: 9px;
+}
+.throughput-panel {
+  left: 0;
+  bottom: 0;
+  width: 55%;
+  transform: rotate(4deg);
+}
+.throughput-panel svg {
+  width: 65%;
+  height: 65px;
+}
+.chart-grid {
+  fill: none;
+  stroke: #423166;
+  stroke-width: 0.6;
+}
+.chart-line {
+  fill: none;
+  stroke: #80e4f5;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 3px #ab60ff);
+}
+.throughput-panel strong {
+  display: inline-block;
+  width: 30%;
+  vertical-align: top;
+  color: #4fe3e7;
+  font-size: 24px;
+  margin-top: 8px;
+}
+.throughput-panel small {
+  font-size: 9px;
+  line-height: 1.2;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #caa6e4;
+}
+.truth-panel {
+  right: 0;
+  bottom: 0;
+  transform: rotate(-5deg);
+}
+.truth-panel span {
+  display: block;
+  font-size: 10px;
+  margin-top: 6px;
+}
+.circuit-hero .circuit-bottom {
+  padding-block: 18px;
+}
+@media (min-width: 1500px) {
+  .hero-scene {
+    min-height: 720px;
+  }
+}
+@media (max-width: 1100px) and (min-width: 901px) {
+  .hero-scene .circuit-copy h1 {
+    font-size: 54px;
+  }
+  .hero-scene .circuit-tile small {
+    font-size: 9px;
+  }
+  .workflow-pillars {
+    gap: 18px;
+  }
+}
+@media (max-width: 900px) {
+  .hero-scene {
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: auto;
+    min-height: 0;
+    padding: 36px 20px 24px;
+    gap: 28px;
+  }
+  .hero-scene .circuit-copy {
+    position: relative;
+    inset: auto;
+    width: 100%;
+  }
+  .hero-scene .circuit-copy h1 {
+    font-size: clamp(42px, 8vw, 70px);
+  }
+  .hero-scene .circuit-description {
+    width: 100%;
+    max-width: 500px;
+  }
+  .hero-scene .circuit-actions {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .hero-scene .circuit-actions a {
+    min-width: 0;
+  }
+  .hero-facts {
+    gap: 12px;
+  }
+  .hero-facts p {
+    padding-right: 12px;
+  }
+  .hero-facts span {
+    font-size: 10px;
+  }
+  .workflow-scene {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 310px;
+    flex-shrink: 0;
+  }
+  .workflow-pillars {
+    gap: 16px;
+    left: 8%;
+  }
+  .workflow-pillars b {
+    width: 38px;
+    height: 38px;
+    font-size: 23px;
+  }
+  .readiness-panel {
+    width: 36%;
+    top: 19%;
+  }
+  .readiness-panel > div {
+    font-size: 6px;
+  }
+  .workflow-steps {
+    top: 42%;
+    width: 100%;
+  }
+  .workflow-steps strong {
+    font-size: 10px;
+  }
+  .workflow-steps span {
+    font-size: 7px;
+  }
+  .throughput-panel {
+    width: 56%;
+    padding: 8px;
+  }
+  .throughput-panel svg {
+    height: 45px;
+  }
+  .throughput-panel p,
+  .truth-panel p {
+    font-size: 8px;
+  }
+  .throughput-panel strong {
+    font-size: 18px;
+  }
+  .truth-panel {
+    padding: 8px;
+  }
+  .truth-panel span {
+    font-size: 8px;
+  }
+  .hero-scene .hero-side-right {
+    display: none;
+  }
+  .hero-scene .circuit-stage {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+  }
+  .hero-scene .circuit-tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+    overflow: visible;
+    gap: 12px;
+    padding: 8px 4px 16px;
+  }
+  .hero-scene .circuit-stage .circuit-tile {
+    flex: 0 0 210px;
+    height: 88px;
+    transform: none;
+  }
+  .hero-scene .circuit-stage .circuit-tile img {
+    width: 42px;
+    height: 48px;
+  }
+  .hero-scene .circuit-tile small {
+    font-size: 10px;
+  }
+  .hero-scene .circuit-tile strong {
+    font-size: 14px;
+  }
+  .reference-signals {
+    display: none;
+  }
+}
+/* Keep the reference's compact panels clear of the journey cards. */
+.hero-scene .circuit-eyebrow {
+  justify-content: flex-start;
+}
+.hero-scene .circuit-copy h1 {
+  font-size: clamp(44px, 4.7vw, 78px);
+}
+.hero-scene .circuit-description {
+  font-size: clamp(15px, 1.2vw, 20px);
+  margin-top: 16px;
+}
+.hero-scene .circuit-actions {
+  margin-top: 18px;
+}
+.hero-facts {
+  margin-top: 16px;
+}
+.throughput-panel {
+  height: 108px;
+  display: grid;
+  grid-template-columns: 65% 35%;
+  align-items: center;
+}
+.throughput-panel p {
+  grid-column: 1 / -1;
+  margin-bottom: 4px;
+}
+.throughput-panel svg {
+  width: 100%;
+  height: 60px;
+}
+.throughput-panel strong {
+  width: auto;
+  margin: 0;
+  padding-left: 10px;
+}
+.workflow-steps {
+  height: 105px;
+}
+.workflow-steps > div {
+  padding: 10px 8px;
+}
+.readiness-panel {
+  top: 8%;
+  padding: 10px;
+}
+.workflow-trails .trail-halo {
+  stroke-width: 6;
+  opacity: 0.45;
+}
+.workflow-trails path {
+  vector-effect: non-scaling-stroke;
+}
+.workflow-pillars b svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+@media (max-width: 900px) {
+  .hero-scene .circuit-copy h1 {
+    font-size: clamp(42px, 8vw, 70px);
+  }
+  .throughput-panel {
+    height: 88px;
+  }
+  .throughput-panel svg {
+    height: 42px;
+  }
+  .readiness-panel {
+    top: 16%;
+  }
+  .workflow-steps {
+    height: 90px;
+  }
+}
+@media (max-width: 900px) {
+  .hero-scene .circuit-tiles {
+    flex-wrap: nowrap;
+  }
+  .hero-scene .circuit-copy h1,
+  .hero-scene .circuit-eyebrow {
+    text-align: left;
+  }
+}
+@media (max-width: 900px) {
+  .hero-scene .circuit-tiles {
+    justify-content: flex-start;
+  }
+}
+.throughput-panel {
+  height: 94px;
+  bottom: 2%;
+}
+.throughput-panel svg {
+  height: 46px;
+}
+.truth-panel {
+  bottom: 3%;
+}
+.readiness-panel > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 28% 26px;
+  align-items: center;
+}
+.readiness-panel i {
+  width: 100%;
+}
+.readiness-value {
+  color: #fff;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Opaque, extruded stage cards replace the removed upper workflow illustration. */
+.hero-scene .circuit-stage {
+  perspective: 1100px;
+}
+.hero-scene .circuit-tiles {
+  transform-style: preserve-3d;
+  gap: 26px;
+}
+.hero-scene .circuit-stage .circuit-tile {
+  --card-edge: #9b66dc;
+  background: #1a1930;
+  opacity: 1;
+  border: 1px solid #a48ac6;
+  border-radius: 12px;
+  transform: perspective(850px) rotateX(16deg) rotateY(-7deg) rotateZ(2deg);
+  box-shadow:
+    inset 0 2px 2px #e2c3ff55,
+    inset -2px -2px 5px #02040c,
+    0 3px 0 #392850,
+    0 6px 0 #4c3269,
+    0 8px 0 var(--card-edge),
+    0 11px 0 #20142f,
+    0 18px 20px #0009,
+    0 9px 24px #954cea22;
+}
+.hero-scene .circuit-stage .circuit-tile:nth-child(even) {
+  transform: perspective(850px) rotateX(16deg) rotateY(-7deg) rotateZ(-2deg);
+}
+.hero-scene .circuit-stage .circuit-tile:last-child {
+  --card-edge: #43c8d8;
+  border-color: #65c7d4;
+}
+.hero-scene .circuit-stage .circuit-tile[aria-pressed="true"] {
+  border-color: #b2eccb;
+}
+.hero-scene .circuit-stage .circuit-tile img {
+  filter: drop-shadow(2px 5px 2px #0009);
+}
+@media (max-width: 900px) {
+  .hero-scene .circuit-tiles {
+    padding: 12px 6px 30px;
+  }
+  .hero-scene .circuit-stage .circuit-tile,
+  .hero-scene .circuit-stage .circuit-tile:nth-child(even) {
+    transform: perspective(850px) rotateX(12deg);
+  }
+}
+/* Compact journey cards with GSAP-owned hover offsets. */
+.hero-scene .circuit-stage {
+  inset-inline: 8%;
+  width: 84%;
+  height: 14%;
+}
+.hero-scene .circuit-tiles {
+  gap: 24px;
+}
+.hero-scene .circuit-stage .circuit-tile {
+  transform: perspective(850px) translateY(var(--card-lift, 0px))
+    rotateX(var(--card-tilt, 16deg)) rotateY(-7deg) rotateZ(2deg);
+  padding: 10px 28px 10px 12px;
+}
+.hero-scene .circuit-stage .circuit-tile:nth-child(even) {
+  transform: perspective(850px) translateY(var(--card-lift, 0px))
+    rotateX(var(--card-tilt, 16deg)) rotateY(-7deg) rotateZ(-2deg);
+}
+.hero-scene .circuit-stage .circuit-tile img {
+  height: 44px;
+}
+.hero-scene .circuit-tile strong {
+  font-size: 13px;
+}
+.hero-scene .circuit-tile small {
+  font-size: 9px;
+}
+@media (max-width: 900px) {
+  .hero-scene .circuit-stage {
+    inset: auto;
+    width: 100%;
+    height: auto;
+  }
+  .hero-scene .circuit-stage .circuit-tile,
+  .hero-scene .circuit-stage .circuit-tile:nth-child(even) {
+    flex-basis: 185px;
+    height: 76px;
+    transform: perspective(850px) translateY(var(--card-lift, 0px))
+      rotateX(var(--card-tilt, 12deg));
+  }
+  .hero-scene .circuit-stage .circuit-tile img {
+    width: 36px;
+    height: 40px;
+  }
+}
+.hero-scene .circuit-tile {
+  --card-lift: 0px;
+  --card-tilt: 16deg;
+}
+@media (max-width: 900px) {
+  .hero-scene .circuit-tile {
+    --card-tilt: 12deg;
+  }
+}
+
+/* Screenshot-matched desktop proportions, 1495 × 773 reference. */
+@media (min-width: 901px) {
+  .hero-scene {
+    aspect-ratio: 1495 / 773;
+    min-height: 0;
+  }
+  .hero-scene .circuit-copy {
+    left: 11.5%;
+    top: 20.8%;
+    width: 44%;
+  }
+  .hero-scene .circuit-copy h1 {
+    font-size: 4.7vw;
+    line-height: 0.98;
+  }
+  .hero-scene .circuit-eyebrow {
+    margin-bottom: 17px;
+    font-size: 0.8vw;
+  }
+  .hero-scene .circuit-description {
+    margin-top: 22px;
+    width: 80%;
+    font-size: 1.2vw;
+  }
+  .hero-scene .circuit-actions {
+    margin-top: 24px;
+    gap: 18px;
+  }
+  .hero-scene .circuit-actions a {
+    min-height: 56px;
+    padding-inline: 22px;
+    font-size: 1vw;
+  }
+  .hero-facts {
+    margin-top: 18px;
+    gap: 26px;
+  }
+  .hero-facts p {
+    padding-right: 26px;
+  }
+  .hero-facts strong {
+    font-size: 21px;
+  }
+  .hero-facts span {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  .hero-horizon {
+    top: 72%;
+  }
+  .hero-scene .circuit-stage {
+    left: 3.5%;
+    right: 0;
+    bottom: 0;
+    width: 96.5%;
+    height: 24%;
+  }
+  .hero-scene .circuit-tiles {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 28px;
+    padding: 18px 8px 28px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+  .hero-scene .circuit-tiles::-webkit-scrollbar {
+    display: none;
+  }
+  .hero-scene .circuit-stage .circuit-tile {
+    flex: 0 0 20vw;
+    height: 8.6vw;
+    padding: 16px 36px 16px 20px;
+    scroll-snap-align: start;
+  }
+  .hero-scene .circuit-stage .circuit-tile img {
+    width: 28%;
+    height: 64px;
+  }
+  .hero-scene .circuit-stage .circuit-tile span {
+    font-size: 11px;
+  }
+  .hero-scene .circuit-tile strong {
+    font-size: 16px;
+    margin-block: 5px;
+  }
+  .hero-scene .circuit-tile small {
+    font-size: 12px;
+  }
+  .hero-scene .circuit-tile i {
+    width: 27px;
+    height: 27px;
+    line-height: 25px;
+    right: 12px;
+  }
+}
+@media (min-width: 901px) {
+  .hero-scene .circuit-copy {
+    top: 19.6%;
+  }
+  .hero-scene .circuit-description {
+    margin-top: 17px;
+  }
+  .hero-atmosphere > path:nth-child(2),
+  .hero-atmosphere > path:nth-child(5) {
+    transform: translateX(175px);
+  }
+  .hero-atmosphere > path:nth-child(1),
+  .hero-atmosphere > path:nth-child(4) {
+    transform: scaleX(1.15);
+    transform-origin: left top;
+  }
+}
+/* Keep every stage visible in the desktop viewport. */
+@media (min-width: 901px) {
+  .hero-scene .circuit-stage {
+    left: 3.5%;
+    right: 3.5%;
+    width: 93%;
+  }
+  .hero-scene .circuit-tiles {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: clamp(12px, 1.6vw, 26px);
+    overflow: visible;
+  }
+  .hero-scene .circuit-stage .circuit-tile {
+    width: 100%;
+    min-width: 0;
+    height: clamp(100px, 8.6vw, 140px);
+    padding: 12px 30px 12px 12px;
+  }
+  .hero-scene .circuit-stage .circuit-tile img {
+    width: 25%;
+    height: 54px;
+  }
+  .hero-scene .circuit-tile strong {
+    font-size: clamp(12px, 1.05vw, 16px);
+  }
+  .hero-scene .circuit-tile small {
+    font-size: clamp(10px, 0.78vw, 12px);
+  }
+  .hero-scene .circuit-tile i {
+    right: 6px;
+    width: 22px;
+    height: 22px;
+    line-height: 20px;
+  }
+}
+
+/* Consistent local perspective keeps the visible gaps equal across the row. */
+@media (min-width: 901px) {
+  .hero-scene .circuit-stage {
+    perspective: none;
+  }
+  .hero-scene .circuit-stage .circuit-tile,
+  .hero-scene .circuit-stage .circuit-tile:nth-child(even) {
+    transform: perspective(850px) translateY(var(--card-lift, 0px))
+      rotateX(var(--card-tilt, 16deg));
+  }
+}
+.hero-scene .circuit-stage .circuit-tile {
+  transition:
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+.hero-scene .circuit-stage .circuit-tile:is(:hover, :focus-visible) {
+  --card-edge: #a8f0bf;
+  border-color: #c2ffd5;
+  box-shadow:
+    inset 0 2px 3px #c2ffd566,
+    inset -2px -2px 5px #02040c,
+    0 3px 0 #294735,
+    0 6px 0 #3f7252,
+    0 8px 0 var(--card-edge),
+    0 11px 0 #162d20,
+    0 18px 20px #0009,
+    0 0 20px #a8f0bf77,
+    0 8px 34px #a8f0bf44;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-scene .circuit-stage .circuit-tile {
+    transition: none;
+  }
+}

@@ -9,9 +9,10 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "import:site": "tsx scripts/import-site.ts",
+    "design:build": "tsx scripts/build-combined.ts",
     "test:e2e": "playwright test",
-    "prebuild": "node scripts/build-runtime.mjs",
-    "predev": "node scripts/build-runtime.mjs",
+    "prebuild": "node scripts/build-runtime.mjs && npm run design:build",
+    "predev": "node scripts/build-runtime.mjs && npm run design:build",
     "format": "prettier --write src scripts tests *.ts *.json *.md",
     "format:check": "prettier --check src scripts tests *.ts *.json *.md"
   },

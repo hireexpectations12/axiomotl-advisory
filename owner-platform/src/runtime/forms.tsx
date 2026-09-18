@@ -1,5 +1,7 @@
 import { createRoot } from "react-dom/client";
 import FormRunner from "../components/FormRunner";
+import { initialiseHero } from "./hero";
+import { initialisePageMotion } from "./page-motion";
 import type { FormDefinition, SiteSettings } from "../lib/types";
 
 const configElement = document.getElementById("axiomotl-config");
@@ -67,22 +69,28 @@ if (config) {
   function updateMotion() {
     document.documentElement.dataset.motion = motion ? "on" : "off";
     document
-      .querySelectorAll<HTMLButtonElement>("#site-motion")
+      .querySelectorAll<HTMLButtonElement>("#site-motion, [data-motion-toggle]")
       .forEach((button) => {
         button.textContent = motion ? "Motion on" : "Motion off";
         button.setAttribute("aria-pressed", String(motion));
       });
   }
-  document.getElementById("site-motion")?.addEventListener("click", () => {
-    motion = !motion;
-    updateMotion();
-  });
+  document
+    .querySelectorAll("#site-motion, [data-motion-toggle]")
+    .forEach((button) =>
+      button.addEventListener("click", () => {
+        motion = !motion && !reduced.matches;
+        updateMotion();
+      }),
+    );
   reduced.addEventListener("change", () => {
     motion = config.settings.motion && !reduced.matches;
     updateMotion();
   });
   updateMotion();
 }
+initialiseHero();
+initialisePageMotion();
 
 const tabs = [...document.querySelectorAll<HTMLElement>("[data-showcase]")];
 function selectTab(index: number, focus = false) {

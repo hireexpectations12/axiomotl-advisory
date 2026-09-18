@@ -3,6 +3,7 @@ import { createServerClient } from "@supabase/ssr";
 import { createClient } from "@supabase/supabase-js";
 import { cookies } from "next/headers";
 import { HttpError, deploymentOrigin } from "./security";
+import { roleForSite } from "../permissions";
 
 export function config() {
   const url = process.env.SUPABASE_URL;
@@ -65,5 +66,11 @@ export async function requireOwner() {
     throw new HttpError(503, "Could not verify site access. Try again.");
   if (!membership)
     throw new HttpError(403, "This account is not an owner of this site.");
-  return { client, user, siteId, service: serviceClient() };
+  return {
+    client,
+    user,
+    siteId,
+    service: serviceClient(),
+    role: roleForSite(user.app_metadata, siteId),
+  };
 }
