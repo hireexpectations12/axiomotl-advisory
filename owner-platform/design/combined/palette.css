@@ -1,0 +1,227 @@
+/* Axiomotl supplied brand palette — public website colour roles. */
+:root {
+  --brand-purple: #481e72;
+  --brand-plum: #7a2c82;
+  --brand-lilac: #b794d6;
+  --brand-lavender: #e7d6f2;
+  --brand-teal: #43aa8c;
+  --brand-blue: #608599;
+  --brand-charcoal: #333333;
+  --brand-paper: #f7f7fa;
+  --brand-coral: #e58f80;
+  --brand-gold: #d6b35a;
+  --brand-night: #21132f;
+  --brand-teal-ink: #276653;
+  --ink: var(--brand-charcoal);
+  --deep: var(--brand-purple);
+  --purple: var(--brand-purple);
+  --teal: var(--brand-teal-ink);
+  --paper: var(--brand-paper);
+  --navy-accent: var(--brand-purple);
+  --editorial-ink: var(--brand-charcoal);
+  --editorial-muted: #56515c;
+  --editorial-paper: var(--brand-paper);
+  --editorial-green: var(--brand-teal-ink);
+  --editorial-line: #c8b8d3;
+  --editorial-purple: var(--brand-purple);
+}
+body {
+  background: var(--brand-paper);
+  color: var(--brand-charcoal);
+}
+::selection {
+  background: var(--brand-lavender);
+  color: var(--brand-purple);
+}
+.site-header,
+.hero.circuit-hero,
+.hero-scene {
+  background: var(--brand-night);
+}
+.site-header .desktop-nav a,
+.hero-scene .circuit-copy h1 {
+  color: var(--brand-paper);
+}
+.hero-scene .circuit-copy h1 .heading-last-word,
+.hero-scene .circuit-copy h1 em {
+  color: var(--brand-lilac);
+  -webkit-text-fill-color: var(--brand-lilac);
+  background: none;
+}
+.hero-scene .circuit-description,
+.hero-scene .circuit-eyebrow {
+  color: var(--brand-lavender);
+}
+.site-header .nav-contact,
+.hero-scene .circuit-primary {
+  background: var(--brand-lavender);
+  color: var(--brand-purple);
+  border-color: var(--brand-lilac);
+}
+.site-header .nav-contact:hover,
+.hero-scene .circuit-primary:hover {
+  background: var(--brand-lilac);
+}
+.hero-scene .circuit-secondary {
+  background: transparent;
+  color: var(--brand-paper);
+  border-color: var(--brand-lilac);
+}
+.hero-glow-left {
+  background: radial-gradient(ellipse, #7a2c8255, transparent 70%);
+}
+.hero-glow-right {
+  background: radial-gradient(ellipse, #43aa8c33, transparent 70%);
+}
+.hero-atmosphere .arc-base {
+  stroke: var(--brand-lilac);
+}
+.hero-atmosphere [data-arc] {
+  stroke: var(--brand-lavender);
+}
+.hero-atmosphere [data-arc]:nth-of-type(5) {
+  stroke: var(--brand-teal);
+}
+.reference-signals {
+  stroke: var(--brand-lilac);
+}
+.hero-scene .circuit-stage .circuit-tile {
+  --card-edge: var(--brand-plum);
+  background: linear-gradient(145deg, #481e72, #2e1e3d 65%, #21132f);
+  border-color: var(--brand-lilac);
+}
+.hero-scene .circuit-stage .circuit-tile:last-child {
+  --card-edge: var(--brand-teal);
+  border-color: var(--brand-teal);
+}
+.hero-scene .circuit-tile strong {
+  color: var(--brand-paper);
+}
+.hero-scene .circuit-tile small,
+.hero-scene .circuit-tile span {
+  color: var(--brand-lavender);
+}
+.hero-scene .circuit-stage .circuit-tile:is(:hover, :focus-visible) {
+  --card-edge: #a4ddc9;
+  border-color: #a4ddc9;
+  box-shadow:
+    inset 0 2px 3px #a4ddc966,
+    inset -2px -2px 5px #21132f,
+    0 3px 0 #276653,
+    0 6px 0 #358870,
+    0 8px 0 #a4ddc9,
+    0 11px 0 #21132f,
+    0 18px 20px #21132f99,
+    0 0 20px #43aa8c88,
+    0 8px 34px #a4ddc944;
+}
+.section,
+.services,
+.analysis-examples,
+.finder-section,
+.industry,
+.site-footer {
+  background: var(--brand-paper);
+}
+.section h2,
+.finder-copy h2,
+.brief-copy h2,
+.industry h2,
+#contact h2 {
+  color: var(--brand-purple);
+}
+h2 .heading-last-word,
+h3 .heading-last-word {
+  color: var(--brand-plum);
+}
+.finder-choices > a:hover,
+.service-card:hover {
+  background: var(--brand-lavender);
+}
+.service-icon,
+.method-glyph {
+  background: var(--brand-lavender);
+  color: var(--brand-purple);
+}
+.engagement-number {
+  color: var(--brand-purple);
+  border-color: var(--brand-lilac);
+}
+.method-steps li:nth-child(2) {
+  border-top: 3px solid var(--brand-gold);
+  padding-top: 16px;
+}
+.method-steps li:first-child {
+  border-top: 3px solid var(--brand-coral);
+  padding-top: 16px;
+}
+.method-steps li:last-child {
+  border-top: 3px solid var(--brand-teal);
+  padding-top: 16px;
+}
+.philosophy,
+.brief-section {
+  background: var(--brand-lavender);
+  color: var(--brand-charcoal);
+}
+.philosophy h2,
+.philosophy p {
+  color: var(--brand-purple);
+}
+.analysis-card,
+.reading-details {
+  border-color: var(--brand-blue);
+}
+#contact {
+  background: var(--brand-lavender);
+  color: var(--brand-charcoal);
+}
+#contact p,
+#contact .contact-form-note a {
+  color: var(--brand-charcoal);
+}
+#contact .eyebrow {
+  color: var(--brand-plum);
+}
+.contact-fields input,
+.contact-fields textarea {
+  background: var(--brand-paper);
+  color: var(--brand-charcoal);
+  border-color: var(--brand-blue);
+}
+.button-primary,
+#contact .contact-form-shell .button,
+.form-runner .button {
+  background: var(--brand-purple);
+  color: var(--brand-paper);
+  border-color: var(--brand-purple);
+}
+#contact .contact-form-shell .button:disabled {
+  background: #56515c;
+  color: var(--brand-paper);
+}
+.form-runner .button.secondary {
+  background: var(--brand-paper);
+  color: var(--brand-purple);
+}
+.form-runner textarea,
+.axiomotl-journey {
+  background: var(--brand-paper);
+  color: var(--brand-charcoal);
+}
+.demo-question .demo-choices a,
+.demo-question .demo-choices a:hover,
+.demo-question .demo-choices a .keycap {
+  border-color: var(--brand-plum);
+}
+.mobile-menu {
+  background: var(--brand-night);
+  color: var(--brand-paper);
+}
+:is(a, button, input, textarea, summary):focus-visible {
+  outline-color: var(--brand-plum);
+}
+.site-header :focus-visible,
+.hero-scene :focus-visible {
+  outline-color: var(--brand-lavender);
+}

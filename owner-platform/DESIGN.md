@@ -54,3 +54,9 @@ Copy names handovers, decision ownership, migration routes and go-live readiness
 
 The final layout layer is design/combined/layout.css, appended after contact.css by the combined build. Shared page gutters, section spacing and column gaps align the hero and page content. Working-together steps use shared rows; diagram panels now have equal widths and aligned previews, superseding the earlier staggered layout. Navigation collapses at 1100px; workflow cards remain inside the viewport at every breakpoint. GSAP hover changes brightness only, preserving card geometry, and resets when motion is off. Existing branding, green glow and purple heading accents remain.
 
+
+## Supplied brand palette (19 September 2026)
+
+Public colour roles are centralized in `design/combined/palette.css`, loaded after existing layout styles. Deep purple #481E72 and plum #7A2C82 identify headings and actions; lilac #B794D6 and pale lavender #E7D6F2 support dark hero text and light panels. Teal #43AA8C supplies interaction accents, muted blue #608599 supplies control borders, charcoal #333333 supplies body text, and off-white #F7F7FA supplies page surfaces. Coral #E58F80 and gold #D6B35A are decorative accents on engagement steps. Dark purple #21132F and dark teal #276653 are derived shades for readable surfaces and small text. The workflow hover uses a pale teal tint to retain the requested light-green response.
+
+Measured text pairs range from 4.82:1 (deep purple on lilac) to 11.52:1 (deep purple on off-white). Coral and gold are not used for small text. Supplied diagram and icon image colours remain original. The palette publication script appends only palette styles and updates colour settings, preserving existing page content, form mappings and the supplied logo.

@@ -178,8 +178,8 @@ const document: SiteDocument = validateDocument({
   settings: {
     ...config.settings,
     font: "Lato",
-    background: "#ffffff",
-    foreground: "#2f2840",
+    background: "#f7f7fa",
+    foreground: "#333333",
     accent: "#481e72",
     customCss: "",
     logo: "/site-assets/combined/axiomotl-logo-master.png",
@@ -196,7 +196,8 @@ const document: SiteDocument = validateDocument({
       socialImage: "/site-assets/combined/advisory-workshop.webp",
       noIndex: false,
       html: $("body").html(),
-      css: `${css}\n${await read("combined.css")}\n${await read("hero.css")}\n${await read("reference-hero.css")}\n${await read("editorial.css")}\n${await read("workflow-hero.css")}\n${await read("contact.css")}\n${await read("layout.css")}`,
+      css: `${css}\n${await read("combined.css")}\n${await read("hero.css")}\n${await read("reference-hero.css")}\n${await read("editorial.css")}\n${await read("workflow-hero.css")}\n${await read("contact.css")}\n${await read("layout.css")}
+${await read("palette.css")}`,
       project: null,
     },
   ],
