@@ -247,7 +247,7 @@ test("five icon stages support keyboard selection and route to the right service
   const hero = page.locator("[data-interactive-hero]");
   await expect(page.locator("header .brand img")).toHaveAttribute(
     "src",
-    "/site-assets/combined/axiomotl-axolotl.png",
+    "/site-assets/combined/axiomotl-logo-master.png",
   );
   const names = ["Analyse", "Design", "Decide", "Transition", "Sustain"];
   const services = [
@@ -460,3 +460,4 @@ test("GSAP hover keeps card geometry stable across breakpoints and motion off", 
   expect(Math.max(...heights) - Math.min(...heights)).toBeLessThan(1);
   await expect(card).toHaveCSS("--card-tilt", "12deg");
 });
+
