@@ -110,7 +110,7 @@ $(".service-icon").each((index, node) => {
 });
 $(".brand").each((_, node) => {
   $(node).html(
-    '<img data-site-logo src="/site-assets/combined/axiomotl-logo-master.png" alt="Axiomotl Advisory" width="1254" height="1254">',
+    '<img data-site-logo src="/site-assets/combined/axiomotl-logo-master.png" alt="Axiomotl Advisory" width="500" height="500">',
   );
 });
 $(".footer-bottom").append(
@@ -208,3 +208,4 @@ await writeFile(
 console.log(
   "Built and validated combined site document; existing publication unchanged.",
 );
+

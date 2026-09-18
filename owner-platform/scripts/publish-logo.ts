@@ -23,7 +23,7 @@ for(const page of next.pages) {
  const logos = $("img[data-site-logo], .brand img");
  if(!logos.length) continue;
  if(page.project) throw Error("Page has editor structure; reconcile first");
- logos.attr({src:url,width:"1254",height:"1254"});
+ logos.attr({src:url,width:"500",height:"500"});
  page.html = $.html();
  const start = page.css.indexOf(marker);
  page.css = `${start < 0 ? page.css : page.css.slice(0,start)}\n${styles}`;
@@ -48,3 +48,4 @@ if(published.error) throw Error("Publish failed; logo remains in draft");
 const check=await db.rpc("read_published",{p_site:site});
 if(check.error || check.data.settings.logo!==url) throw Error("Publication verification failed");
 console.log({status:"published",version:published.data.version,publishedAt:published.data.publishedAt,logo:url});
+
