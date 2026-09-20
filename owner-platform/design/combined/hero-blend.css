@@ -1,0 +1,26 @@
+/* Hero edge blend: remove side arcs and feather decorative lighting. */
+.hero-scene .hero-atmosphere path:nth-child(1),
+.hero-scene .hero-atmosphere path:nth-child(2),
+.hero-scene .hero-atmosphere path:nth-child(4),
+.hero-scene .hero-atmosphere path:nth-child(5) {
+  display: none;
+}
+.hero.circuit-hero .hero-scene {
+  background: transparent;
+}
+.hero-scene .hero-environment {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+}

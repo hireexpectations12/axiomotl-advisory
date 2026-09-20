@@ -18,11 +18,13 @@ export async function renderPreview(document: SiteDocument, page: SitePage) {
         `<script nonce="${nonce}">${script.replace(/<\/script/gi, "<\\/script")}</script>`,
     );
   }
-  const css = await readFile(join(root, "runtime", "forms.css"), "utf8");
-  html = html.replace(
-    '<link rel="stylesheet" href="/runtime/forms.css">',
-    () => `<style>${css}</style>`,
-  );
+  for (const name of ["forms", "polish"]) {
+    const css = await readFile(join(root, "runtime", `${name}.css`), "utf8");
+    html = html.replace(
+      `<link rel="stylesheet" href="/runtime/${name}.css">`,
+      () => `<style>${css}</style>`,
+    );
+  }
   const fonts = [
     ...new Set(
       html.match(/\/site-assets\/(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_.-]+\.ttf/g) ||

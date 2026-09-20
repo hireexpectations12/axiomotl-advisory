@@ -34,10 +34,12 @@ export function initialisePageMotion() {
       const fine = matchMedia("(hover: hover) and (pointer: fine)");
       document
         .querySelectorAll<HTMLElement>(
-          ".finder-choices > a, .analysis-image, .governance-visual > a",
+          ".finder-choices > a, .analysis-image, .governance-visual > a, .button, .service-card a, .text-link, .circuit-primary, .circuit-secondary, .back-top",
         )
         .forEach((control) => {
-          const cue = control.querySelector("span:last-child");
+          const cue = control.querySelector(
+            "svg, span[aria-hidden], span:last-child",
+          );
           if (!cue) return;
           const diagonal =
             control.parentElement?.classList.contains("finder-choices");
@@ -121,7 +123,50 @@ export function initialisePageMotion() {
             { signal: events.signal },
           );
         });
-      return () => events.abort();
+      const lights: HTMLElement[] = [];
+      const lineTweens = new Map<Element, MotionTween>();
+      const intersection = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const tween = lineTweens.get(entry.target);
+          if (entry.isIntersecting) tween?.play();
+          else tween?.pause();
+        });
+      });
+      document
+        .querySelectorAll<HTMLElement>("#method .method-steps li")
+        .forEach((step, index) => {
+          const light = document.createElement("span");
+          light.className = "method-line-light";
+          const rail = document.createElement("span");
+          rail.className = "method-light-rail";
+          rail.setAttribute("aria-hidden", "true");
+          rail.append(light);
+          step.append(rail);
+          lights.push(rail);
+          lineTweens.set(
+            step,
+            gsap!.fromTo(
+              light,
+              { xPercent: -100, opacity: 0 },
+              {
+                xPercent: 455,
+                opacity: 1,
+                duration: 2.8,
+                delay: index * 0.75,
+                repeat: -1,
+                repeatDelay: 1.8,
+                ease: "sine.inOut",
+                paused: true,
+              },
+            ),
+          );
+          intersection.observe(step);
+        });
+      return () => {
+        events.abort();
+        intersection.disconnect();
+        lights.forEach((light) => light.remove());
+      };
     });
   }
   const observer = new MutationObserver(refresh);

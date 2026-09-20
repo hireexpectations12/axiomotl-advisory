@@ -133,6 +133,85 @@ export function initialiseHero() {
       )!;
       const length = path.getTotalLength();
       const events = new AbortController();
+      // Match the owner-managed image, including its responsive pseudo-element box.
+      const artwork = hero.querySelector<HTMLElement>(".circuit-copy");
+      let artworkLight: HTMLElement | undefined;
+      let artworkResize: ResizeObserver | undefined;
+      let lightTween: Tween | undefined;
+      if (artwork) {
+        const image = getComputedStyle(artwork, "::after");
+        if (image.backgroundImage !== "none") {
+          const light = document.createElement("span");
+          artworkLight = light;
+          light.className = "hero-image-light";
+          light.setAttribute("aria-hidden", "true");
+          light.style.cssText =
+            "pointer-events:none;z-index:1;mix-blend-mode:screen;filter:brightness(1.8);opacity:0;";
+          const alignLight = () => {
+            const source = getComputedStyle(artwork, "::after");
+            for (const property of [
+              "position",
+              "top",
+              "right",
+              "bottom",
+              "left",
+              "width",
+              "height",
+              "margin",
+              "transform",
+              "transform-origin",
+              "border-radius",
+              "background-image",
+              "background-size",
+              "background-position",
+              "background-repeat",
+              "display",
+            ]) {
+              light.style.setProperty(
+                property,
+                source.getPropertyValue(property),
+              );
+            }
+            if (source.position === "static") {
+              light.style.position = "absolute";
+              light.style.margin = "0";
+              const bounds = artwork.getBoundingClientRect();
+              const parent = light.offsetParent?.getBoundingClientRect();
+              light.style.left = `${bounds.left - (parent?.left ?? bounds.left)}px`;
+              light.style.top = `${bounds.top - (parent?.top ?? bounds.top) + artwork.clientHeight - parseFloat(source.height)}px`;
+              light.style.right = "auto";
+              light.style.bottom = "auto";
+            }
+          };
+          artwork.append(light);
+          alignLight();
+          artworkResize = new ResizeObserver(alignLight);
+          artworkResize.observe(artwork);
+          window.addEventListener("resize", alignLight, {
+            signal: events.signal,
+          });
+          const sweep = { x: -25 };
+          lightTween = gsap.to(sweep, {
+            x: 125,
+            duration: 8,
+            repeat: -1,
+            ease: "none",
+            onUpdate: () => {
+              // Re-light the source pixels: bright rings and circuit lines catch
+              // more light than the dark background, without painting over them.
+              const mask = `radial-gradient(ellipse 13% 65% at ${sweep.x}% 50%, #000 0%, #0009 32%, transparent 100%)`;
+              light.style.maskImage = mask;
+              light.style.webkitMaskImage = mask;
+              const fade = Math.min(
+                1,
+                (sweep.x + 25) / 20,
+                (125 - sweep.x) / 20,
+              );
+              light.style.opacity = String(0.85 * Math.max(0, fade));
+            },
+          });
+        }
+      }
       signals = [
         ...hero.querySelectorAll<SVGCircleElement>("[data-signal]"),
       ].map((dot, index) => {
@@ -149,6 +228,7 @@ export function initialiseHero() {
           },
         });
       });
+      if (lightTween) signals.push(lightTween);
       hero
         .querySelectorAll<SVGPathElement>("[data-arc]")
         .forEach((arc, index) => {
@@ -302,6 +382,8 @@ export function initialiseHero() {
       syncMotion();
       return () => {
         events.abort();
+        artworkResize?.disconnect();
+        artworkLight?.remove();
         hoverStates = [];
 
         hero
