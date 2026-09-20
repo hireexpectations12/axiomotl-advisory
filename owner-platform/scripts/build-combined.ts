@@ -141,6 +141,7 @@ $("#sectors .industry-grid br").replaceWith(" ");
 $("#sectors .reading-content small").text(
   "These areas describe practitioner background and capability.",
 );
+$("#sectors").replaceWith(await read("industry.html"));
 $(".philosophy-inner > div > p").text(
   "A handover should leave the receiving team knowing what they own, what they can decide and when to ask for help.",
 );
@@ -164,7 +165,9 @@ $("h1, h2, h3, h4, h5, h6").each((_, heading) => {
   const match = text.match(/\S+\s*$/);
   if (!match || match.index === undefined) return;
   const accent = $("<span>").addClass("heading-last-word").text(match[0]);
-  last.replaceWith($("<span>").text(text.slice(0, match.index)).append(accent).contents());
+  last.replaceWith(
+    $("<span>").text(text.slice(0, match.index)).append(accent).contents(),
+  );
 });
 
 $("#contact .contact-layout").append(await read("contact.html"));
@@ -197,7 +200,7 @@ const document: SiteDocument = validateDocument({
       noIndex: false,
       html: $("body").html(),
       css: `${css}\n${await read("combined.css")}\n${await read("hero.css")}\n${await read("reference-hero.css")}\n${await read("editorial.css")}\n${await read("workflow-hero.css")}\n${await read("contact.css")}\n${await read("layout.css")}
-${await read("palette.css")}`,
+${await read("palette.css")}\n${await read("refinements.css")}\n${await read("hero-blend.css")}`,
       project: null,
     },
   ],
@@ -209,4 +212,3 @@ await writeFile(
 console.log(
   "Built and validated combined site document; existing publication unchanged.",
 );
-

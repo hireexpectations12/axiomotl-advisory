@@ -1,0 +1,51 @@
+/* Compact the handoff from the workflow to the first content section. */
+.hero.circuit-hero {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.hero.circuit-hero .hero-scene {
+  padding-bottom: 16px;
+}
+.hero.circuit-hero + section {
+  padding-top: 32px;
+}
+#method .method-steps li {
+  position: relative;
+}
+#method .method-light-rail {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  overflow: hidden;
+  pointer-events: none;
+}
+#method .method-line-light {
+  display: block;
+  width: 22%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #b794d6 35%,
+    #ffffff 65%,
+    #43aa8c 85%,
+    transparent
+  );
+  border-radius: 50%;
+}
+.contact-fields :is(input, textarea) {
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+.contact-fields :is(input, textarea):focus-visible {
+  border-color: #7a2c82;
+  box-shadow: 0 0 0 3px #b794d633;
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-fields :is(input, textarea) {
+    transition: none;
+  }
+}

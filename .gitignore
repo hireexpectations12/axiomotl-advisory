@@ -10,3 +10,4 @@
 .superpowers/
 **/.owner-access.*
 **/.auth-state.json
+/backups/

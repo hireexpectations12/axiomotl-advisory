@@ -1,0 +1,131 @@
+/* September 2026: compact services, engagement, experience and inline assessment. */
+body p {
+  text-align: justify !important;
+  text-align-last: start;
+  hyphens: auto;
+}
+#services,
+#method {
+  padding-block: 48px;
+}
+#services .service-grid {
+  margin-top: 24px;
+  gap: 0;
+}
+#services .service-card {
+  min-height: 0;
+  padding: 20px 0 !important;
+  row-gap: 8px;
+}
+#services .service-card h3 {
+  margin: 0;
+}
+#method .method-steps {
+  margin-block: 24px;
+  gap: 8px 24px !important;
+}
+#method > img {
+  margin-top: 24px;
+}
+#method .method-steps li {
+  padding-top: 12px;
+}
+#method .section-intro {
+  margin-bottom: 0;
+}
+.assessment-paper {
+  min-width: 0;
+  padding: clamp(20px, 3vw, 32px);
+  background: #fff;
+  border: 1px solid #b794d6;
+  border-radius: 12px;
+}
+.finder-choices[hidden] {
+  display: none;
+}
+.assessment-paper .finder-note {
+  margin: 20px 0 0;
+  font-size: 14px;
+}
+#sectors {
+  background: #e7d6f2;
+}
+.experience-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  gap: 64px;
+  align-items: start;
+}
+.experience-intro h2 {
+  max-width: 12ch;
+  margin-bottom: 24px;
+}
+.experience-intro p {
+  margin: 0 0 24px;
+}
+.experience-intro small {
+  display: block;
+  color: #481e72;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.experience-row {
+  padding: 24px 0;
+  border-top: 1px solid #7a2c82;
+}
+.experience-row:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+.experience-row:last-child {
+  padding-bottom: 0;
+}
+.experience-row h3 {
+  margin: 0 0 12px;
+  color: #481e72;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.experience-row p {
+  margin: 0;
+  max-width: 65ch;
+}
+.experience-row ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  padding: 0;
+  margin: 16px 0 0;
+  list-style: none;
+  color: #481e72;
+  font-size: 13px;
+  line-height: 1.5;
+}
+@media (max-width: 900px) {
+  .experience-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+  .experience-intro h2 {
+    max-width: none;
+  }
+}
+@media (max-width: 700px) {
+  #method .method-steps {
+    gap: 20px !important;
+  }
+  #method .method-steps li {
+    display: grid;
+    padding-left: 0;
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 8px 16px;
+  }
+  #services .service-card {
+    padding-block: 16px !important;
+  }
+  #services,
+  #method {
+    padding-block: 40px;
+  }
+}

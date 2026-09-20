@@ -54,32 +54,48 @@ test("combined page loads its local assets, links and disclosures", async ({
   expect(errors).toEqual([]);
 });
 
-for (const outcome of combined.forms[0].outcomes) {
-  test(`service finder routes to ${outcome.id} and restores keyboard focus`, async ({
+const journey = combined.forms.find((form) => form.id === "journey")!;
+const challenge = journey.questions.find(
+  (question) => question.id === journey.startQuestionId,
+)!;
+
+for (const outcome of journey.outcomes) {
+  test(`inline assessment routes to ${outcome.id} and resets`, async ({
     page,
   }) => {
     await page.goto("/design-preview");
-    const trigger = page.locator(
-      `.finder-choices [data-journey-answer="${outcome.id}"]`,
-    );
-    await trigger.click();
-    const dialog = page.getByRole("dialog");
-    await expect(dialog).toBeVisible();
-    await expect(dialog.getByRole("heading")).toHaveText(
-      combined.forms[0].questions.find(
+    const runner = page.getByRole("region", { name: journey.name });
+    await expect(runner.getByRole("heading")).toHaveText(challenge.title);
+    await runner
+      .getByRole("button", {
+        name: challenge.choices.find((choice) => choice.id === outcome.id)!
+          .label,
+        exact: true,
+      })
+      .click();
+    await expect(runner.getByRole("heading")).toHaveText(
+      journey.questions.find(
         (question) => question.id === `context-${outcome.id}`,
       )!.title,
     );
-    await dialog.locator(".stack > button[aria-pressed]").first().click();
-    await dialog
+    await expect(runner.getByRole("heading")).toBeFocused();
+    await runner.locator(".stack > button[aria-pressed]").first().click();
+    await runner
       .getByRole("button", { name: "A focused piece of work", exact: true })
       .click();
     await expect(
-      dialog.getByRole("heading", { name: outcome.title }),
+      runner.getByRole("heading", { name: outcome.title }),
     ).toBeVisible();
-    await page.keyboard.press("Escape");
-    await expect(dialog).not.toBeVisible();
-    await expect(trigger).toBeFocused();
+    await expect(runner.getByRole("heading")).toBeFocused();
+    await expect(page.getByRole("dialog")).not.toBeVisible();
+    await runner
+      .getByLabel("Additional context (optional)")
+      .fill("A fresh assessment");
+    await runner
+      .getByRole("button", { name: "Start again", exact: true })
+      .click();
+    await expect(runner.getByRole("heading")).toHaveText(challenge.title);
+    await expect(runner.getByRole("button", { pressed: true })).toHaveCount(0);
   });
 }
 
@@ -87,44 +103,59 @@ test("embedded preference overrides the initial service and back preserves answe
   page,
 }) => {
   await page.goto("/design-preview");
-  await page
-    .locator('.finder-choices [data-journey-answer="diagnostic"]')
-    .click();
-  const dialog = page.getByRole("dialog");
-  await dialog
+  const runner = page.getByRole("region", { name: journey.name });
+  await runner
     .getByRole("button", {
-      name: "Evidence is fragmented or hard to trust",
+      name: "Understanding what's really happening",
       exact: true,
     })
     .click();
-  await dialog.getByRole("button", { name: "Back", exact: true }).click();
-  await expect(
-    dialog.getByRole("button", {
-      name: "Evidence is fragmented or hard to trust",
-      exact: true,
-    }),
-  ).toHaveAttribute("aria-pressed", "true");
-  await dialog
-    .getByRole("button", {
-      name: "Evidence is fragmented or hard to trust",
-      exact: true,
-    })
-    .click();
-  await dialog
+  const context = runner.getByRole("button", {
+    name: "Evidence is fragmented or hard to trust",
+    exact: true,
+  });
+  await context.click();
+  await runner.getByRole("button", { name: "Back", exact: true }).click();
+  await expect(context).toHaveAttribute("aria-pressed", "true");
+  await context.click();
+  await runner
     .getByRole("button", {
       name: "Someone embedded alongside the team",
       exact: true,
     })
     .click();
   await expect(
-    dialog.getByRole("heading", { name: "Embedded Principal BA Advisory" }),
+    runner.getByRole("heading", { name: "Embedded Principal BA Advisory" }),
   ).toBeVisible();
-  await dialog
+  await runner
     .getByLabel("Additional context (optional)")
     .fill("Ownership across teams");
   await expect(
-    dialog.getByRole("link", { name: "Open email draft" }),
+    runner.getByRole("link", { name: "Open email draft" }),
   ).toHaveAttribute("href", /Ownership%20across%20teams/);
+});
+
+test("service conversation links navigate to the contact section", async ({
+  page,
+}) => {
+  await page.goto("/design-preview");
+  for (const summary of await page.locator(".service-card summary").all()) {
+    await summary.click();
+  }
+  for (const name of [
+    "Discuss a diagnostic",
+    "Discuss your requirements",
+    "Plan your transition",
+    "Explore advisory support",
+  ]) {
+    const link = page.getByRole("link", { name, exact: false }).first();
+    await expect(link).toHaveAttribute("href", "#contact");
+    await expect(link).not.toHaveAttribute("data-journey-answer");
+    await link.click();
+    await expect(page).toHaveURL(/#contact$/);
+    await expect(page.locator("#contact")).toBeInViewport();
+    await expect(page.getByRole("dialog")).not.toBeVisible();
+  }
 });
 
 test("decision brief validates, accepts answers, downloads and restarts", async ({
@@ -364,7 +395,7 @@ test("page feedback resets when motion is disabled and disclosures stay usable",
 }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/design-preview");
-  const control = page.locator(".finder-choices > a").first();
+  const control = page.locator(".finder-copy .text-link");
   const cue = control.locator("span").last();
   await control.focus();
   await expect
@@ -460,4 +491,3 @@ test("GSAP hover keeps card geometry stable across breakpoints and motion off", 
   expect(Math.max(...heights) - Math.min(...heights)).toBeLessThan(1);
   await expect(card).toHaveCSS("--card-tilt", "12deg");
 });
-

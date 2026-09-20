@@ -8,3 +8,5 @@ playwright-report
 tests
 scripts/verify-*.mjs
 *.tsbuildinfo
+public/hero-blend-preview.html
+public/refinement-preview.html

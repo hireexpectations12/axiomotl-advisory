@@ -7,40 +7,44 @@ test("published site preserves layout and the guided form returns the mapped ser
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/");
   await expect(
-    page.getByRole("heading", { name: "From insight to lasting change." }),
+    page.getByRole("heading", { name: "Turn complexity into clarity." }),
   ).toBeVisible();
-  await page.locator(".journey-trigger").first().click();
-  const dialog = page.getByRole("dialog");
-  await expect(dialog).toBeVisible();
-  await dialog
+  const assessment = page.locator('[data-axiomotl-form="journey"]');
+  await expect(assessment).toBeVisible();
+  await assessment
     .getByRole("button", {
       name: "Understanding what's really happening",
       exact: true,
     })
     .click();
-  await dialog
+  await assessment
     .getByRole("button", {
       name: "Evidence is fragmented or hard to trust",
       exact: true,
     })
     .click();
-  await dialog
+  await assessment
     .getByRole("button", {
       name: "Someone embedded alongside the team",
       exact: true,
     })
     .click();
   await expect(
-    dialog.getByRole("heading", { name: "Embedded Principal BA Advisory" }),
+    assessment.getByRole("heading", { name: "Embedded Principal BA Advisory" }),
   ).toBeVisible();
-  await dialog
+  await assessment
     .getByLabel("Additional context (optional)")
     .fill("A clearer handover");
   await expect(
-    dialog.getByRole("link", { name: "Open email draft" }),
+    assessment.getByRole("link", { name: "Open email draft" }),
   ).toHaveAttribute("href", /A%20clearer%20handover/);
-  await page.keyboard.press("Escape");
-  await expect(dialog).not.toBeVisible();
+  await assessment.getByRole("button", { name: "Start again" }).click();
+  await expect(
+    assessment.getByRole("button", {
+      name: "Understanding what's really happening",
+      exact: true,
+    }),
+  ).toBeVisible();
   expect(errors).toEqual([]);
   await page.screenshot({
     path: "test-results/public-desktop.png",
