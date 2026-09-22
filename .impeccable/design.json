@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-13T23:28:57.3692128Z",
+  "title": "Design System: Axiomotl",
+  "extensions": {
+    "motion": [
+      {
+        "name": "question-transition",
+        "value": "0.45s expo.out; 22px vertical travel",
+        "purpose": "Move between question states with GSAP."
+      },
+      {
+        "name": "button-hover",
+        "value": "0.2s; translateY(-2px)",
+        "purpose": "Light feedback on primary actions."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "OS preference or explicit motion off",
+        "purpose": "Settle animation and keep the journey functional."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-desktop",
+        "value": "1050px"
+      },
+      {
+        "name": "stacked",
+        "value": "760px"
+      },
+      {
+        "name": "narrow",
+        "value": "440px"
+      }
+    ],
+    "focus": {
+      "visible": "3px solid currentColor; outline-offset: 5px",
+      "dialog": "Native modal behavior, Escape and opener-focus restoration. Focus may cross browser chrome before returning inside; no manual strict focus trap is promised.",
+      "choices": "A–D, arrows, Home, End and Enter; explicit selection and Continue."
+    }
+  },
+  "components": [
+    {
+      "name": "Apricot action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary action on plum or paper surfaces.",
+      "html": "<button class=\"ds-button\" type=\"button\">Start a conversation <span aria-hidden=\"true\">→</span></button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:center;gap:22px;min-height:54px;padding:15px 23px;border:1px solid transparent;border-radius:10px;background:var(--apricot,#F5BE9C);color:var(--plum,#2D2532);font:600 13px/1.4 Manrope,sans-serif;cursor:pointer;transition:background-color .2s,transform .2s}.ds-button:hover{background:var(--peach,#F8E1D2);transform:translateY(-2px)}.ds-button:focus-visible{outline:3px solid currentColor;outline-offset:5px}.ds-button:disabled{opacity:.42;cursor:default}@media(prefers-reduced-motion:reduce){.ds-button{transition:none}.ds-button:hover{transform:none}}"
+    },
+    {
+      "name": "Selected answer",
+      "kind": "custom",
+      "description": "Selected radio choice with a keycap and visible check.",
+      "html": "<div role=\"radiogroup\" aria-label=\"Example challenge\"><button class=\"ds-answer\" type=\"button\" role=\"radio\" aria-checked=\"true\"><span class=\"ds-keycap\" aria-hidden=\"true\">A</span>Clarify a complex initiative<svg class=\"ds-check\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"m5 12 4 4 10-10\"/></svg></button></div>",
+      "css": ".ds-answer{display:flex;align-items:center;gap:12px;min-height:52px;width:100%;text-align:left;padding:10px 15px;border:2px solid var(--plum,#2D2532);border-radius:7px;background:#e3d6e9;color:var(--plum,#2D2532);font:400 16px/1.45 Manrope,sans-serif;cursor:pointer;transition:background-color .16s}.ds-answer:hover{background:#e8ddec}.ds-answer:focus-visible{outline:3px solid currentColor;outline-offset:5px}.ds-keycap{display:inline-grid;place-items:center;flex-shrink:0;width:25px;height:26px;border:1px solid currentColor;border-radius:3px;background:var(--plum,#2D2532);color:var(--paper,#FAF8F5);font-size:11px;font-weight:600}.ds-check{width:20px;height:20px;margin-left:auto;fill:none;stroke:currentColor;stroke-width:1.6}@media(prefers-reduced-motion:reduce){.ds-answer{transition:none}}"
+    },
+    {
+      "name": "Optional context",
+      "kind": "input",
+      "refersTo": "context-field",
+      "description": "Quiet multiline input for context the visitor may choose to include.",
+      "html": "<label class=\"ds-context\">Additional context <span>optional</span><textarea class=\"ds-field\" placeholder=\"Anything else you would like to discuss?\"></textarea></label>",
+      "css": ".ds-context{display:block;color:var(--plum,#2D2532);font:400 13px/1.65 Manrope,sans-serif}.ds-context span{margin-left:5px;color:var(--muted,#695E6D);font-size:11px}.ds-field{display:block;box-sizing:border-box;width:100%;min-height:85px;max-height:300px;resize:vertical;margin-top:10px;padding:13px;border:1px solid #9b8ba2;border-radius:7px;background:transparent;color:var(--plum,#2D2532);caret-color:var(--plum,#2D2532);font:400 13px/1.6 Manrope,sans-serif}.ds-field::placeholder{color:var(--muted,#695E6D);opacity:1}.ds-field:focus-visible{outline:3px solid currentColor;outline-offset:5px}@media(max-width:440px){.ds-field{font-size:16px}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The considered conversation",
+    "overview": "Warm editorial typography and broad, quiet surfaces give visitors room to understand the advisory offer. The first question connects the website to a focused conversation, with restrained controls and a clear pace.\n\nThis world applies to `typeform-mockup/` and `axiomotl-typeform-mockup.html`. Previous alternatives remain separate; their visual decisions do not redefine this system.",
+    "keyCharacteristics": [
+      "Editorial serif headlines with practical sans-serif controls.",
+      "Deep plum, warm paper and soft apricot, peach and lavender surfaces.",
+      "One question at a time, explicit actions and reversible choices."
+    ],
+    "rules": [
+      {
+        "name": "The Reading Role Rule",
+        "body": "Use the serif for editorial statements and the sans-serif for questions, choices and actions.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "**Do** preserve the serif editorial voice and sans-serif question hierarchy.",
+      "**Do** retain explicit selection, Continue, reversible answers and visible keyboard focus.",
+      "**Do** keep reduced motion fully functional and service information available outside the journey.",
+      "**Do** rebuild the portable export with `typeform-mockup/build.py`, which embeds runtime CSS, assets and scripts; source and export must share the same primitives."
+    ],
+    "donts": [
+      "**Don't** add shadows, decorative parallax or timed carousels to this visual world.",
+      "**Don't** describe recommendations as assessments or promises, or describe an email draft as a sent message.",
+      "**Don't** treat prior alternatives as the token authority for these two current surfaces."
+    ]
+  }
+}

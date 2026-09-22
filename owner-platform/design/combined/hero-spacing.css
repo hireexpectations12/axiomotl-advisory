@@ -1,0 +1,22 @@
+/* Tighten the transition from workflow cards to the next section. */
+.hero.circuit-hero .hero-scene {
+  aspect-ratio: auto !important;
+  min-height: 0 !important;
+  padding-bottom: 12px !important;
+}
+.hero.circuit-hero .hero-scene .circuit-stage {
+  min-height: 0 !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+.hero.circuit-hero .hero-scene .circuit-tiles {
+  padding-bottom: 8px !important;
+}
+main > .hero.circuit-hero + .finder-section {
+  padding-top: 32px !important;
+}
+@media (max-width: 700px) {
+  main > .hero.circuit-hero + .finder-section {
+    padding-top: 24px !important;
+  }
+}

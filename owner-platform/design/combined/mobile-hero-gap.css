@@ -1,0 +1,10 @@
+/* Mobile header-to-hero content gap: 50px total. */
+@media (max-width: 1099px) {
+  main > .hero.circuit-hero {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+  main > .hero.circuit-hero .hero-scene {
+    padding-top: 50px !important;
+  }
+}

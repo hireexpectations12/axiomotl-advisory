@@ -551,7 +551,7 @@ export function renderPage(document: SiteDocument, page: SitePage): string {
       .map((link) => `<a href="${escape(link.url)}">${escape(link.label)}</a>`)
       .join(" ");
   if (s.navigation)
-    markup(".desktop-nav, #mobile-nav").html(linksHtml(s.navigation));
+    markup(".desktop-nav, #mobile-nav, .ax-mobile-nav").html(linksHtml(s.navigation));
   if (s.footer) {
     markup("[data-site-footer]").remove();
     const footer = `<div data-site-footer><p>${escape(s.footer.text)}</p><nav aria-label="Footer links">${linksHtml(s.footer.links)}</nav></div>`;
@@ -622,7 +622,7 @@ export function renderPage(document: SiteDocument, page: SitePage): string {
   ]
     .filter(safeCss)
     .join("\n");
-  return `<!doctype html><html lang="en-AU" data-motion="${s.motion ? "on" : "off"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)}</title><meta name="description" content="${escape(description)}"><meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}">${socialImage ? `<meta property="og:image" content="${escape(socialImage)}">` : ""}${page.noIndex ? '<meta name="robots" content="noindex,nofollow">' : ""}${s.favicon ? `<link rel="icon" href="${escape(s.favicon)}">` : ""}<link rel="stylesheet" href="/runtime/forms.css"><style>${styles}</style><link rel="stylesheet" href="/runtime/polish.css"></head><body>${markup.html()}<script type="application/json" id="axiomotl-config">${data}</script><script defer src="/runtime/gsap.js"></script><script defer src="/runtime/site.js"></script><script defer src="/runtime/forms.js"></script></body></html>`;
+  return `<!doctype html><html lang="en-AU" data-motion="${s.motion ? "on" : "off"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)}</title><meta name="description" content="${escape(description)}"><meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}">${socialImage ? `<meta property="og:image" content="${escape(socialImage)}">` : ""}${page.noIndex ? '<meta name="robots" content="noindex,nofollow">' : ""}${s.favicon ? `<link rel="icon" href="${escape(s.favicon)}">` : ""}<link rel="stylesheet" href="/runtime/forms.css"><style>${styles}</style><link rel="stylesheet" href="/runtime/polish.css"></head><body>${markup.html()}<script type="application/json" id="axiomotl-config">${data}</script><script defer src="/runtime/gsap.js"></script><script defer src="/runtime/site.js"></script><script defer src="/runtime/forms.js"></script>${markup("[data-axiomotl-scrollcraft]").length ? '<script defer src="/runtime/scrollcraft/scrollcraft.js"></script><script defer src="/runtime/advisory.js"></script>' : ""}</body></html>`;
 }
 
 export const publicHeaders = {

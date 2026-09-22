@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F2FF5A">
+  <meta name="description" content="Axiomotl Advisory helps connect evidence, decisions and everyday operations through business analysis, governance and BAU transition.">
+  <title>Axiomotl Advisory — Untangle it. Move forward.</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F2FF5A'/%3E%3Cpath d='M15 47 32 14l17 33M23 34h18' fill='none' stroke='%23171717' stroke-width='5'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="vendor/gsap.min.js"></script>
+  <script defer src="vendor/ScrollTrigger.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15m-7-7 7 7-7 7"/></symbol>
+    <symbol id="diagonal" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></symbol>
+    <symbol id="plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol>
+    <symbol id="pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="yellow-field" id="top">
+    <header class="site-header wrap">
+      <a class="brand" href="#top" aria-label="Axiomotl Advisory home"><img src="assets/axiomotl-logo.png" alt="Axiomotl Advisory" width="887" height="274"></a>
+      <nav aria-label="Main navigation"><a href="#expertise">What we do</a><a href="#method">How we work</a><a href="#about">Who we are</a></nav>
+      <a class="header-contact" href="#contact">Let's talk <svg class="icon" aria-hidden="true"><use href="#diagonal"/></svg></a>
+    </header>
+  </div>
+  <main id="main">
+    <div class="yellow-field">
+      <section class="hero wrap" aria-labelledby="hero-heading">
+        <div class="hero-copy">
+          <h1 id="hero-heading">Untangle it.<br><span>Move forward.</span></h1>
+          <p>When workflows get complex and decisions get stuck, we help connect the pieces.</p>
+          <p class="hero-service-line">Business analysis. Process governance.<br>Transition into everyday operations.</p>
+          <a class="button button-dark" href="#expertise">Find your starting point <svg class="icon" aria-hidden="true"><use href="#diagonal"/></svg></a>
+          <a class="scroll-link" href="#method"><span class="scroll-stem" aria-hidden="true"></span> A clear path, from analysis to action</a>
+        </div>
+        <div class="hero-demo" aria-label="Interactive illustration of the Axiomotl method">
+          <div class="composition" id="composition">
+            <div class="red-disc" aria-hidden="true"><svg viewBox="0 0 100 100"><path d="M25 75 75 25M25 25h50v50"/></svg></div>
+            <div class="path-line" aria-hidden="true"></div>
+            <div class="piece-scroll" data-depth="-36"><div class="piece-pointer"><button class="piece piece-blue" data-piece="0" type="button" aria-label="Explore Analyse: Evidence"><span class="piece-number">01</span><span>Evidence</span><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button></div></div>
+            <div class="piece-scroll" data-depth="-18"><div class="piece-pointer"><button class="piece piece-paper" data-piece="1" type="button" aria-label="Explore Design: Requirements"><span class="piece-number">02</span><span>Requirements</span><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button></div></div>
+            <div class="piece-scroll" data-depth="0"><div class="piece-pointer"><button class="piece piece-red" data-piece="2" type="button" aria-label="Explore Decide: Decisions"><span class="piece-number">03</span><span>Decisions</span><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button></div></div>
+            <div class="piece-scroll" data-depth="18"><div class="piece-pointer"><button class="piece piece-dark" data-piece="3" type="button" aria-label="Explore Transition: Handover"><span class="piece-number">04</span><span>Handover</span><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button></div></div>
+            <div class="piece-scroll" data-depth="36"><div class="piece-pointer"><button class="piece piece-blue" data-piece="4" type="button" aria-label="Explore Sustain: Ownership"><span class="piece-number">05</span><span>Ownership</span><svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button></div></div>
+          </div>
+          <div class="demo-controls">
+            <div class="range-heading"><label for="clarity">Bring the pieces together</label><button type="button" class="text-button" id="align-button">Align the pieces <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button></div>
+            <input id="clarity" type="range" min="0" max="100" value="0" aria-valuetext="Scattered pieces">
+            <div class="range-endpoints"><span>Complexity</span><span>Clarity</span></div>
+          </div>
+          <p class="demo-caption" id="demo-caption" aria-live="polite">Slide to connect the pieces. Select a piece to explore the method.</p>
+          <noscript><p>The five pieces represent Axiomotl's method. Read the full method below.</p></noscript>
+        </div>
+      </section>
+      <div class="hero-foot wrap"><span>An intentionally small, senior-led advisory practice.</span><button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="true"><svg class="icon" aria-hidden="true"><use href="#pause"/></svg><span>Motion on</span></button></div>
+    </div>
+
+  <div class="moving-strip" aria-hidden="true"><div class="strip-track"><span>Clear evidence</span><svg class="icon"><use href="#arrow"/></svg><span>Better decisions</span><svg class="icon"><use href="#arrow"/></svg><span>Lasting ownership</span><svg class="icon"><use href="#arrow"/></svg><span>Clear evidence</span><svg class="icon"><use href="#arrow"/></svg></div></div>
+
+  <section class="expertise wrap section-space" id="expertise" aria-labelledby="expertise-heading">
+    <div class="section-intro"><h2 id="expertise-heading">Start where<br>it gets stuck.</h2><p>A focused diagnostic. A decision that needs structure. A handover that has to hold. Choose the support your situation needs.</p></div>
+    <div class="service-list">
+      <details open><summary><span>Business &amp; Governance Diagnostic</span><svg class="icon" aria-hidden="true"><use href="#plus"/></svg></summary><div class="service-body"><p>See what is happening, why it is happening, and what needs to change first.</p><ul><li>Current-state and stakeholder analysis</li><li>Root causes and control gaps</li><li>Prioritised decisions and actions</li></ul><a href="mailto:hello@axiomotl.com.au?subject=Business%20%26%20Governance%20Diagnostic">Discuss a diagnostic <svg class="icon" aria-hidden="true"><use href="#diagonal"/></svg></a></div></details>
+      <details><summary><span>Requirements &amp; Decision Architecture</span><svg class="icon" aria-hidden="true"><use href="#plus"/></svg></summary><div class="service-body"><p>Give complex choices a clear structure, with evidence that connects intent to delivery.</p><ul><li>Requirements and traceability</li><li>Process, interface and decision maps</li><li>Procurement and evaluation artefacts</li></ul><a href="mailto:hello@axiomotl.com.au?subject=Requirements%20%26%20Decision%20Architecture">Discuss your requirements <svg class="icon" aria-hidden="true"><use href="#diagonal"/></svg></a></div></details>
+      <details><summary><span>BAU Transition &amp; Operating Model</span><svg class="icon" aria-hidden="true"><use href="#plus"/></svg></summary><div class="service-body"><p>Prepare people, processes and support arrangements for life after the project.</p><ul><li>Readiness and transition assessment</li><li>Governance, roles and support model</li><li>Handover, training and assurance</li></ul><a href="mailto:hello@axiomotl.com.au?subject=BAU%20Transition%20%26%20Operating%20Model">Plan your transition <svg class="icon" aria-hidden="true"><use href="#diagonal"/></svg></a></div></details>
+      <details><summary><span>Embedded Principal BA Advisory</span><svg class="icon" aria-hidden="true"><use href="#plus"/></svg></summary><div class="service-body"><p>Bring senior analysis into the work, alongside the people making it happen.</p><ul><li>Executive decision support</li><li>Complex stakeholder and vendor analysis</li><li>Governance healthchecks and course correction</li></ul><a href="mailto:hello@axiomotl.com.au?subject=Embedded%20Principal%20BA%20Advisory">Explore embedded support <svg class="icon" aria-hidden="true"><use href="#diagonal"/></svg></a></div></details>
+    </div>
+  </section>
+
+  <section class="method" id="method" aria-labelledby="method-heading">
+    <div class="wrap method-layout">
+      <div class="method-navigation"><h2 id="method-heading">Fewer loose ends.<br>More follow-through.</h2><p>Five connected stages. A method that keeps the next decision in view.</p>
+        <div class="stage-tabs" role="tablist" aria-label="Axiomotl method stages" aria-orientation="vertical">
+          <button type="button" id="stage-0" role="tab" aria-selected="true" aria-controls="stage-panel" data-stage="0"><span>01</span> Analyse <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button>
+          <button type="button" id="stage-1" role="tab" aria-selected="false" aria-controls="stage-panel" tabindex="-1" data-stage="1"><span>02</span> Design <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button>
+          <button type="button" id="stage-2" role="tab" aria-selected="false" aria-controls="stage-panel" tabindex="-1" data-stage="2"><span>03</span> Decide <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button>
+          <button type="button" id="stage-3" role="tab" aria-selected="false" aria-controls="stage-panel" tabindex="-1" data-stage="3"><span>04</span> Transition <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button>
+          <button type="button" id="stage-4" role="tab" aria-selected="false" aria-controls="stage-panel" tabindex="-1" data-stage="4"><span>05</span> Sustain <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button>
+        </div>
+      </div>
+      <div class="stage-panel" id="stage-panel" role="tabpanel" aria-labelledby="stage-0" tabindex="0">
+        <div class="stage-art" aria-hidden="true"><span class="art-bar bar-one"></span><span class="art-bar bar-two"></span><span class="art-bar bar-three"></span><span class="art-circle"></span><span class="stage-big-number">01</span></div>
+        <div class="stage-content"><h3 id="stage-title">Find the real problem.</h3><p id="stage-description">Connect the evidence, map the current state and understand where the work breaks down.</p><div class="stage-output"><span>What takes shape</span><strong id="stage-output">A shared view of the problem and the decisions that matter.</strong></div><div class="stage-pager"><span id="stage-count">01 / 05</span><button type="button" id="next-stage">Next stage <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></button></div></div>
+      </div>
+    </div>
+    <noscript><div class="wrap no-script-method"><p>Design: Make the work operable through requirements, process and decision maps.</p><p>Decide: Put evidence behind the choice, with clear ownership.</p><p>Transition: Prepare the handover, support model and people.</p><p>Sustain: Keep governance useful through healthchecks and course correction.</p></div></noscript>
+  </section>
+
+  <section class="about wrap section-space" id="about" aria-labelledby="about-heading">
+    <h2 id="about-heading">Small practice.<br>Whole-system thinking.</h2>
+    <div class="about-copy"><p class="large-copy">We look at the connections between people, processes, systems and decisions. Because that is often where the difficult work lives.</p><p>Axiomotl brings senior business analysis and governance experience into complex environments, with a focus on what people can actually operate.</p><div class="experience"><h3>Practitioner experience across</h3><ul><li>Enterprise research systems</li><li>Health and regulated workflows</li><li>Vendors and procurement</li><li>Operational transition</li></ul></div></div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-heading"><div class="wrap"><div class="contact-main"><h2 id="contact-heading">What needs<br>untangling?</h2><a class="contact-arrow" href="mailto:hello@axiomotl.com.au" aria-label="Email Axiomotl Advisory"><svg aria-hidden="true" viewBox="0 0 100 100"><path d="M18 82 82 18M18 18h64v64"/></svg></a></div><div class="contact-bottom"><p>Tell us where the work gets complicated.<br>Let's find a useful place to start.</p><a class="email-link" href="mailto:hello@axiomotl.com.au">hello@axiomotl.com.au</a></div></div></section>
+  </main>
+  <footer class="site-footer wrap"><a href="#top">Axiomotl Advisory <svg class="icon" aria-hidden="true"><use href="#diagonal"/></svg></a><span>Clear decisions. Operable governance.</span><span>Flat / Parallax concept</span></footer>
+</body>
+</html>

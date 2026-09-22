@@ -2,6 +2,7 @@ import { createRoot } from "react-dom/client";
 import FormRunner from "../components/FormRunner";
 import { initialiseHero } from "./hero";
 import { initialisePageMotion } from "./page-motion";
+import { initialiseClientFinal } from "./client-final";
 import type { FormDefinition, SiteSettings } from "../lib/types";
 
 const configElement = document.getElementById("axiomotl-config");
@@ -12,6 +13,7 @@ const config = configElement
     })
   : null;
 if (config) {
+  initialiseClientFinal(config.settings.email);
   document
     .querySelectorAll<HTMLElement>("[data-axiomotl-form]")
     .forEach((mount) => {

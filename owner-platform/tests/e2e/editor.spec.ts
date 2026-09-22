@@ -211,6 +211,7 @@ test("form outcome editing and actual path tester share draft data", async ({
   const { writes, exceptions } = await workspace(page);
   await page.getByRole("button", { name: "Forms", exact: true }).click();
   await page.getByRole("button", { name: "Add form", exact: true }).click();
+  await page.getByRole("button", { name: "Results", exact: true }).click();
   const outcome = page
     .locator("details.panel")
     .filter({ has: page.getByLabel("Title / recommended service") })
@@ -222,6 +223,10 @@ test("form outcome editing and actual path tester share draft data", async ({
   await outcome
     .getByLabel("Explanation")
     .fill("Your next step is a focused discovery session.");
+  await page
+    .getByRole("navigation", { name: "Form editor sections" })
+    .getByRole("button", { name: "Preview", exact: true })
+    .click();
   await page.getByRole("button", { name: "An answer", exact: true }).click();
   await expect(
     page
@@ -394,19 +399,110 @@ test("enquiry notes and status save independently from website publishing", asyn
   });
 });
 
-test("staff controls protect owners and status screen fits a phone", async ({ page }) => {
+test("staff controls protect owners and status screen fits a phone", async ({
+  page,
+}) => {
   await workspace(page);
-  await page.route("**/api/staff", route => route.fulfill({ json: { staff: [{ id: "owner", email: "owner@example.com", role: "owner" }, { id: "editor", email: "editor@example.com", role: "editor" }], currentUserId: "owner" } }));
-  await page.route("**/api/status", route => route.fulfill({ json: { checkedAt: "2026-09-19T00:00:00Z", publishedAt: "2026-09-18T00:00:00Z", version: 16, role: "owner", email: "On hold", links: [], forms: [] } }));
+  await page.route("**/api/staff", (route) =>
+    route.fulfill({
+      json: {
+        staff: [
+          { id: "owner", email: "owner@example.com", role: "owner" },
+          { id: "editor", email: "editor@example.com", role: "editor" },
+        ],
+        currentUserId: "owner",
+      },
+    }),
+  );
+  await page.route("**/api/status", (route) =>
+    route.fulfill({
+      json: {
+        checkedAt: "2026-09-19T00:00:00Z",
+        publishedAt: "2026-09-18T00:00:00Z",
+        version: 16,
+        role: "owner",
+        email: "On hold",
+        links: [],
+        forms: [],
+      },
+    }),
+  );
   await page.getByRole("button", { name: "Staff", exact: true }).click();
-  await expect(page.getByRole("combobox", { name: "Role for editor@example.com", exact: true })).toBeVisible();
-  await expect(page.getByRole("combobox", { name: "Role for owner@example.com", exact: true })).toHaveCount(0);
+  await expect(
+    page.getByRole("combobox", {
+      name: "Role for editor@example.com",
+      exact: true,
+    }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("combobox", {
+      name: "Role for owner@example.com",
+      exact: true,
+    }),
+  ).toHaveCount(0);
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.getByRole("button", { name: "Website status", exact: true }).click();
-  await expect(page.getByText("No missing internal pages or sections found.", { exact: false })).toBeVisible();
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  await page.screenshot({ path: "test-results/status-mobile.png", fullPage: true });
-  await page.getByRole("button", { name: "Site settings", exact: true }).click();
-  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  await page.screenshot({ path: "test-results/settings-mobile.png", fullPage: true });
+  await page
+    .getByRole("button", { name: "Website status", exact: true })
+    .click();
+  await expect(
+    page.getByText("No missing internal pages or sections found.", {
+      exact: false,
+    }),
+  ).toBeVisible();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({
+    path: "test-results/status-mobile.png",
+    fullPage: true,
+  });
+  await page
+    .getByRole("button", { name: "Site settings", exact: true })
+    .click();
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({
+    path: "test-results/settings-mobile.png",
+    fullPage: true,
+  });
 });
+
+for (const width of [1440, 390]) {
+  test(`forms workspace stays compact and editable at ${width}px`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width, height: 900 });
+    await workspace(page);
+    await page.getByRole("button", { name: "Forms", exact: true }).click();
+    const editor = page.locator(".forms-workspace");
+    await expect(
+      editor.getByRole("heading", { name: "Questions and answers" }),
+    ).toBeVisible();
+    await expect(
+      editor.getByRole("heading", { name: "Form settings" }),
+    ).toHaveCount(0);
+    await editor.locator("details summary").first().click();
+    await editor
+      .getByLabel("Question", { exact: true })
+      .first()
+      .fill("Updated question");
+    await editor.getByRole("button", { name: "Settings", exact: true }).click();
+    await expect(editor.getByLabel("Form name")).toBeVisible();
+    await editor
+      .getByRole("button", { name: "Questions", exact: true })
+      .click();
+    await expect(editor.locator("summary").first()).toContainText(
+      "Updated question",
+    );
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= window.innerWidth,
+      ),
+    ).toBe(true);
+  });
+}

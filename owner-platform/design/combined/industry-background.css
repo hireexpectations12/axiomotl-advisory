@@ -1,0 +1,17 @@
+/* Industry background matched to decision brief 2026-09-21. */
+#sectors {
+  background: #481e72;
+  color: #eee5f6;
+}
+#sectors h2,
+#sectors h2 .heading-last-word {
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+}
+#sectors .eyebrow,
+#sectors p,
+#sectors summary,
+#sectors small,
+#sectors .industry-grid span {
+  color: #eee5f6;
+}

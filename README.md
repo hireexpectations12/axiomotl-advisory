@@ -5,6 +5,7 @@ Website, design source and private owner platform. The application is in `owner-
 - Website: https://axiomotl-advisory.vercel.app/
 - Content workspace: https://axiomotl-advisory.vercel.app/admin
 - [Remote working guide](docs/remote-working.md)
+- [Continue on another laptop](docs/laptop-handoff.md)
 - [Owner guide](owner-platform/docs/owner-guide.md)
 - [Technical setup](owner-platform/README.md)
 

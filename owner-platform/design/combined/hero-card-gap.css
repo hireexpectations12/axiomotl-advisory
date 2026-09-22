@@ -1,0 +1,4 @@
+/* Small breathing room beneath the workflow cards. */
+main > .hero.circuit-hero .hero-scene {
+  padding-bottom: 16px !important;
+}

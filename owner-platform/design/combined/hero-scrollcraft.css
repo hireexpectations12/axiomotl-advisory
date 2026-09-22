@@ -1,0 +1,37 @@
+/* Scroll Craft hero: independent depth without extra scroll space. */
+main > .hero.circuit-hero {
+  view-timeline-name: --axiomotl-hero;
+  view-timeline-axis: block;
+}
+@supports (animation-timeline: view()) {
+  @media (min-width: 1100px) and (prefers-reduced-motion: no-preference) {
+    html[data-motion="on"] main > .hero.circuit-hero .hero-environment {
+      animation: axiomotl-hero-environment linear both !important;
+      animation-timeline: --axiomotl-hero !important;
+      animation-range: exit 0% exit 100% !important;
+    }
+    html[data-motion="on"] main > .hero.circuit-hero .circuit-copy::after {
+      animation: axiomotl-hero-art linear both !important;
+      animation-timeline: --axiomotl-hero !important;
+      animation-range: exit 0% exit 100% !important;
+      transform-origin: 50% 65%;
+    }
+    html[data-motion="on"] main > .hero.circuit-hero .reference-signals {
+      animation: axiomotl-hero-signals linear both !important;
+      animation-timeline: --axiomotl-hero !important;
+      animation-range: exit 0% exit 100% !important;
+    }
+  }
+}
+@keyframes axiomotl-hero-environment {
+  from { transform: translateY(0); }
+  to { transform: translateY(36px); }
+}
+@keyframes axiomotl-hero-art {
+  from { transform: translateY(0) scale(1); }
+  to { transform: translateY(18px) scale(1.025); }
+}
+@keyframes axiomotl-hero-signals {
+  from { transform: translateY(0); }
+  to { transform: translateY(-12px); }
+}

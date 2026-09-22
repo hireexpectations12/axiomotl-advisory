@@ -8,11 +8,11 @@ Use password recovery on the login screen if needed. If recovery mail is not con
 
 ## Edit code and design from a browser
 
-1. Sign in to GitHub with the account that owns this private repository, or an invited collaborator account.
+1. Sign in to GitHub. To push changes, use the repository owner account or an invited collaborator account with write access.
 2. Choose **Code → Codespaces → Create codespace**. Dependencies install automatically using the included dev-container configuration.
 3. In the terminal, run `npm run dev -- --hostname 0.0.0.0`.
 4. Open port **3000** in the Ports panel. Append `/design-preview` to preview the current design source.
-5. Edit `design/combined/` for page markup/styles and `src/runtime/` for interactions. After changing these source files, stop and restart the development command to regenerate the document and runtime bundle.
+5. Edit `design/advisory/` for the current design-preview markup/styles and `src/runtime/` for form interactions. Other page designs and publication overrides are under `design/`. After changing source files, stop and restart the development command to regenerate the document and runtime bundle.
 6. Run `npm test` and `npm run build` before a release.
 7. Commit and push using Source Control. Reopen the same Codespace next time, or clone the repository on another computer.
 

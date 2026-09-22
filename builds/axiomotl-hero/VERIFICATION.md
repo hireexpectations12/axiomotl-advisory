@@ -1,0 +1,2 @@
+# Verification
+Published document version 73. Live desktop screenshot inspected at opening and 260px scroll. Independent transforms measured: artwork +9.8px and scale 1.014; environment +19.6px; signals -6.5px. Headline, actions and workflow remain stable and the next section follows directly. At 390px: no horizontal overflow, animation disabled, static artwork retained. Mobile screenshot inspected. Reduced-motion handling is enforced by the media query; OS reduced-motion and a physical phone were not tested. No generated assets or additional scroll span.

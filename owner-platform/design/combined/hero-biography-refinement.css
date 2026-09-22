@@ -1,0 +1,13 @@
+/* Hero CTA alignment and justified practitioner biography. */
+main > .hero.circuit-hero .circuit-actions .circuit-secondary {
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+main > .hero.circuit-hero .circuit-actions .circuit-secondary span {
+  margin-inline: 0 !important;
+}
+main #about p {
+  text-align: justify !important;
+  text-justify: inter-word;
+  hyphens: auto;
+}

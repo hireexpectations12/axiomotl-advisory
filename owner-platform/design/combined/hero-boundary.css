@@ -1,0 +1,15 @@
+/* Compact hero boundary: remove the outer aspect-ratio spacer. */
+main > .hero.circuit-hero {
+  aspect-ratio: auto !important;
+  min-height: 0 !important;
+  height: auto !important;
+}
+main > .hero.circuit-hero .hero-scene {
+  padding-bottom: 4px !important;
+}
+main > .hero.circuit-hero .hero-scene .circuit-tiles {
+  padding-bottom: 4px !important;
+}
+main > .hero.circuit-hero + .finder-section {
+  padding-top: 16px !important;
+}

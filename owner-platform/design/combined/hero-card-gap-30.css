@@ -1,0 +1,7 @@
+/* Exact 30px workflow-card gap: 4px card track + 26px scene padding. */
+main > .hero.circuit-hero .hero-scene {
+  padding-bottom: 26px !important;
+}
+main > .hero.circuit-hero .hero-scene .circuit-tiles {
+  padding-bottom: 4px !important;
+}

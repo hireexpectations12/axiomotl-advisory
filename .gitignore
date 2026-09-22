@@ -11,3 +11,10 @@
 **/.owner-access.*
 **/.auth-state.json
 /backups/
+
+# Local exports, database snapshots, and independent tool checkouts.
+/outputs/
+/hallmark/
+/scroll-craft/
+/sites/axiomotl-demo/
+/tools/SlopMonster/

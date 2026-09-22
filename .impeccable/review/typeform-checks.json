@@ -1,0 +1,98 @@
+{
+  "initial": {
+    "active": "journey-heading",
+    "disabled": true,
+    "open": true
+  },
+  "keyboardAdvance": true,
+  "diagnostic": "Business & Governance Diagnostic",
+  "returnedFocus": "Find your starting point",
+  "architecture": "Requirements & Decision Architecture",
+  "emailDraft": {
+    "recipient": "hello@axiomotl.com.au",
+    "contextPreserved": true,
+    "serviceIncluded": true
+  },
+  "downloadFeedback": "Your summary is ready. Check your browser downloads.",
+  "restart": {
+    "context": "",
+    "disabled": true,
+    "question": "Question 1 of 3",
+    "selected": 0
+  },
+  "transition": "BAU Transition & Operating Model",
+  "embeddedPreference": {
+    "service": "Embedded Principal BA Advisory",
+    "reason": "Embedded advisory brings senior analysis into your team’s ongoing decisions, stakeholder work and governance. Your preference for support alongside the team is why this is the suggested starting point."
+  },
+  "embeddedBranch": "Embedded Principal BA Advisory",
+  "changedBranch": {
+    "disabled": true,
+    "selected": 0,
+    "title": "Where do you feel the friction?"
+  },
+  "radioEnd": "true",
+  "escapeCloses": {
+    "bodyLocked": false,
+    "open": false
+  },
+  "narrowPage": {
+    "scrollWidth": 305,
+    "width": 320
+  },
+  "narrowJourney": {
+    "scrollWidth": 290,
+    "width": 290
+  },
+  "tablet": {
+    "scrollWidth": 885,
+    "width": 900
+  },
+  "motionOff": {
+    "mode": "off",
+    "opacity": "1",
+    "transform": "matrix(1, 0, 0, 1, 0, 0)"
+  },
+  "resultScroll": {
+    "clientWidth": 360,
+    "scrollWidth": 360,
+    "top": 253
+  },
+  "console": [],
+  "contrast": [
+    {
+      "pair": "plum/paper",
+      "ratio": 13.93
+    },
+    {
+      "pair": "muted/paper",
+      "ratio": 5.79
+    },
+    {
+      "pair": "muted/lavender",
+      "ratio": 4.71
+    },
+    {
+      "pair": "plum/peach",
+      "ratio": 11.74
+    },
+    {
+      "pair": "apricot/plum",
+      "ratio": 8.95
+    }
+  ],
+  "nativeModalFocus": {
+    "forwardBoundary": "BODY after last control",
+    "forwardReentry": "journey-home",
+    "reverseBoundary": {
+      "id": "",
+      "tag": "BODY"
+    },
+    "reverseReentry": {
+      "id": "restart-journey",
+      "inside": true,
+      "tag": "BUTTON"
+    },
+    "scope": "Native browser boundary reached; subsequent Tab/Shift+Tab re-enters the dialog. No background page control was focused in these checks."
+  }
+}

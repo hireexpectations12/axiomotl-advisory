@@ -10,7 +10,15 @@ export async function renderPreview(document: SiteDocument, page: SitePage) {
   const nonce = randomBytes(24).toString("base64");
   let html = renderPage(document, page);
   const root = join(process.cwd(), "public");
-  for (const name of ["gsap", "site", "forms"]) {
+  for (const name of [
+    "gsap",
+    "site",
+    "forms",
+    "scrollcraft/scrollcraft",
+    "advisory",
+  ]) {
+    if (!html.includes(`<script defer src="/runtime/${name}.js"></script>`))
+      continue;
     const script = await readFile(join(root, "runtime", `${name}.js`), "utf8");
     html = html.replace(
       `<script defer src="/runtime/${name}.js"></script>`,

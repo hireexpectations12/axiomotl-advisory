@@ -1,0 +1,18 @@
+{
+  "syntax": "node --check spatial-mockup/app.js passed",
+  "desktop_width": 1280,
+  "mobile_width": 390,
+  "horizontal_overflow": false,
+  "stage_clicks": "all five passed",
+  "keyboard": "arrows, Home, End passed",
+  "navigation": "previous/next wraparound and anchors passed",
+  "services": "BAU disclosure mouse expand and keyboard collapse passed",
+  "motion": "off sets transform:none; enabling restores pointer rotation",
+  "interruption": "four inactive node-face transforms empty after rapid keyboard switching",
+  "console_errors": 0,
+  "fonts": "locally loaded",
+  "detector": "regex-only degraded scan; no findings",
+  "system_reduced_motion": "implemented with matchMedia; not browser-emulated",
+  "standalone_export": "fonts, logo, CSS and scripts embedded; zero external asset elements; Design interaction passed",
+  "review": "ship: seed provenance, mobile text spacing and animation interruption fixes all resolved"
+}

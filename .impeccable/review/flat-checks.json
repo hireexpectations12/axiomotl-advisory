@@ -1,0 +1,64 @@
+{
+  "aligned": "A connected path through five stages",
+  "keyboardScatter": "Scattered pieces",
+  "heroStage": "true",
+  "endTab": "true",
+  "nextWraps": "true",
+  "serviceOpened": true,
+  "motionDisabled": {
+    "disc": "none",
+    "layer": "none",
+    "setting": "off"
+  },
+  "narrow": {
+    "document": 305,
+    "width": 320
+  },
+  "parallax": {
+    "before": {
+      "disc": "matrix(1, 0, 0, 1, 0, 0)",
+      "layer": "matrix(1, 0, 0, 1, 0, 0)",
+      "scroll": 42
+    },
+    "after": {
+      "disc": "matrix(0.985317, 0.170734, -0.170734, 0.985317, 0, -36.8644)",
+      "layer": "matrix(1, 0, 0, 1, 0, -14.7458)",
+      "scroll": 402
+    }
+  },
+  "tablet": {
+    "document": 885,
+    "width": 900
+  },
+  "console": [],
+  "portable": {
+    "staticExportVerified": true,
+    "directFileBrowserTest": "Blocked by browser URL policy; not attempted through another route."
+  },
+  "contrast": [
+    {
+      "pair": "ink/yellow",
+      "ratio": 16.41
+    },
+    {
+      "pair": "blue/yellow",
+      "ratio": 5.94
+    },
+    {
+      "pair": "white/blue",
+      "ratio": 6.49
+    },
+    {
+      "pair": "ink/red",
+      "ratio": 5.19
+    },
+    {
+      "pair": "ink/paper",
+      "ratio": 16.41
+    },
+    {
+      "pair": "blue/paper",
+      "ratio": 5.94
+    }
+  ]
+}

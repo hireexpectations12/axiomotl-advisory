@@ -19,6 +19,9 @@ it("keeps sandbox previews independent of protected runtime and font requests", 
 it("embeds the combined design's nested fonts in sandbox previews", async () => {
   const document = combined as SiteDocument;
   const { html } = await renderPreview(document, document.pages[0]);
-  expect(html).not.toMatch(/\/site-assets\/combined\/lato-\d+\.ttf/);
-  expect(html.match(/data:font\/ttf;base64,/g)).toHaveLength(3);
+  expect(html).not.toMatch(/\/site-assets\/advisory\/[\w-]+\.ttf/);
+  expect(html.match(/data:font\/ttf;base64,/g)).toHaveLength(4);
+  expect(html).not.toMatch(/<script[^>]+src="\/runtime/);
+  expect(html).toContain("data-client-final");
+  expect(html).toContain("approved-reference.png");
 });

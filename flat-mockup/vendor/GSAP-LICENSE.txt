@@ -1,0 +1,1 @@
+GSAP 3.15.0. Copyright (c) 2026 GreenSock. Distributed under the GSAP standard no-charge license: https://gsap.com/standard-license. Original distribution: https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js. The original license header is retained in gsap.min.js.

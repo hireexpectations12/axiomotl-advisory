@@ -9,7 +9,7 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "import:site": "tsx scripts/import-site.ts",
-    "design:build": "tsx scripts/build-combined.ts",
+    "design:build": "tsx scripts/build-advisory.ts",
     "test:e2e": "playwright test",
     "prebuild": "node scripts/build-runtime.mjs && npm run design:build",
     "predev": "node scripts/build-runtime.mjs && npm run design:build",

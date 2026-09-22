@@ -1,0 +1,31 @@
+/* Live section backgrounds requested 2026-09-21. */
+#services,
+#method,
+#about,
+#contact {
+  background: #ffffff;
+}
+
+/* Carry white to the viewport edges without moving the existing content grid. */
+#services,
+#method,
+#about {
+  box-shadow: 0 0 0 100vmax #ffffff;
+  clip-path: inset(0 -100vmax);
+}
+
+#decision-brief {
+  background: #481e72;
+}
+
+#decision-brief .brief-copy h2,
+#decision-brief .brief-copy h2 .heading-last-word {
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+}
+
+#decision-brief .brief-copy p,
+#decision-brief .brief-privacy,
+#decision-brief .brief-privacy svg {
+  color: #eee5f6;
+}
