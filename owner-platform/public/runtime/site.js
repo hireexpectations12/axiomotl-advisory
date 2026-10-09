@@ -264,7 +264,7 @@
     root.classList.add("has-gsap-micro");
     const events = new AbortController();
     const animatedElements = document.querySelectorAll(
-      "header .button, main .button, .method-icon, .method-glyph, .connection-readout [role='tabpanel'] > *",
+      "header .button, main .button, .method-icon, .method-glyph, .approach-card-arrow, .connection-readout [role='tabpanel'] > *",
     );
     const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
     const presses = [];
@@ -320,6 +320,11 @@
     document.querySelectorAll("header .button, main .button").forEach((button) => {
       addFeedback(button, button, { y: -2 });
     });
+    document.querySelectorAll("[data-approach-tab]").forEach((card) => {
+      const arrow = card.querySelector(".approach-card-arrow");
+      if (arrow) addFeedback(card, arrow, { x: 3 });
+    });
+    listen(finePointer, "change", () => gsap.matchMediaRefresh());
     const turns = { analyse: -5, design: 6, decide: -4, transition: 0, sustain: 8 };
     document.querySelectorAll(".method-step").forEach((step) => {
       addFeedback(step, step.querySelector(".method-icon"), {
@@ -349,22 +354,23 @@
       panelTweens.get(event.detail.panelId)?.restart();
     });
 
-    const introduction = gsap.timeline({
+    const methodGlyphs = document.querySelectorAll(".method-glyph");
+    const introduction = methodGlyphs.length ? gsap.timeline({
       paused: true,
       defaults: { duration: 0.28, ease: "power2.out" },
-    }).fromTo(".method-glyph", { y: 8, scale: 0.92, autoAlpha: 0.5 }, {
+    }).fromTo(methodGlyphs, { y: 8, scale: 0.92, autoAlpha: 0.5 }, {
       y: 0, scale: 1, autoAlpha: 1, stagger: 0.045,
       immediateRender: false, clearProps: "transform,opacity,visibility",
-    });
+    }) : null;
     const methodObserver = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) return;
       if (!methodIntroduced) {
         methodIntroduced = true;
-        introduction.play();
+        introduction?.play();
       }
       methodObserver.disconnect();
     }, { threshold: 0.2 });
-    const methodTiles = document.querySelector(".method-tiles"); if (methodTiles) methodObserver.observe(methodTiles);
+    const methodTiles = document.querySelector(".method-tiles"); if (methodTiles && introduction) methodObserver.observe(methodTiles);
 
     return () => {
       events.abort();
@@ -384,4 +390,42 @@
   document.addEventListener("visibilitychange", refreshMotion);
   window.addEventListener("pagehide", () => media.revert());
   window.addEventListener("pageshow", refreshMotion);
+})();
+
+(() => {
+  "use strict";
+  document.querySelectorAll("[data-contact-form]").forEach((contact) => {
+    const button = contact.querySelector("[data-contact-submit]");
+    const status = contact.querySelector(".contact-status");
+    if (!(button instanceof HTMLButtonElement)) return;
+    const field = (name) => contact.querySelector(`[name="${name}"]`);
+    const fields = [...contact.querySelectorAll("input, textarea")];
+
+    button.disabled = false;
+    button.addEventListener("click", () => {
+      if (fields.some((input) => !input.reportValidity())) return;
+      const name = field("name")?.value.trim() || "Not provided";
+      const email = field("email")?.value.trim() || "Not provided";
+      const organisation =
+        field("organisation")?.value.trim() || "Not provided";
+      const message = field("message")?.value.trim() || "Not provided";
+      const subject = `Website enquiry from ${name}`;
+      const body = [
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Organisation: ${organisation}`,
+        "",
+        "Situation and decision ahead:",
+        message,
+      ].join("\n");
+      const mailto = `mailto:hello@axiomotl.com.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      button.dataset.mailto = mailto;
+      if (status) {
+        status.textContent =
+          "Review the draft in your email app before sending.";
+      }
+      window.location.href = mailto;
+    });
+  });
 })();

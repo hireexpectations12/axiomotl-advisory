@@ -49,3 +49,17 @@
     transition: none;
   }
 }
+
+/* One scroll controller; native scrolling remains available without JavaScript. */
+html.lenis, html.lenis body { height: auto; }
+html.has-smooth-motion, html[data-motion="off"] { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: clip; }
+.lenis [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
+[data-react-bits-heading] .split-parent { display: inline !important; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+}
+#approach-governance-diagram[data-approach-image] {
+  aspect-ratio: auto 3384 / 2600 !important;
+}

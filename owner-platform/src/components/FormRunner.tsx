@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import {
   evaluateForm,
   pruneAnswers,
@@ -13,11 +13,14 @@ export function FormRunner({
   form,
   onTrace,
   initialAnswers = {},
+  choicePresentation = "buttons",
 }: {
   form: FormDefinition;
   onTrace?: (evaluation: FormEvaluation) => void;
   initialAnswers?: Answers;
+  choicePresentation?: "buttons" | "radio";
 }) {
+  const headingId = useId();
   const [answers, setAnswers] = useState<Answers>(() => {
     try {
       return pruneAnswers(form, initialAnswers);
@@ -107,13 +110,16 @@ export function FormRunner({
       </section>
     );
   return (
-    <section className="form-runner stack" aria-label={form.name}>
+    <section
+      className={`form-runner stack${choicePresentation === "radio" ? " radio-form" : ""}`}
+      aria-label={form.name}
+    >
       {question ? (
         <>
           <p className="muted">
             Question {evaluation.path.indexOf(question.id) + 1} · {form.name}
           </p>
-          <h3 ref={heading} tabIndex={-1}>
+          <h3 id={headingId} ref={heading} tabIndex={-1}>
             {question.title}
           </h3>
           {question.help && <p>{question.help}</p>}
@@ -158,6 +164,38 @@ export function FormRunner({
                 Continue
               </button>
             </form>
+          ) : choicePresentation === "radio" ? (
+            <form
+              key={`${question.id}:${answers[question.id] ?? ""}`}
+              onSubmit={(event) => {
+                event.preventDefault();
+                const selected = new FormData(event.currentTarget).get(
+                  "choice",
+                );
+                if (typeof selected === "string") answer(selected);
+              }}
+            >
+              <fieldset className="radio-choices" aria-labelledby={headingId}>
+                {question.choices.map((choice) => (
+                  <label className="radio-choice" key={choice.id}>
+                    <input
+                      type="radio"
+                      name="choice"
+                      value={choice.id}
+                      required
+                      defaultChecked={answers[question.id] === choice.id}
+                    />
+                    <span>{choice.label}</span>
+                  </label>
+                ))}
+              </fieldset>
+              <div className="radio-actions">
+                <button className="final-button" type="submit">
+                  Continue <span aria-hidden="true">→</span>
+                </button>
+                <small>No contact details required.</small>
+              </div>
+            </form>
           ) : (
             <div className="stack">
               {question.choices.map((choice) => (
@@ -194,6 +232,13 @@ export function FormRunner({
               <li key={i}>{output}</li>
             ))}
           </ul>
+          {form.email && (
+            <p className="muted">
+              This will open your email app with your enquiry details prepared.
+              Nothing is submitted automatically. If the draft does not open,
+              email <a href={`mailto:${form.email}`}>{form.email}</a>.
+            </p>
+          )}
           {outcome.ctaUrl && safeDestination(outcome.ctaUrl) && (
             <a className="button" href={outcome.ctaUrl}>
               {outcome.ctaLabel || "Continue"}
@@ -229,35 +274,33 @@ export function FormRunner({
               Download summary
             </button>
           </div>
-          <p className="muted">
-            The email link opens a draft in your email app; nothing is sent
-            automatically.
-          </p>
         </div>
       ) : (
         <p role="status">This form could not be evaluated.</p>
       )}
-      <div className="row">
-        {evaluation.path.indexOf(question?.id ?? "") > 0 ||
-        (!question && evaluation.path.length > 0) ? (
-          <button type="button" className="button secondary" onClick={back}>
-            Back
+      {(choicePresentation !== "radio" || Object.keys(answers).length > 0) && (
+        <div className="row">
+          {evaluation.path.indexOf(question?.id ?? "") > 0 ||
+          (!question && evaluation.path.length > 0) ? (
+            <button type="button" className="button secondary" onClick={back}>
+              Back
+            </button>
+          ) : null}
+          <button
+            type="button"
+            className="button secondary"
+            onClick={() => {
+              setAnswers({});
+              setEditing(undefined);
+              setText("");
+              setContext("");
+              setError("");
+            }}
+          >
+            Start again
           </button>
-        ) : null}
-        <button
-          type="button"
-          className="button secondary"
-          onClick={() => {
-            setAnswers({});
-            setEditing(undefined);
-            setText("");
-            setContext("");
-            setError("");
-          }}
-        >
-          Start again
-        </button>
-      </div>
+        </div>
+      )}
     </section>
   );
 }

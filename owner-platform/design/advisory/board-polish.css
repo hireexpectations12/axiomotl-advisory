@@ -1,0 +1,64 @@
+/* Board presentation polish — 2026-09-30. */
+.client-site .final-header { z-index: 1100; }
+.client-site .final-header a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; }
+.client-site .direct-contact { margin-top: 16px; font-size: 16px; line-height: 1.5; }
+.client-site .direct-contact a { color: #321068; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.client-site .contact-status { font-size: 14px; line-height: 1.5; color: #321068; }
+.client-site .contact-page { padding-block: 32px 48px; }
+.client-site .contact-page .contact-section { margin: 0 auto; max-width: 1240px; padding: 48px 32px 140px; min-height: 0; }
+.client-site .contact-page h1 { font-size: clamp(34px, 4vw, 52px); line-height: 1.1; }
+.client-site .contact-page .contact-handwriting { height: 130px; width: 180px; background-size: contain; background-repeat: no-repeat; }
+.client-site .final-contact-form input, .client-site .final-contact-form textarea { font-size: 16px; min-height: 44px; }
+.client-site .final-contact-form textarea { min-height: 110px; }
+.client-site .detail-page .story-stack[data-story-enhanced="true"] .story-panel { min-height: 0; }
+.client-site .detail-page .story-panel > section { padding-block: 36px; }
+.client-site .detail-page .story-backdrop { height: 120px; padding: 32px 40px; font-size: 30px; }
+.client-site .detail-page .story-panel :is(p, li) { font-size: 16px; line-height: 1.55; }
+.client-site .detail-page .svc-detail { gap: 32px; }
+.client-site .detail-page h2 { font-size: clamp(27px, 2.5vw, 36px); line-height: 1.15; }
+.client-site .profile-biography .svc-note { font-size: 13px; }
+.client-site .page-hero-approach .page-hero-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 32px; align-items: center; }
+.client-site .page-hero-approach .page-hero-art { grid-column: auto; width: 100%; margin: 0; }
+.client-site .page-hero-approach .page-hero-copy { max-width: none; }
+.client-site .workflow-card { min-height: 170px; }
+.client-site .workflow-card:focus-visible, .client-site a:focus-visible, .client-site button:focus-visible { outline: 3px solid #227e7b; outline-offset: 4px; }
+.client-site .board-hero-visual { align-self: center; width: 100%; }
+.client-site .board-hero-image { display: block; width: 100%; aspect-ratio: 3/2; object-fit: cover; border-radius: 8px; }
+.client-site .board-hero-stages { display: flex; flex-wrap: wrap; gap: 8px 14px; padding: 18px 0 0; margin: 0; list-style: none; }
+.client-site .board-hero-stages li { font-size: 15px; font-weight: 700; color: #321068; }
+.client-site .board-hero-stages li:not(:last-child)::after { content: " →"; color: #227e7b; margin-left: 8px; }
+.client-site .final-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; height: auto; min-height: 0; padding: 32px max(24px, 6vw) 48px; }
+.client-site .final-hero .hero-copy { width: auto; padding: 0; position: relative; }
+.client-site .final-hero .hero-copy h1 { font-size: clamp(40px, 4.8vw, 68px); line-height: 1.06; }
+.client-site .final-hero .hero-intro { width: auto; font-size: 18px; line-height: 1.5; }
+.client-site .hero-tagline { color: #227e7b; font-size: 18px; font-weight: 700; margin-top: 24px; }
+.client-site .corporate-details { font-size: 13px; line-height: 1.5; }
+.client-site .practice-mobile-contact { display: none; }
+@media (max-width: 900px) {
+  .client-site .final-hero { gap: 24px; }
+  .client-site .page-hero-approach .page-hero-grid { grid-template-columns: 1fr; }
+  .client-site .page-hero-approach .page-hero-art { max-width: 720px; }
+}
+@media (max-width: 700px) {
+  .client-site .final-hero { display: flex; flex-direction: column; padding: 16px 24px 32px; gap: 24px; }
+  .client-site .final-hero .hero-copy { padding: 0; }
+  .client-site .final-hero .hero-copy h1 { font-size: clamp(36px, 10vw, 48px); }
+  .client-site .final-hero .hero-intro { font-size: 16px; }
+  .client-site .hero-tagline { font-size: 16px; margin-top: 18px; }
+  .client-site .board-hero-stages { gap: 8px; }
+  .client-site .board-hero-stages li { font-size: 14px; }
+  .client-site .contact-page { padding-block: 12px 24px; }
+  .client-site .contact-page .contact-section { padding: 28px 24px 130px; }
+  .client-site .detail-page .story-backdrop { height: 84px; padding: 24px 20px; font-size: 24px; }
+  .client-site .detail-page .story-panel > section { padding-block: 24px; }
+  .client-site .detail-page .svc-detail { gap: 16px; }
+  .client-site .practice-detail .practice-experience .profile-columns { gap: 16px; }
+  .client-site .practice-detail .profile-biography p { font-size: 16px; line-height: 1.5; }
+  .client-site .practice-mobile-contact { display: block; padding: 24px; background: #f2ecfc; }
+  .client-site .practice-mobile-contact a { min-height: 44px; }
+  .client-site .page-hero-approach .workflow-hero img { width: 100%; height: auto; }
+  .client-site .page-hero-approach { padding-block: 24px; }
+  .client-site .workflow-card { min-height: 0; padding: 16px; }
+  .client-site .workflow-card strong { font-size: 20px; }
+  .client-site .final-footer a, .client-site .final-footer button { min-height: 44px; display: inline-flex; align-items: center; }
+}

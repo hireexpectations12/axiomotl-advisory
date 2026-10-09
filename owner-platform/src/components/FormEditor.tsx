@@ -7,6 +7,7 @@ import {
   SKIPPED_ANSWER,
 } from "../lib/forms";
 import { FormRunner } from "./FormRunner";
+import FormMap from "./FormMap";
 
 const id = () => crypto.randomUUID();
 function move<T>(items: T[], index: number, direction: number) {
@@ -247,6 +248,7 @@ export function FormEditor({
               ["questions", "Questions"],
               ["results", "Results"],
               ["rules", "Rules"],
+              ["map", "Mapping path"],
               ["settings", "Settings"],
               ["preview", "Preview"],
             ].map(([value, label]) => (
@@ -265,6 +267,7 @@ export function FormEditor({
               </button>
             ))}
           </nav>
+          {view === "map" && <FormMap form={form} />}
           {view === "settings" && (
             <div className="panel stack">
               <h2>Form settings</h2>

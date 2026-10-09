@@ -1,0 +1,11 @@
+/* Compact Dr Ramzi biography on mobile. */
+@media (max-width: 700px) {
+  .client-site .practice-detail .story-panel > .profile-biography { padding: 16px; }
+  .client-site .practice-detail .profile-biography .svc-wrap { width: 100%; max-width: none; margin: 0; }
+  .client-site .practice-detail .profile-biography .svc-detail { gap: 8px; }
+  .client-site .practice-detail .profile-biography h2 { margin-bottom: 8px; font-size: 26px; }
+  .client-site .practice-detail .profile-biography p { margin-block: 6px; line-height: 1.4; }
+  .client-site .practice-detail .profile-biography .profile-credentials { gap: 4px 10px; margin-block: 6px; }
+  .client-site .practice-detail .profile-biography .profile-credentials span { padding: 0; border: 0; border-radius: 0; }
+  .client-site .practice-detail .profile-biography .svc-note { font-size: 13px; }
+}

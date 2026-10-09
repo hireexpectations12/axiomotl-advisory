@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3524" height="1614" viewBox="31 25 1762 807">
+  <title>Sustain</title>
+  <desc>Fully vector diagram with editable text and transparent background.</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#00e5c1" />
+    </marker>
+    <marker id="whitearr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="white" stroke="#201133" stroke-width="0.7" />
+    </marker>
+  </defs>
+  <g font-family="Arial, Liberation Sans, sans-serif">
+    <rect x="41" y="35" width="211" height="41" rx="20.5" fill="#201133" stroke="#00e5c1" stroke-width="3" />
+    <text x="146.5" y="61.1" font-size="16" fill="#00e5c1" font-weight="bold" text-anchor="middle">
+      <tspan x="146.5" dy="0">CONTROL SYSTEM</tspan>
+    </text>
+    <rect x="44" y="98" width="376" height="640" rx="24" fill="#201133" stroke="#ff876a" stroke-width="3" />
+    <text x="72" y="145" font-size="21" fill="#ff876a" font-weight="bold" text-anchor="start">
+      <tspan x="72" dy="0">RECURRING FRAGILITY</tspan>
+    </text>
+    <path d="M83 213V258" stroke="#608599" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="83" cy="190" r="11" fill="#ff876a" stroke="#ff876a" stroke-width="1" />
+    <text x="113" y="197" font-size="20" fill="#ffffff" font-weight="normal" text-anchor="start">
+      <tspan x="113" dy="0">Approval delay</tspan>
+    </text>
+    <text x="113" y="229" font-size="17" fill="#aedcff" font-weight="normal" text-anchor="start">
+      <tspan x="113" dy="0">Late symptom</tspan>
+    </text>
+    <path d="M83 304V349" stroke="#608599" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="83" cy="281" r="11" fill="#ff876a" stroke="#ff876a" stroke-width="1" />
+    <text x="113" y="288" font-size="20" fill="#ffffff" font-weight="normal" text-anchor="start">
+      <tspan x="113" dy="0">Duplicate checking</tspan>
+    </text>
+    <text x="113" y="320" font-size="17" fill="#aedcff" font-weight="normal" text-anchor="start">
+      <tspan x="113" dy="0">Late symptom</tspan>
+    </text>
+    <path d="M83 395V440" stroke="#608599" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="83" cy="372" r="11" fill="#ff876a" stroke="#ff876a" stroke-width="1" />
+    <text x="113" y="379" font-size="20" fill="#ffffff" font-weight="normal" text-anchor="start">
+      <tspan x="113" dy="0">Informal handoffs</tspan>
+    </text>
+    <text x="113" y="411" font-size="17" fill="#aedcff" font-weight="normal" text-anchor="start">
+      <tspan x="113" dy="0">Late symptom</tspan>
+    </text>
+    <path d="M83 486V531" stroke="#608599" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="83" cy="463" r="11" fill="#38caff" stroke="#38caff" stroke-width="1" />
+    <text x="113" y="470" font-size="20" fill="#ffffff" font-weight="normal" text-anchor="start">
+      <tspan x="113" dy="0">Record drift</tspan>
+    </text>
+    <text x="113" y="502" font-size="17" fill="#aedcff" font-weight="normal" text-anchor="start">
+      <tspan x="113" dy="0">Structural effect</tspan>
+    </text>
+    <path d="M83 577V622" stroke="#608599" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="83" cy="554" r="11" fill="#38caff" stroke="#38caff" stroke-width="1" />
+    <text x="113" y="561" font-size="20" fill="#ffffff" font-weight="normal" text-anchor="start">
+      <tspan x="113" dy="0">Evidence gaps</tspan>
+    </text>
+    <text x="113" y="593" font-size="17" fill="#aedcff" font-weight="normal" text-anchor="start">
+      <tspan x="113" dy="0">Structural effect</tspan>
+    </text>
+    <circle cx="83" cy="645" r="11" fill="#38caff" stroke="#38caff" stroke-width="1" />
+    <text x="113" y="652" font-size="20" fill="#ffffff" font-weight="normal" text-anchor="start">
+      <tspan x="113" dy="0">Inconsistent practice</tspan>
+    </text>
+    <text x="113" y="684" font-size="17" fill="#aedcff" font-weight="normal" text-anchor="start">
+      <tspan x="113" dy="0">Structural effect</tspan>
+    </text>
+    <path d="M420 412H569" stroke="#ff876a" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#whitearr)" />
+    <circle cx="913" cy="416" r="302" fill="none" stroke="#d38aee" stroke-width="4" />
+    <circle cx="913" cy="416" r="208" fill="none" stroke="#00e5c1" stroke-width="4" />
+    <path d="M913 416L913 107" stroke="#d38aee" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M913 416L1161 245" stroke="#00e5c1" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M913 416L1161 591" stroke="#d38aee" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M913 416L913 713" stroke="#00e5c1" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M913 416L664 591" stroke="#d38aee" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M913 416L664 245" stroke="#00e5c1" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="913" cy="416" r="124" fill="#12bba0" stroke="#00e5c1" stroke-width="3" />
+    <text x="913" y="396" font-size="29" fill="#ffffff" font-weight="bold" text-anchor="middle">
+      <tspan x="913" dy="0">STABLE</tspan>
+      <tspan x="913" dy="36">OPERATION</tspan>
+    </text>
+    <text x="913" y="469" font-size="15" fill="#ffffff" font-weight="normal" text-anchor="middle">
+      <tspan x="913" dy="0">Predictable and reviewable</tspan>
+    </text>
+    <circle cx="913" cy="107" r="65" fill="#201133" stroke="#d38aee" stroke-width="3" />
+    <circle cx="913" cy="82" r="18" fill="#c01ccd" stroke="#c01ccd" stroke-width="1" />
+    <text x="913" y="88" font-size="18" fill="#140b20" font-weight="bold" text-anchor="middle">
+      <tspan x="913" dy="0">1</tspan>
+    </text>
+    <text x="913" y="119" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">
+      <tspan x="913" dy="0">Decision</tspan>
+      <tspan x="913" dy="19">ownership</tspan>
+    </text>
+    <circle cx="1161" cy="245" r="65" fill="#201133" stroke="#00e5c1" stroke-width="3" />
+    <circle cx="1161" cy="220" r="18" fill="#00e5c1" stroke="#00e5c1" stroke-width="1" />
+    <text x="1161" y="226" font-size="18" fill="#140b20" font-weight="bold" text-anchor="middle">
+      <tspan x="1161" dy="0">2</tspan>
+    </text>
+    <text x="1161" y="257" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">
+      <tspan x="1161" dy="0">One trusted</tspan>
+      <tspan x="1161" dy="19">source</tspan>
+    </text>
+    <circle cx="1161" cy="591" r="65" fill="#201133" stroke="#d38aee" stroke-width="3" />
+    <circle cx="1161" cy="566" r="18" fill="#c01ccd" stroke="#c01ccd" stroke-width="1" />
+    <text x="1161" y="572" font-size="18" fill="#140b20" font-weight="bold" text-anchor="middle">
+      <tspan x="1161" dy="0">3</tspan>
+    </text>
+    <text x="1161" y="603" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">
+      <tspan x="1161" dy="0">Governed</tspan>
+      <tspan x="1161" dy="19">exceptions</tspan>
+    </text>
+    <circle cx="913" cy="713" r="65" fill="#201133" stroke="#00e5c1" stroke-width="3" />
+    <circle cx="913" cy="688" r="18" fill="#00e5c1" stroke="#00e5c1" stroke-width="1" />
+    <text x="913" y="694" font-size="18" fill="#140b20" font-weight="bold" text-anchor="middle">
+      <tspan x="913" dy="0">4</tspan>
+    </text>
+    <text x="913" y="725" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">
+      <tspan x="913" dy="0">Standard</tspan>
+      <tspan x="913" dy="19">pathways</tspan>
+    </text>
+    <circle cx="664" cy="591" r="65" fill="#201133" stroke="#d38aee" stroke-width="3" />
+    <circle cx="664" cy="566" r="18" fill="#c01ccd" stroke="#c01ccd" stroke-width="1" />
+    <text x="664" y="572" font-size="18" fill="#140b20" font-weight="bold" text-anchor="middle">
+      <tspan x="664" dy="0">5</tspan>
+    </text>
+    <text x="664" y="603" font-size="14" fill="#ffffff" font-weight="bold" text-anchor="middle">
+      <tspan x="664" dy="0">Review cadence</tspan>
+    </text>
+    <circle cx="664" cy="245" r="65" fill="#201133" stroke="#00e5c1" stroke-width="3" />
+    <circle cx="664" cy="220" r="18" fill="#00e5c1" stroke="#00e5c1" stroke-width="1" />
+    <text x="664" y="226" font-size="18" fill="#140b20" font-weight="bold" text-anchor="middle">
+      <tspan x="664" dy="0">6</tspan>
+    </text>
+    <text x="664" y="257" font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">
+      <tspan x="664" dy="0">Transferable</tspan>
+      <tspan x="664" dy="19">assets</tspan>
+    </text>
+    <path d="M1217 412H1340" stroke="#00e5c1" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)" />
+    <rect x="1354" y="98" width="429" height="640" rx="26" fill="#201133" stroke="#00e5c1" stroke-width="3" />
+    <text x="1380" y="146" font-size="21" fill="#00e5c1" font-weight="bold" text-anchor="start">
+      <tspan x="1380" dy="0">VISIBLE OUTCOMES</tspan>
+    </text>
+    <path d="M1405 237V302" stroke="#608599" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="1405" cy="202" r="28" fill="#c01ccd" stroke="#c01ccd" stroke-width="1" />
+    <text x="1405" y="210" font-size="22" fill="#ffffff" font-weight="bold" text-anchor="middle">
+      <tspan x="1405" dy="0">1</tspan>
+    </text>
+    <text x="1453" y="202" font-size="21" fill="#ffffff" font-weight="bold" text-anchor="start">
+      <tspan x="1453" dy="0">Clear decisions</tspan>
+    </text>
+    <text x="1453" y="234" font-size="17" fill="#aedcff" font-weight="normal" text-anchor="start">
+      <tspan x="1453" dy="0">Ownership and thresholds are</tspan>
+      <tspan x="1453" dy="24">explicit</tspan>
+    </text>
+    <path d="M1405 372V429" stroke="#608599" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="1405" cy="337" r="28" fill="#00e5c1" stroke="#00e5c1" stroke-width="1" />
+    <text x="1405" y="345" font-size="22" fill="#ffffff" font-weight="bold" text-anchor="middle">
+      <tspan x="1405" dy="0">2</tspan>
+    </text>
+    <text x="1453" y="337" font-size="21" fill="#ffffff" font-weight="bold" text-anchor="start">
+      <tspan x="1453" dy="0">Lower rework</tspan>
+    </text>
+    <text x="1453" y="369" font-size="17" fill="#aedcff" font-weight="normal" text-anchor="start">
+      <tspan x="1453" dy="0">Issues are resolved closer to</tspan>
+      <tspan x="1453" dy="24">source.</tspan>
+    </text>
+    <path d="M1405 499V568" stroke="#608599" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="1405" cy="464" r="28" fill="#c01ccd" stroke="#c01ccd" stroke-width="1" />
+    <text x="1405" y="472" font-size="22" fill="#ffffff" font-weight="bold" text-anchor="middle">
+      <tspan x="1405" dy="0">3</tspan>
+    </text>
+    <text x="1453" y="464" font-size="21" fill="#ffffff" font-weight="bold" text-anchor="start">
+      <tspan x="1453" dy="0">Consistent evidence</tspan>
+    </text>
+    <text x="1453" y="496" font-size="17" fill="#aedcff" font-weight="normal" text-anchor="start">
+      <tspan x="1453" dy="0">Records support review and</tspan>
+      <tspan x="1453" dy="24">assurance</tspan>
+    </text>
+    <circle cx="1405" cy="603" r="28" fill="#00e5c1" stroke="#00e5c1" stroke-width="1" />
+    <text x="1405" y="611" font-size="22" fill="#ffffff" font-weight="bold" text-anchor="middle">
+      <tspan x="1405" dy="0">4</tspan>
+    </text>
+    <text x="1453" y="603" font-size="21" fill="#ffffff" font-weight="bold" text-anchor="start">
+      <tspan x="1453" dy="0">Visible support</tspan>
+    </text>
+    <text x="1453" y="635" font-size="17" fill="#aedcff" font-weight="normal" text-anchor="start">
+      <tspan x="1453" dy="0">Help does not depend on one person</tspan>
+    </text>
+    <rect x="44" y="775" width="1739" height="47" rx="22" fill="#201133" stroke="#d38aee" stroke-width="3" />
+    <text x="913.5" y="807" font-size="19" fill="#d38aee" font-weight="bold" text-anchor="middle" letter-spacing="3">
+      <tspan x="913.5" dy="0">REVIEW · LEARN · ADJUST · RECONFIRM</tspan>
+    </text>
+  </g>
+</svg>

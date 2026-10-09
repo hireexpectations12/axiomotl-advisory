@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3518" height="1622" viewBox="28 30 1759 811">
+  <title>Transition</title>
+  <desc>Fully vector diagram with editable text and transparent background.</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#00e5c1" />
+    </marker>
+    <marker id="whitearr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="white" stroke="#201133" stroke-width="0.7" />
+    </marker>
+  </defs>
+  <g font-family="Arial, Liberation Sans, sans-serif">
+    <rect x="38" y="41" width="269" height="49" rx="24.5" fill="#073247" stroke="#38caff" stroke-width="3" />
+    <text x="172.5" y="72.5" font-size="20" fill="#38caff" font-weight="bold" text-anchor="middle">
+      <tspan x="172.5" dy="0">READINESS PATHWAY</tspan>
+    </text>
+    <path d="M466 132H526" stroke="#c01ccd" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#whitearr)" />
+    <rect x="132" y="102" width="334" height="58" rx="29.0" fill="#201133" stroke="#c01ccd" stroke-width="3" />
+    <text x="299.0" y="138.35" font-size="21" fill="#c01ccd" font-weight="bold" text-anchor="middle">
+      <tspan x="299.0" dy="0">PREPARE</tspan>
+    </text>
+    <path d="M861 132H926" stroke="#38caff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#whitearr)" />
+    <rect x="527" y="102" width="334" height="58" rx="29.0" fill="#201133" stroke="#38caff" stroke-width="3" />
+    <text x="694.0" y="138.35" font-size="21" fill="#38caff" font-weight="bold" text-anchor="middle">
+      <tspan x="694.0" dy="0">PROVE</tspan>
+    </text>
+    <path d="M1261 132H1327" stroke="#00e5c1" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#whitearr)" />
+    <rect x="927" y="102" width="334" height="58" rx="29.0" fill="#201133" stroke="#00e5c1" stroke-width="3" />
+    <text x="1094.0" y="138.35" font-size="21" fill="#00e5c1" font-weight="bold" text-anchor="middle">
+      <tspan x="1094.0" dy="0">TRANSFER</tspan>
+    </text>
+    <rect x="1328" y="102" width="334" height="58" rx="29.0" fill="#201133" stroke="#38caff" stroke-width="3" />
+    <text x="1495.0" y="138.35" font-size="21" fill="#38caff" font-weight="bold" text-anchor="middle">
+      <tspan x="1495.0" dy="0">STABILISE</tspan>
+    </text>
+    <path d="M233 219H1687" stroke="#d38aee" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="39" y="226" font-size="17" fill="#d38aee" font-weight="bold" text-anchor="start">
+      <tspan x="39" dy="0">People and roles</tspan>
+    </text>
+    <circle cx="299" cy="219" r="23" fill="#201133" stroke="#d38aee" stroke-width="3" />
+    <circle cx="299" cy="219" r="8" fill="#d38aee" stroke="#d38aee" stroke-width="0" />
+    <rect x="153" y="245" width="292" height="72" rx="18" fill="#201133" stroke="#d38aee" stroke-width="3" />
+    <text x="299" y="289" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="middle">
+      <tspan x="299" dy="0">Roles defined</tspan>
+    </text>
+    <circle cx="694" cy="219" r="23" fill="#201133" stroke="#d38aee" stroke-width="3" />
+    <circle cx="694" cy="219" r="8" fill="#d38aee" stroke="#d38aee" stroke-width="0" />
+    <rect x="548" y="245" width="292" height="72" rx="18" fill="#201133" stroke="#d38aee" stroke-width="3" />
+    <text x="694" y="289" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="middle">
+      <tspan x="694" dy="0">Practice completed</tspan>
+    </text>
+    <circle cx="1094" cy="219" r="23" fill="#201133" stroke="#d38aee" stroke-width="3" />
+    <circle cx="1094" cy="219" r="8" fill="#d38aee" stroke="#d38aee" stroke-width="0" />
+    <rect x="948" y="245" width="292" height="72" rx="18" fill="#201133" stroke="#d38aee" stroke-width="3" />
+    <text x="1094" y="289" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="middle">
+      <tspan x="1094" dy="0">Receiving owner accepts</tspan>
+    </text>
+    <circle cx="1495" cy="219" r="23" fill="#201133" stroke="#d38aee" stroke-width="3" />
+    <circle cx="1495" cy="219" r="8" fill="#d38aee" stroke="#d38aee" stroke-width="0" />
+    <rect x="1349" y="245" width="292" height="72" rx="18" fill="#201133" stroke="#d38aee" stroke-width="3" />
+    <text x="1495" y="289" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="middle">
+      <tspan x="1495" dy="0">Support becomes routine</tspan>
+    </text>
+    <path d="M156 363H1687" stroke="#00e5c1" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="39" y="370" font-size="17" fill="#00e5c1" font-weight="bold" text-anchor="start">
+      <tspan x="39" dy="0">Process</tspan>
+    </text>
+    <circle cx="299" cy="363" r="23" fill="#201133" stroke="#00e5c1" stroke-width="3" />
+    <circle cx="299" cy="363" r="8" fill="#00e5c1" stroke="#00e5c1" stroke-width="0" />
+    <rect x="153" y="389" width="292" height="72" rx="18" fill="#201133" stroke="#00e5c1" stroke-width="3" />
+    <text x="299" y="433" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="middle">
+      <tspan x="299" dy="0">Path mapped</tspan>
+    </text>
+    <circle cx="694" cy="363" r="23" fill="#201133" stroke="#00e5c1" stroke-width="3" />
+    <circle cx="694" cy="363" r="8" fill="#00e5c1" stroke="#00e5c1" stroke-width="0" />
+    <rect x="548" y="389" width="292" height="72" rx="18" fill="#201133" stroke="#00e5c1" stroke-width="3" />
+    <text x="694" y="433" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="middle">
+      <tspan x="694" dy="0">Scenario tested</tspan>
+    </text>
+    <circle cx="1094" cy="363" r="23" fill="#201133" stroke="#00e5c1" stroke-width="3" />
+    <circle cx="1094" cy="363" r="8" fill="#00e5c1" stroke="#00e5c1" stroke-width="0" />
+    <rect x="948" y="389" width="292" height="72" rx="18" fill="#201133" stroke="#00e5c1" stroke-width="3" />
+    <text x="1094" y="433" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="middle">
+      <tspan x="1094" dy="0">Exceptions transferred</tspan>
+    </text>
+    <circle cx="1495" cy="363" r="23" fill="#201133" stroke="#00e5c1" stroke-width="3" />
+    <circle cx="1495" cy="363" r="8" fill="#00e5c1" stroke="#00e5c1" stroke-width="0" />
+    <rect x="1349" y="389" width="292" height="72" rx="18" fill="#201133" stroke="#00e5c1" stroke-width="3" />
+    <text x="1495" y="433" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="middle">
+      <tspan x="1495" dy="0">Early issues reviewed</tspan>
+    </text>
+    <path d="M231 505H1687" stroke="#38caff" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="39" y="512" font-size="17" fill="#38caff" font-weight="bold" text-anchor="start">
+      <tspan x="39" dy="0">Data and systems</tspan>
+    </text>
+    <circle cx="299" cy="505" r="23" fill="#201133" stroke="#38caff" stroke-width="3" />
+    <circle cx="299" cy="505" r="8" fill="#38caff" stroke="#38caff" stroke-width="0" />
+    <rect x="153" y="531" width="292" height="72" rx="18" fill="#201133" stroke="#38caff" stroke-width="3" />
+    <text x="299" y="575" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="middle">
+      <tspan x="299" dy="0">Sources agreed</tspan>
+    </text>
+    <circle cx="694" cy="505" r="23" fill="#201133" stroke="#38caff" stroke-width="3" />
+    <circle cx="694" cy="505" r="8" fill="#38caff" stroke="#38caff" stroke-width="0" />
+    <rect x="548" y="531" width="292" height="72" rx="18" fill="#201133" stroke="#38caff" stroke-width="3" />
+    <text x="694" y="575" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="middle">
+      <tspan x="694" dy="0">Quality checked</tspan>
+    </text>
+    <circle cx="1094" cy="505" r="23" fill="#201133" stroke="#38caff" stroke-width="3" />
+    <circle cx="1094" cy="505" r="8" fill="#38caff" stroke="#38caff" stroke-width="0" />
+    <rect x="948" y="531" width="292" height="72" rx="18" fill="#201133" stroke="#38caff" stroke-width="3" />
+    <text x="1094" y="575" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="middle">
+      <tspan x="1094" dy="0">Access confirmed</tspan>
+    </text>
+    <circle cx="1495" cy="505" r="23" fill="#201133" stroke="#38caff" stroke-width="3" />
+    <circle cx="1495" cy="505" r="8" fill="#38caff" stroke="#38caff" stroke-width="0" />
+    <rect x="1349" y="531" width="292" height="72" rx="18" fill="#201133" stroke="#38caff" stroke-width="3" />
+    <text x="1495" y="575" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="middle">
+      <tspan x="1495" dy="0">Performance monitored</tspan>
+    </text>
+    <path d="M277 644H1687" stroke="#ff876a" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="39" y="651" font-size="15.5" fill="#ff876a" font-weight="bold" text-anchor="start">
+      <tspan x="39" dy="0">Governance and support</tspan>
+    </text>
+    <circle cx="299" cy="644" r="23" fill="#201133" stroke="#ff876a" stroke-width="3" />
+    <circle cx="299" cy="644" r="8" fill="#ff876a" stroke="#ff876a" stroke-width="0" />
+    <rect x="153" y="670" width="292" height="72" rx="18" fill="#201133" stroke="#ff876a" stroke-width="3" />
+    <text x="299" y="714" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="middle">
+      <tspan x="299" dy="0">Decision rights set</tspan>
+    </text>
+    <circle cx="694" cy="644" r="23" fill="#201133" stroke="#ff876a" stroke-width="3" />
+    <circle cx="694" cy="644" r="8" fill="#ff876a" stroke="#ff876a" stroke-width="0" />
+    <rect x="548" y="670" width="292" height="72" rx="18" fill="#201133" stroke="#ff876a" stroke-width="3" />
+    <text x="694" y="714" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="middle">
+      <tspan x="694" dy="0">Approval tested</tspan>
+    </text>
+    <circle cx="1094" cy="644" r="23" fill="#201133" stroke="#ff876a" stroke-width="3" />
+    <circle cx="1094" cy="644" r="8" fill="#ff876a" stroke="#ff876a" stroke-width="0" />
+    <rect x="948" y="670" width="292" height="72" rx="18" fill="#201133" stroke="#ff876a" stroke-width="3" />
+    <text x="1094" y="714" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="middle">
+      <tspan x="1094" dy="0">Open items owned</tspan>
+    </text>
+    <circle cx="1495" cy="644" r="23" fill="#201133" stroke="#ff876a" stroke-width="3" />
+    <circle cx="1495" cy="644" r="8" fill="#ff876a" stroke="#ff876a" stroke-width="0" />
+    <rect x="1349" y="670" width="292" height="72" rx="18" fill="#201133" stroke="#ff876a" stroke-width="3" />
+    <text x="1495" y="714" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="middle">
+      <tspan x="1495" dy="0">Review cadence begins</tspan>
+    </text>
+    <path d="M454 747L495 706L536 747L495 788Z" stroke="#d38aee" stroke-width="3" fill="#201133" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="495" y="753" font-size="16" fill="#ffffff" font-weight="bold" text-anchor="middle">
+      <tspan x="495" dy="0">GATE 1</tspan>
+    </text>
+    <text x="495" y="809" font-size="17" fill="#d38aee" font-weight="normal" text-anchor="middle">
+      <tspan x="495" dy="0">Ready to test</tspan>
+    </text>
+    <path d="M850 747L891 706L932 747L891 788Z" stroke="#d38aee" stroke-width="3" fill="#201133" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="891" y="753" font-size="16" fill="#ffffff" font-weight="bold" text-anchor="middle">
+      <tspan x="891" dy="0">GATE 2</tspan>
+    </text>
+    <text x="891" y="809" font-size="17" fill="#d38aee" font-weight="normal" text-anchor="middle">
+      <tspan x="891" dy="0">Ready to transfer</tspan>
+    </text>
+    <path d="M1252 747L1293 706L1334 747L1293 788Z" stroke="#d38aee" stroke-width="3" fill="#201133" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="1293" y="753" font-size="16" fill="#ffffff" font-weight="bold" text-anchor="middle">
+      <tspan x="1293" dy="0">GATE 3</tspan>
+    </text>
+    <text x="1293" y="809" font-size="17" fill="#d38aee" font-weight="normal" text-anchor="middle">
+      <tspan x="1293" dy="0">Stable in operation</tspan>
+    </text>
+    <rect x="1470" y="754" width="307" height="77" rx="23" fill="#081b2e" stroke="#00e5c1" stroke-width="3" />
+    <text x="1500" y="786" font-size="16" fill="#00e5c1" font-weight="bold" text-anchor="start">
+      <tspan x="1500" dy="0">PROCEED WHEN</tspan>
+    </text>
+    <text x="1500" y="810" font-size="15" fill="#ffffff" font-weight="normal" text-anchor="start">
+      <tspan x="1500" dy="0">Evidence complete • owner accepts</tspan>
+    </text>
+  </g>
+</svg>

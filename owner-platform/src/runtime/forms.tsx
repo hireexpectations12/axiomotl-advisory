@@ -3,9 +3,17 @@ import FormRunner from "../components/FormRunner";
 import { initialiseHero } from "./hero";
 import { initialisePageMotion } from "./page-motion";
 import { initialiseClientFinal } from "./client-final";
+import {
+  initialiseServiceSelection,
+  initialiseIndustryCards,
+  initialiseMobileCardStack,
+} from "./service-selection";
 import type { FormDefinition, SiteSettings } from "../lib/types";
 
 const configElement = document.getElementById("axiomotl-config");
+initialiseServiceSelection();
+initialiseIndustryCards();
+initialiseMobileCardStack();
 const config = configElement
   ? (JSON.parse(configElement.textContent || "{}") as {
       forms: FormDefinition[];
@@ -20,7 +28,15 @@ if (config) {
       const form = config.forms.find(
         (form) => form.id === mount.dataset.axiomotlForm,
       );
-      if (form) createRoot(mount).render(<FormRunner form={form} />);
+      if (form)
+        createRoot(mount).render(
+          <FormRunner
+            form={form}
+            choicePresentation={
+              mount.dataset.choicePresentation === "radio" ? "radio" : "buttons"
+            }
+          />,
+        );
     });
   const journey = config.forms.find((form) => form.id === "journey");
   if (journey) {
@@ -153,6 +169,18 @@ toggle?.addEventListener("click", () => {
 menu
   ?.querySelectorAll("a")
   .forEach((link) => link.addEventListener("click", closeMenu));
+toggle?.addEventListener("keydown", (event) => {
+  if (event.key !== "ArrowDown" || !menu) return;
+  event.preventDefault();
+  menu.hidden = false;
+  toggle.setAttribute("aria-expanded", "true");
+  toggle.setAttribute("aria-label", "Close navigation");
+  menu.querySelector<HTMLAnchorElement>("a")?.focus();
+});
+document.addEventListener("focusin", (event) => {
+  if (menu && !menu.hidden && event.target instanceof Node &&
+      !menu.contains(event.target) && !toggle?.contains(event.target)) closeMenu();
+});
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && menu && !menu.hidden) {
     closeMenu();

@@ -1,0 +1,46 @@
+/* Mobile refinements — 2026-09-30. */
+@media (max-width: 700px) {
+  .client-site:has(.final-hero) .final-header { height: 112px; }
+  .client-site .final-hero .hero-copy { padding-top: 12px; position: static; }
+  .client-site .final-hero { isolation: isolate; }
+  .client-site .final-hero .hero-handwriting {
+    position: absolute; left: 18px; bottom: 145px; margin: 0;
+    z-index: 0; pointer-events: none;
+  }
+  .client-site .final-hero .hero-art {
+    position: relative; z-index: 1; rotate: -5deg; margin-top: 12px;
+  }
+  .client-site main:not(.detail-page) .contact-handwriting {
+    width: 125px; height: 125px; background-size: contain;
+    background-repeat: no-repeat; right: 12px; bottom: 0;
+  }
+  .client-site main:not(.detail-page) .contact-section { padding-bottom: 130px; }
+  .client-site .practice-detail .story-panel:has(> :is(.practice-support, .profile-reading, .svc-next)),
+  .client-site .practice-detail > :is(.practice-support, .profile-reading, .svc-next),
+  .client-site .practice-detail .profile-biography .practice-icon { display: none; }
+  .client-site .practice-detail .story-panel:has(> :is(.practice-introduction, .profile-biography, .practice-experience)),
+  .client-site .detail-page:has(.page-hero-services) .story-panel:nth-child(n+3):nth-child(-n+7) { min-height: 0; }
+  .client-site .practice-detail :is(.practice-introduction, .profile-biography, .practice-experience) {
+    padding-block: 18px;
+  }
+  .client-site .practice-detail :is(.practice-introduction, .profile-biography, .practice-experience) p {
+    font-size: 15px; line-height: 1.45; margin-block: 8px;
+  }
+  .client-site .practice-detail .profile-biography .svc-detail { gap: 12px; }
+  .client-site .practice-detail .practice-experience .profile-columns { gap: 16px; margin-top: 16px; }
+  .client-site .practice-detail .practice-experience h3 { min-height: 0; margin-bottom: 6px; }
+  .client-site .page-hero-approach { background: transparent; }
+  .client-site .page-hero-approach::before { display: none; }
+  .client-site .detail-page:has(.page-hero-approach) :is(#analyse, #design, #implement, #decide, #transition, #sustain) .svc-eyebrow {
+    font-size: 22px; font-weight: 800; line-height: 1.2; letter-spacing: 0;
+  }
+  .client-site .detail-page:has(.page-hero-approach) :is(#analyse, #design, #implement, #decide, #transition, #sustain) h2 {
+    font-size: 30px; font-weight: 800; line-height: 1.12;
+  }
+  .client-site .detail-page:has(.page-hero-services) .story-panel:nth-child(n+3):nth-child(-n+7) > section { padding-block: 18px; }
+  .client-site .detail-page:has(.page-hero-services) :is(.svc-detail, .svc-columns) { gap: 14px; }
+  .client-site .detail-page:has(.page-hero-services) .story-panel:nth-child(n+3):nth-child(-n+7) :is(p, li) { font-size: 15px; line-height: 1.45; }
+  .client-site .detail-page:has(.page-hero-services) .story-panel:nth-child(n+3):nth-child(-n+7) p { margin-block: 8px; }
+}
+
+

@@ -1,0 +1,12 @@
+# Artwork refresh — 24 September 2026
+
+Tool: built-in image generator, explicitly authorised by the user after explaining that the exact named model and 4K output cannot be guaranteed. Image rule remains the preferred specification for future work. No claim is made that the tool selected GPT Image 2.5 sunburst.
+
+Output: `public/site-assets/advisory/refreshed-artwork.png`. The original artwork is retained. Approach icons remain native SVGs. Dr Ramzi's supplied photographs are identity references for the illustrative workshop scenes.
+
+## Exact prompt
+
+Edit target: image 1, the approved full-page Axiomotl Advisory artwork. Images 2 and 3 are identity references of Dr Ramzi. Produce one high-quality, extremely sharp 4K-detail refreshed version of image 1. Exact same tall aspect ratio 793:1983; request output 1586x3966 or greater if supported. This is a production artwork atlas, NOT a redesign: preserve EVERY section boundary, image rectangle, object position and relative scale exactly. Preserve warm ivory, plum, lilac and teal palette, whitespace, all lettering and all logos.
+Refresh and sharpen hero collage, paper textures, botanical leaves, document artwork, all handwritten annotations, contact illustration and purple footer artwork. Keep exact composition. In BOTH workshop photographs (hero upper right and Practical by design lower right), replace ONLY the central standing man's face/hair/identity with Dr Ramzi from references 2/3, naturally matched to existing pose, teal shirt and lighting. Preserve his actual young facial structure and curly hair; no aging into original man. Keep women, room, table and composition unchanged.
+All handwritten text must be crisp natural handwriting with exact original wording: hero left 'Complex challenges. Brighter outcomes.'; hero diagram right 'A more capable tomorrow.'; quick check-in 'Small clarity. Real progress.'; decision paper 'Clear decisions create momentum.'; contact 'Good conversations lead to brighter outcomes.'; footer 'People. Processes. Progress.' Preserve their size, line breaks and positions.
+Decision sheet exact heading 'Your decision brief', rows Context / Evidence / Decision owner / Next step with original accompanying questions. Preserve footer white axolotl logo and AXIOMOTL ADVISORY wordmark. No new sections, no layout drift, no added illustrations, no borders or watermark. Highest available quality and 4K detail. Output the complete updated atlas.

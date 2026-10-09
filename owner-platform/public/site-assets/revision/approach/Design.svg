@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3500" height="1536" viewBox="26 41 1750 768">
+  <title>Operating Model</title>
+  <desc>Fully editable vector operating model with transparent background.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#00e5c1" />
+    </marker>
+    <linearGradient id="gov" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#853697" />
+      <stop offset="1" stop-color="#68217d" />
+    </linearGradient>
+    <linearGradient id="op" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#43d2b6" />
+      <stop offset="1" stop-color="#00ae97" />
+    </linearGradient>
+  </defs>
+  <g font-family="Arial, Liberation Sans, sans-serif">
+    <rect x="36" y="51" width="280" height="42" rx="21" fill="#081b2e" stroke="#00e5c1" stroke-width="3" />
+    <text x="176" y="79" fill="#00e5c1" font-size="20" font-weight="bold" text-anchor="middle">
+      <tspan x="176" dy="0">OPERATING MODEL</tspan>
+    </text>
+    <rect x="36" y="123" width="280" height="126" rx="19" fill="#20102e" stroke="#f3db2c" stroke-width="3" />
+    <path d="M43 140V230" stroke="#f3db2c" stroke-width="7" stroke-linecap="round" />
+    <text x="62" y="159" fill="#ffffff" font-size="20" font-weight="bold" text-anchor="start">
+      <tspan x="62" dy="0">SERVICE NEED</tspan>
+    </text>
+    <text x="62" y="192" fill="#ffffff" font-size="18" font-weight="normal" text-anchor="start">
+      <tspan x="62" dy="0">Evidence, demand and</tspan>
+      <tspan x="62" dy="24">constraints.</tspan>
+    </text>
+    <path d="M316 185C357 188 369 245 399 286M316 190C371 197 374 422 434 508" fill="none" stroke="#f3db2c" stroke-width="5" />
+    <circle cx="671" cy="429" r="250" fill="#7a2c82" fill-opacity="0.78" stroke="#d58bed" stroke-width="3" />
+    <circle cx="1023" cy="429" r="251" fill="#23888d" fill-opacity="0.72" stroke="#00e5c1" stroke-width="3" />
+    <path d="M671 429L671 164" stroke="#d58bed" stroke-width="4" />
+    <path d="M671 429L454 304" stroke="#d58bed" stroke-width="4" />
+    <path d="M671 429L454 559" stroke="#d58bed" stroke-width="4" />
+    <path d="M671 429L671 687" stroke="#d58bed" stroke-width="4" />
+    <path d="M1023 429L1023 165" stroke="#00e5c1" stroke-width="4" />
+    <path d="M1023 429L1248 306" stroke="#00e5c1" stroke-width="4" />
+    <path d="M1023 429L1248 558" stroke="#00e5c1" stroke-width="4" />
+    <path d="M1023 429L1023 688" stroke="#00e5c1" stroke-width="4" />
+    <rect x="746" y="291" width="203" height="35" rx="17" fill="#081b2e" stroke="#00e5c1" stroke-width="3" />
+    <text x="847.5" y="313" fill="#00e5c1" font-size="11" font-weight="bold" text-anchor="middle">
+      <tspan x="847.5" dy="0">CONTROL ENABLES DELIVERY</tspan>
+    </text>
+    <path d="M774 428Q839 358 917 426" fill="none" stroke="#ffffff" stroke-width="4" marker-end="url(#arrow)" />
+    <circle cx="671" cy="429" r="104" fill="url(#gov)" stroke="#d58bed" stroke-width="3" />
+    <text x="671" y="418" fill="#ffffff" font-size="22" font-weight="bold" text-anchor="middle">
+      <tspan x="671" dy="0">GOVERNANCE</tspan>
+      <tspan x="671" dy="29">FOUNDATIONS</tspan>
+    </text>
+    <circle cx="1023" cy="429" r="104" fill="url(#op)" stroke="#00e5c1" stroke-width="3" />
+    <text x="1023" y="418" fill="#ffffff" font-size="22" font-weight="bold" text-anchor="middle">
+      <tspan x="1023" dy="0">OPERATIONAL</tspan>
+      <tspan x="1023" dy="29">CAPABILITY</tspan>
+    </text>
+    <circle cx="671" cy="165" r="62" fill="#20102e" stroke="#d58bed" stroke-width="3" />
+    <text x="671" y="161" fill="#ffffff" font-size="16" font-weight="bold" text-anchor="middle">
+      <tspan x="671" dy="0">Decision</tspan>
+      <tspan x="671" dy="22">ownership</tspan>
+    </text>
+    <circle cx="454" cy="305" r="62" fill="#20102e" stroke="#d58bed" stroke-width="3" />
+    <text x="454" y="301" fill="#ffffff" font-size="16" font-weight="bold" text-anchor="middle">
+      <tspan x="454" dy="0">One trusted</tspan>
+      <tspan x="454" dy="22">source</tspan>
+    </text>
+    <circle cx="453" cy="559" r="62" fill="#20102e" stroke="#d58bed" stroke-width="3" />
+    <text x="453" y="555" fill="#ffffff" font-size="16" font-weight="bold" text-anchor="middle">
+      <tspan x="453" dy="0">Governed</tspan>
+      <tspan x="453" dy="22">exceptions</tspan>
+    </text>
+    <circle cx="671" cy="688" r="66" fill="#20102e" stroke="#d58bed" stroke-width="3" />
+    <text x="671" y="684" fill="#ffffff" font-size="16" font-weight="bold" text-anchor="middle">
+      <tspan x="671" dy="0">Service</tspan>
+      <tspan x="671" dy="22">boundaries</tspan>
+    </text>
+    <circle cx="1023" cy="165" r="62" fill="#20102e" stroke="#00e5c1" stroke-width="3" />
+    <text x="1023" y="161" fill="#ffffff" font-size="16" font-weight="bold" text-anchor="middle">
+      <tspan x="1023" dy="0">Consistent</tspan>
+      <tspan x="1023" dy="22">pathways</tspan>
+    </text>
+    <circle cx="1248" cy="306" r="62" fill="#20102e" stroke="#00e5c1" stroke-width="3" />
+    <text x="1248" y="302" fill="#ffffff" font-size="16" font-weight="bold" text-anchor="middle">
+      <tspan x="1248" dy="0">Shared</tspan>
+      <tspan x="1248" dy="22">standards</tspan>
+    </text>
+    <circle cx="1247" cy="558" r="65" fill="#20102e" stroke="#00e5c1" stroke-width="3" />
+    <text x="1247" y="564" fill="#ffffff" font-size="14.5" font-weight="bold" text-anchor="middle">
+      <tspan x="1247" dy="0">Support model</tspan>
+    </text>
+    <circle cx="1023" cy="688" r="66" fill="#20102e" stroke="#00e5c1" stroke-width="3" />
+    <text x="1023" y="694" fill="#ffffff" font-size="14.5" font-weight="bold" text-anchor="middle">
+      <tspan x="1023" dy="0">Review cadence</tspan>
+    </text>
+    <rect x="1374" y="106" width="392" height="470" rx="22" fill="#20102e" stroke="#d58bed" stroke-width="3" />
+    <text x="1398" y="151" fill="#00e5c1" font-size="20" font-weight="bold" text-anchor="start">
+      <tspan x="1398" dy="0">DESIGN TESTS</tspan>
+    </text>
+    <path d="M1420 225V245" stroke="#9566a3" stroke-width="3" />
+    <circle cx="1420" cy="197" r="22" fill="#a715bb" stroke="#d58bed" stroke-width="1" />
+    <text x="1420" y="204" fill="#ffffff" font-size="19" font-weight="bold" text-anchor="middle">
+      <tspan x="1420" dy="0">1</tspan>
+    </text>
+    <text x="1463" y="204" fill="#ffffff" font-size="18" font-weight="normal" text-anchor="start">
+      <tspan x="1463" dy="0">An owner is named</tspan>
+    </text>
+    <path d="M1420 301V317" stroke="#9566a3" stroke-width="3" />
+    <circle cx="1420" cy="273" r="22" fill="#a715bb" stroke="#d58bed" stroke-width="1" />
+    <text x="1420" y="280" fill="#ffffff" font-size="19" font-weight="bold" text-anchor="middle">
+      <tspan x="1420" dy="0">2</tspan>
+    </text>
+    <text x="1463" y="280" fill="#ffffff" font-size="18" font-weight="normal" text-anchor="start">
+      <tspan x="1463" dy="0">The path works in practice</tspan>
+    </text>
+    <path d="M1420 373V389" stroke="#9566a3" stroke-width="3" />
+    <circle cx="1420" cy="345" r="22" fill="#a715bb" stroke="#d58bed" stroke-width="1" />
+    <text x="1420" y="352" fill="#ffffff" font-size="19" font-weight="bold" text-anchor="middle">
+      <tspan x="1420" dy="0">3</tspan>
+    </text>
+    <text x="1463" y="352" fill="#ffffff" font-size="18" font-weight="normal" text-anchor="start">
+      <tspan x="1463" dy="0">Exceptions have a route</tspan>
+    </text>
+    <path d="M1420 445V465" stroke="#9566a3" stroke-width="3" />
+    <circle cx="1420" cy="417" r="22" fill="#a715bb" stroke="#d58bed" stroke-width="1" />
+    <text x="1420" y="424" fill="#ffffff" font-size="19" font-weight="bold" text-anchor="middle">
+      <tspan x="1420" dy="0">4</tspan>
+    </text>
+    <text x="1463" y="424" fill="#ffffff" font-size="18" font-weight="normal" text-anchor="start">
+      <tspan x="1463" dy="0">Evidence is retained</tspan>
+    </text>
+    <circle cx="1420" cy="493" r="22" fill="#00ccb5" stroke="#00e5c1" stroke-width="1" />
+    <text x="1420" y="500" fill="#ffffff" font-size="19" font-weight="bold" text-anchor="middle">
+      <tspan x="1420" dy="0">5</tspan>
+    </text>
+    <text x="1463" y="500" fill="#ffffff" font-size="18" font-weight="normal" text-anchor="start">
+      <tspan x="1463" dy="0">The model can be reviewed</tspan>
+    </text>
+    <rect x="1368" y="675" width="398" height="124" rx="22" fill="#081b2e" stroke="#00e5c1" stroke-width="3" />
+    <path d="M1275 428C1328 425 1348 669 1403 697L1440 712" fill="none" stroke="#00e5c1" stroke-width="4" marker-end="url(#arrow)" />
+    <text x="1465" y="716" fill="#00e5c1" font-size="20" font-weight="bold" text-anchor="start">
+      <tspan x="1465" dy="0">DEPENDABLE SERVICE</tspan>
+    </text>
+    <text x="1571" y="748" fill="#ffffff" font-size="20" font-weight="normal" text-anchor="middle">
+      <tspan x="1571" dy="0">Clear, usable and accountable</tspan>
+    </text>
+    <text x="1571" y="777" fill="#ffffff" font-size="17" font-weight="normal" text-anchor="middle">
+      <tspan x="1571" dy="0">Ready to operate and improve</tspan>
+    </text>
+  </g>
+</svg>

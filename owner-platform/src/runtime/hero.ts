@@ -26,8 +26,8 @@ const stages = [
     "diagnostic",
   ],
   [
-    "Decide",
-    "Make the next step clear. Weigh the trade-offs, align the right people and give each decision an owner.",
+    "Implement",
+    "Put the agreed solution into action. Connect the people, processes and systems needed to deliver the change.",
     "decisions",
   ],
   [
@@ -46,6 +46,13 @@ export function initialiseHero() {
   const hero = document.querySelector<HTMLElement>("[data-interactive-hero]");
   if (!hero) return;
   const buttons = [...hero.querySelectorAll<HTMLElement>("[data-stage]")];
+  const artwork = hero.querySelector<HTMLImageElement>("[data-work-image]");
+  const artworkLink = hero.querySelector<HTMLAnchorElement>(
+    "[data-work-image-link]",
+  );
+  const artworkStatus = hero.querySelector<HTMLElement>(
+    "[data-work-image-status]",
+  );
   const heading = hero.querySelector<HTMLElement>("[data-stage-heading]")!;
   const description = hero.querySelector<HTMLElement>(
     "[data-stage-description]",
@@ -55,6 +62,16 @@ export function initialiseHero() {
 
   function select(index: number) {
     selected = index;
+    if (artwork && buttons[index].dataset.workImage) {
+      artwork.src = buttons[index].dataset.workImage!;
+      artwork.alt = buttons[index].dataset.workImageAlt || stages[index][0];
+      if (artworkLink) artworkLink.href = artwork.src;
+      if (artworkStatus)
+        artworkStatus.textContent = `${stages[index][0]} image selected.`;
+      buttons.forEach((button, i) =>
+        button.setAttribute("aria-pressed", String(i === index)),
+      );
+    }
     if (
       buttons[index].parentElement!.scrollWidth >
       buttons[index].parentElement!.clientWidth
@@ -84,7 +101,12 @@ export function initialiseHero() {
     if (event.key === "Escape" && hero.dataset.detailOpen) dismiss();
   });
   buttons.forEach((button, index) => {
-    button.addEventListener("click", () => select(index));
+    button.addEventListener("click", () => {
+      select(index);
+      if (artwork && matchMedia("(max-width: 1099px)").matches) {
+        artwork.scrollIntoView({ block: "center", behavior: "instant" });
+      }
+    });
     button.addEventListener("keydown", (event) => {
       const next =
         event.key === "ArrowRight"

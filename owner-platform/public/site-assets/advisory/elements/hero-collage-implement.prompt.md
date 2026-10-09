@@ -1,0 +1,5 @@
+Tool: built-in Imagegen (image edit).
+Edit target: hero-collage.png in this directory.
+Output: hero-collage-implement.png.
+
+Edit the provided hero collage image for a website. Preserve its exact original composition, colours, illustration/photo style, workshop photograph and the same people, foreground workflow document, bottom sheet, plant, petri dish, and pale watercolor background. Make ONLY these two changes: 1. On the foreground workflow document change the label 'Decide' to exactly 'Implement', matching the existing dark-purple bold typography. Preserve all other workflow labels and icons. 2. Completely remove the large upper-left sheet of paper bearing 'From project to practice.' and 'SAME PEOPLE. BRIGHTER PROCESS.' including that sheet's text and shadow, revealing a natural continuation of the pale aqua and lavender watercolor background behind it. Do not remove the foreground workflow document or workshop photograph. Keep the same landscape aspect ratio and framing. Save an edited image asset.

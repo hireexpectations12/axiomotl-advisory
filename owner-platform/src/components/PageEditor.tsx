@@ -409,6 +409,31 @@ export default function PageEditor({
             </button>
           </div>
           <div className="field-grid">
+            {Object.hasOwn(attributes, "data-workflow-stage") && (
+              <>
+                <Field
+                  label="Workflow diagram image URL"
+                  value={attributes["data-workflow-src"] || ""}
+                  onChange={(e) =>
+                    attribute("data-workflow-src", e.target.value)
+                  }
+                />
+                <Field
+                  label="Workflow diagram description"
+                  value={attributes["data-workflow-alt"] || ""}
+                  onChange={(e) =>
+                    attribute("data-workflow-alt", e.target.value)
+                  }
+                />
+                <Field
+                  label="Workflow caption"
+                  value={attributes["data-workflow-description"] || ""}
+                  onChange={(e) =>
+                    attribute("data-workflow-description", e.target.value)
+                  }
+                />
+              </>
+            )}
             <Field
               label="Element ID"
               value={attributes.id || ""}

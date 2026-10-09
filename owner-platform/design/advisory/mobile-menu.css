@@ -1,0 +1,30 @@
+/* Mobile hamburger navigation. */
+.client-site .mobile-menu-toggle,
+.client-site .mobile-menu { display: none; }
+@media (max-width: 700px) {
+  .client-site .final-header,
+  .client-site:has(.final-hero) .final-header {
+    height: 88px; flex-wrap: nowrap; gap: 12px;
+  }
+  .client-site .final-header .desktop-nav { display: none; }
+  .client-site .final-header .header-button { margin-left: auto; }
+  .client-site .mobile-menu-toggle {
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    gap: 5px; width: 44px; height: 44px; flex: none; padding: 10px;
+    border: 1px solid #d8cee5; border-radius: 4px; background: #fcfbf8; color: #321068;
+    cursor: pointer;
+  }
+  .client-site .mobile-menu-toggle span { display: block; width: 22px; height: 2px; background: currentColor; }
+  .client-site .mobile-menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(7px) rotate(45deg); }
+  .client-site .mobile-menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .client-site .mobile-menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-7px) rotate(-45deg); }
+  .client-site .mobile-menu:not([hidden]) {
+    display: flex; flex-direction: column; position: absolute; top: 100%; left: 16px; right: 16px;
+    padding: 8px 16px; background: #fcfbf8; border: 1px solid #d8cee5; border-radius: 6px;
+    box-shadow: 0 12px 24px #3210681a; z-index: 20;
+  }
+  .client-site .mobile-menu a { display: flex; align-items: center; min-height: 48px; padding: 10px 8px; color: #321068; font-size: 16px; text-decoration: none; }
+  .client-site .mobile-menu a + a { border-top: 1px solid #e9e1ef; }
+  .client-site .mobile-menu a:is(:hover, :focus-visible) { background: #f2ecfc; }
+  .client-site .mobile-menu-toggle:focus-visible { outline: 2px solid #227e7b; outline-offset: 3px; }
+}

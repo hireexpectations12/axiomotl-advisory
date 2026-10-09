@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3514" height="1568" viewBox="29 39 1757 784">
+  <title>Implement</title>
+  <desc>Fully vector diagram with editable text and transparent background.</desc>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="#00e5c1" />
+    </marker>
+    <marker id="whitearr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0L10 5L0 10Z" fill="white" stroke="#201133" stroke-width="0.7" />
+    </marker>
+  </defs>
+  <g font-family="Arial, Liberation Sans, sans-serif">
+    <rect x="39" y="49" width="222" height="38" rx="19.0" fill="#201133" stroke="#00e5c1" stroke-width="3" />
+    <text x="150.0" y="73.95" font-size="17" fill="#00e5c1" font-weight="bold" text-anchor="middle">
+      <tspan x="150.0" dy="0">DECISION INPUTS</tspan>
+    </text>
+    <path d="M422 158C532 158 555 426 657 426" stroke="#00e5c1" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="39" y="110" width="383" height="96" rx="16" fill="#201133" stroke="#00e5c1" stroke-width="3" />
+    <path d="M45 120V196" stroke="#00e5c1" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="69" y="142" font-size="19" fill="#ffffff" font-weight="bold" text-anchor="start">
+      <tspan x="69" dy="0">Need confirmed</tspan>
+    </text>
+    <text x="69" y="175" font-size="16" fill="#ffffff" font-weight="normal" text-anchor="start">
+      <tspan x="69" dy="0">Problem and outcome are clear.</tspan>
+    </text>
+    <path d="M422 281C532 281 555 426 657 426" stroke="#608599" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="39" y="233" width="383" height="96" rx="16" fill="#201133" stroke="#608599" stroke-width="3" />
+    <path d="M45 243V319" stroke="#608599" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="69" y="265" font-size="19" fill="#ffffff" font-weight="bold" text-anchor="start">
+      <tspan x="69" dy="0">Evidence quality</tspan>
+    </text>
+    <text x="69" y="298" font-size="16" fill="#ffffff" font-weight="normal" text-anchor="start">
+      <tspan x="69" dy="0">Sources are checkable and gaps visible.</tspan>
+    </text>
+    <path d="M422 405C532 405 555 426 657 426" stroke="#d38aee" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="39" y="357" width="383" height="96" rx="16" fill="#201133" stroke="#d38aee" stroke-width="3" />
+    <path d="M45 367V443" stroke="#d38aee" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="69" y="389" font-size="19" fill="#ffffff" font-weight="bold" text-anchor="start">
+      <tspan x="69" dy="0">Constraints</tspan>
+    </text>
+    <text x="69" y="422" font-size="16" fill="#ffffff" font-weight="normal" text-anchor="start">
+      <tspan x="69" dy="0">Time, policy and capacity are explicit.</tspan>
+    </text>
+    <path d="M422 531C532 531 555 426 657 426" stroke="#c01ccd" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="39" y="483" width="383" height="96" rx="16" fill="#201133" stroke="#c01ccd" stroke-width="3" />
+    <path d="M45 493V569" stroke="#c01ccd" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="69" y="515" font-size="19" fill="#ffffff" font-weight="bold" text-anchor="start">
+      <tspan x="69" dy="0">Operational fit</tspan>
+    </text>
+    <text x="69" y="548" font-size="16" fill="#ffffff" font-weight="normal" text-anchor="start">
+      <tspan x="69" dy="0">The option works in the real environment.</tspan>
+    </text>
+    <path d="M422 657C532 657 555 426 657 426" stroke="#ff876a" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="39" y="609" width="383" height="96" rx="16" fill="#201133" stroke="#ff876a" stroke-width="3" />
+    <path d="M45 619V695" stroke="#ff876a" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="69" y="641" font-size="19" fill="#ffffff" font-weight="bold" text-anchor="start">
+      <tspan x="69" dy="0">Risk and control</tspan>
+    </text>
+    <text x="69" y="674" font-size="16" fill="#ffffff" font-weight="normal" text-anchor="start">
+      <tspan x="69" dy="0">Critical risks have a response.</tspan>
+    </text>
+    <path d="M657 426L792 291L929 426L792 562Z" stroke="#d38aee" stroke-width="3" fill="#160e24" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="792" y="402" font-size="19" fill="#ffffff" font-weight="bold" text-anchor="middle">
+      <tspan x="792" dy="0">SHOULD THE</tspan>
+      <tspan x="792" dy="27">CHANGE PROCEED?</tspan>
+    </text>
+    <text x="792" y="466" font-size="15" fill="#d38aee" font-weight="normal" text-anchor="middle">
+      <tspan x="792" dy="0">Named decision owner</tspan>
+    </text>
+    <path d="M929 426H1039" stroke="#00e5c1" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arr)" />
+    <rect x="1060" y="120" width="670" height="156" rx="21" fill="#201133" stroke="#00e5c1" stroke-width="3" />
+    <path d="M1068 131V265" stroke="#00e5c1" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="1098" y="162" font-size="19" fill="#00e5c1" font-weight="bold" text-anchor="start">
+      <tspan x="1098" dy="0">PROCEED</tspan>
+    </text>
+    <text x="1098" y="200" font-size="20" fill="#ffffff" font-weight="bold" text-anchor="start">
+      <tspan x="1098" dy="0">Evidence supports the change</tspan>
+    </text>
+    <text x="1098" y="236" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="start">
+      <tspan x="1098" dy="0">Decision, owner and start point recorded.</tspan>
+    </text>
+    <rect x="1060" y="326" width="670" height="156" rx="21" fill="#201133" stroke="#608599" stroke-width="3" />
+    <path d="M1068 337V471" stroke="#608599" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="1098" y="368" font-size="19" fill="#608599" font-weight="bold" text-anchor="start">
+      <tspan x="1098" dy="0">PROCEED WITH CONDITIONS</tspan>
+    </text>
+    <text x="1098" y="406" font-size="20" fill="#ffffff" font-weight="bold" text-anchor="start">
+      <tspan x="1098" dy="0">Benefits are credible but controls remain open</tspan>
+    </text>
+    <text x="1098" y="442" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="start">
+      <tspan x="1098" dy="0">Conditions, owners and review dates recorded.</tspan>
+    </text>
+    <rect x="1060" y="528" width="670" height="156" rx="21" fill="#201133" stroke="#00bd8c" stroke-width="3" />
+    <path d="M1068 539V673" stroke="#00bd8c" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="1098" y="570" font-size="19" fill="#00bd8c" font-weight="bold" text-anchor="start">
+      <tspan x="1098" dy="0">DEFER</tspan>
+    </text>
+    <text x="1098" y="608" font-size="20" fill="#ffffff" font-weight="bold" text-anchor="start">
+      <tspan x="1098" dy="0">Evidence or readiness is not sufficient</tspan>
+    </text>
+    <text x="1098" y="644" font-size="18" fill="#ffffff" font-weight="normal" text-anchor="start">
+      <tspan x="1098" dy="0">Required evidence and next decision point recorded.</tspan>
+    </text>
+    <rect x="39" y="746" width="1737" height="67" rx="20" fill="#201133" stroke="#608599" stroke-width="3" />
+    <text x="67" y="787" font-size="17" fill="#00e5c1" font-weight="bold" text-anchor="start">
+      <tspan x="67" dy="0">EVIDENCE BOUNDARY</tspan>
+    </text>
+    <rect x="306" y="761" width="159" height="38" rx="19.0" fill="#201133" stroke="#00e5c1" stroke-width="3" />
+    <text x="385.5" y="785.6" font-size="16" fill="#00e5c1" font-weight="bold" text-anchor="middle">
+      <tspan x="385.5" dy="0">KNOWN</tspan>
+    </text>
+    <rect x="487" y="761" width="159" height="38" rx="19.0" fill="#201133" stroke="#608599" stroke-width="3" />
+    <text x="566.5" y="785.6" font-size="16" fill="#608599" font-weight="bold" text-anchor="middle">
+      <tspan x="566.5" dy="0">UNCERTAIN</tspan>
+    </text>
+    <rect x="666" y="761" width="160" height="38" rx="19.0" fill="#ff876a" stroke="#ff876a" stroke-width="3" />
+    <text x="746.0" y="785.6" font-size="16" fill="#ff876a" font-weight="bold" text-anchor="middle">
+      <tspan x="746.0" dy="0">CONFLICTING</tspan>
+    </text>
+    <text x="746.0" y="786" font-size="16" fill="#201133" font-weight="bold" text-anchor="middle">
+      <tspan x="746.0" dy="0">CONFLICTING</tspan>
+    </text>
+    <rect x="847" y="761" width="159" height="38" rx="19.0" fill="#201133" stroke="#38caff" stroke-width="3" />
+    <text x="926.5" y="785.6" font-size="16" fill="#38caff" font-weight="bold" text-anchor="middle">
+      <tspan x="926.5" dy="0">MISSING</tspan>
+    </text>
+    <text x="1727" y="786" font-size="17" fill="#ffffff" font-weight="normal" text-anchor="end">
+      <tspan x="1727" dy="0">The conclusion can change when better evidence appears.</tspan>
+    </text>
+  </g>
+</svg>

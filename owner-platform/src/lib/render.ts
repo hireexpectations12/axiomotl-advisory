@@ -452,7 +452,7 @@ export function sanitizeMarkup(html: string): string {
         "patternTransform",
       ],
       a: ["href", "target", "rel", "download"],
-      img: ["src", "alt", "loading", "decoding"],
+      img: ["src", "alt", "loading", "decoding", "fetchpriority"],
       use: ["href", "xlink:href"],
       button: ["type", "disabled"],
       input: [
@@ -517,11 +517,14 @@ function escape(value: string): string {
   );
 }
 
-export function renderPage(document: SiteDocument, page: SitePage): string {
+export function renderPage(document: SiteDocument, page: SitePage, seo?: { origin: string; organization?: object }): string {
   const s = document.settings;
   const title = page.title || s.seo?.title || s.name;
   const description = page.description || s.seo?.description || "";
-  const socialImage = page.socialImage || s.seo?.socialImage || "";
+  const imagePath = page.socialImage || s.seo?.socialImage || "";
+  const socialImage = imagePath && seo ? new URL(imagePath, seo.origin).href : imagePath;
+  const canonical = seo ? new URL(page.path, seo.origin).href : "";
+  const seoMarkup = seo ? `<link rel="canonical" href="${escape(canonical)}"><meta property="og:url" content="${escape(canonical)}"><meta property="og:type" content="website"><meta property="og:site_name" content="${escape(s.name)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(title)}"><meta name="twitter:description" content="${escape(description)}">${socialImage ? `<meta name="twitter:image" content="${escape(socialImage)}">` : ""}${seo.organization ? `<script type="application/ld+json">${JSON.stringify(seo.organization).replace(/</g, "\\u003c")}</script>` : ""}` : "";
   const markup = load(sanitizeMarkup(page.html), null, false);
   const contactActions = new Set([
     "discuss the diagnostic",
@@ -622,7 +625,7 @@ export function renderPage(document: SiteDocument, page: SitePage): string {
   ]
     .filter(safeCss)
     .join("\n");
-  return `<!doctype html><html lang="en-AU" data-motion="${s.motion ? "on" : "off"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)}</title><meta name="description" content="${escape(description)}"><meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}">${socialImage ? `<meta property="og:image" content="${escape(socialImage)}">` : ""}${page.noIndex ? '<meta name="robots" content="noindex,nofollow">' : ""}${s.favicon ? `<link rel="icon" href="${escape(s.favicon)}">` : ""}<link rel="stylesheet" href="/runtime/forms.css"><style>${styles}</style><link rel="stylesheet" href="/runtime/polish.css"></head><body>${markup.html()}<script type="application/json" id="axiomotl-config">${data}</script><script defer src="/runtime/gsap.js"></script><script defer src="/runtime/site.js"></script><script defer src="/runtime/forms.js"></script>${markup("[data-axiomotl-scrollcraft]").length ? '<script defer src="/runtime/scrollcraft/scrollcraft.js"></script><script defer src="/runtime/advisory.js"></script>' : ""}</body></html>`;
+  return `<!doctype html><html lang="en-AU" data-motion="${s.motion ? "on" : "off"}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)}</title><meta name="description" content="${escape(description)}"><meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}">${socialImage ? `<meta property="og:image" content="${escape(socialImage)}">` : ""}${seoMarkup}${page.noIndex ? '<meta name="robots" content="noindex,nofollow">' : ""}${s.favicon ? `<link rel="icon" href="${escape(s.favicon)}">` : ""}<link rel="stylesheet" href="/runtime/forms.css"><style>${styles}</style><link rel="stylesheet" href="/runtime/polish.css"></head><body>${markup.html()}<script type="application/json" id="axiomotl-config">${data}</script><script defer src="/runtime/gsap.js"></script><script defer src="/runtime/site.js"></script><script defer src="/runtime/forms.js"></script><script defer src="/runtime/enhancements.js"></script>${markup("[data-approach-explorer]").length ? '<script defer src="/runtime/approach.js"></script>' : ""}${markup("[data-axiomotl-scrollcraft]").length ? '<script defer src="/runtime/scrollcraft/scrollcraft.js"></script><script defer src="/runtime/advisory.js"></script>' : ""}</body></html>`;
 }
 
 export const publicHeaders = {
