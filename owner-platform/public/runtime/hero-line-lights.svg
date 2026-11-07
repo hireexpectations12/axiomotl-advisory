@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1774 887" fill="none" stroke-linecap="round" aria-hidden="true">
+  <style>
+    path { stroke-dasharray: 0.045 0.955; animation: trace 3.8s linear infinite; }
+    .later { animation-delay: -1.9s; }
+    @keyframes trace { to { stroke-dashoffset: -1; } }
+    @media (prefers-reduced-motion: reduce) { path { display: none; } }
+  </style>
+  <g stroke="#a4f4db" stroke-width="5">
+    <path pathLength="1" d="M240 405 H525 C564 405 557 450 596 450 H807"/>
+    <path class="later" pathLength="1" d="M638 595 C690 595 702 479 768 479 H808"/>
+    <path pathLength="1" d="M1050 451 H1366 C1396 451 1390 475 1420 475 H1494"/>
+    <path class="later" pathLength="1" d="M1048 411 H1188 C1238 411 1239 351 1292 351 H1425 C1454 351 1483 300 1515 277"/>
+  </g>
+  <g stroke="#ead2ff" stroke-width="5">
+    <path class="later" pathLength="1" d="M492 194 H620 C699 194 699 314 636 314 H599"/>
+    <path pathLength="1" d="M1048 499 H1201 C1259 499 1251 550 1308 550 H1536"/>
+  </g>
+</svg>
