@@ -49,3 +49,21 @@
     transition: none;
   }
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  #hero-work-image { anchor-name: --hero-diagram; }
+
+  @supports (height: anchor-size(height)) {
+    html[data-motion="on"] .hero-work-art:has(#hero-work-image[src*="Hero-implement-solid.png"])::after {
+      content: "";
+      pointer-events: none;
+      position: absolute;
+      position-anchor: --hero-diagram;
+      top: anchor(top);
+      left: anchor(left);
+      width: anchor-size(width);
+      height: anchor-size(height);
+      background: url("/runtime/hero-line-lights.svg") center / contain no-repeat;
+    }
+  }
+}
